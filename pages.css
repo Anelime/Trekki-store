@@ -28,9 +28,9 @@ button{font:inherit}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .mark{width:40px;height:40px;display:block;flex:none}
 .brand .mark img{width:100%;height:100%;object-fit:contain}
-.wordmark{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
-.wordmark strong{display:block;font-size:24px;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;transform:skewX(-6deg);transform-origin:right bottom}
-.wordmark span{display:inline-flex;align-items:center;justify-content:flex-end;min-width:72px;height:12px;margin-top:1px;padding:0 4px 1px 12px;background:var(--accent);border-radius:2px 0 2px 2px;color:var(--white);font-size:10.5px;font-weight:800;font-style:italic;text-transform:lowercase;letter-spacing:-.02em;line-height:1;transform:skewX(-10deg);transform-origin:right center}
+.wordmark{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+.wordmark strong{display:block;font-size:24px;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:0;line-height:.92}
+.wordmark span{display:block;margin-top:0;color:inherit;font-size:15px;font-weight:500;font-style:normal;text-transform:lowercase;letter-spacing:0;line-height:.95}
 .top-links{display:flex;align-items:center;gap:24px;font-size:14.5px;font-weight:600}
 .top-links a{position:relative;padding:4px 0}
 .top-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--accent);transition:width .25s var(--ease)}
