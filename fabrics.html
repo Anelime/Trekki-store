@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ткани — TREKKI store</title>
+<meta name="description" content="Ткани для кастомной спортивной формы TREKKI store: бег, жара, тепло, растяжимость, защита и командный мерч.">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<header class="page-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="TREKKI store">
+      <span class="mark" aria-hidden="true"><img src="assets/trekki-emblem-dark.png" alt=""></span>
+      <span class="wordmark"><strong>TREKKI</strong><span>.store</span></span>
+    </a>
+    <nav class="top-links" aria-label="Навигация">
+      <a href="index.html#products">Что шьём</a>
+      <a href="sizes.html">Размеры</a>
+      <a href="future-items.html">Штучные изделия</a>
+      <a href="index.html#contact">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Инфостраница</span>
+      <h1>Список тканей</h1>
+      <p class="lead">Ткани можно показывать не сухим каталогом, а через сценарии: где будет прохладно, где не натирает, где тянется, где защищает от ветра.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Фильтры по задаче</h2>
+        <p>Категории можно пересобирать из описаний: если у ткани появляется новое свойство, достаточно отметить ее нужным фильтром.</p>
+      </div>
+      <div class="chips" id="fabFilter">
+        <button class="chip active" data-f="all" type="button">Все</button>
+        <button class="chip" data-f="run" type="button">Бег</button>
+        <button class="chip" data-f="heat" type="button">Жара</button>
+        <button class="chip" data-f="warm" type="button">Тепло</button>
+        <button class="chip" data-f="stretch" type="button">Тянется</button>
+        <button class="chip" data-f="shield" type="button">Защита</button>
+      </div>
+
+      <div class="fabric-grid" id="fabGrid">
+        <article class="fabric" data-cat="run heat">
+          <span class="pill">Бег · Жара</span>
+          <h3>Кулмакс</h3>
+          <p class="benefit">В жару тело остается сухим: ткань отводит пот наружу и быстро сохнет на бегу.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
+            <div><dt>Плотность</dt><dd>~130 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Бег, трейл, жаркая погода</dd></div>
+          </dl>
+        </article>
+
+        <article class="fabric" data-cat="all">
+          <span class="pill">Повседнев</span>
+          <h3>Ника</h3>
+          <p class="benefit">Мягкая и приятная к телу, хорошо держит насыщенный цвет принта.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
+            <div><dt>Плотность</dt><dd>~150 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Футболки, командный мерч</dd></div>
+          </dl>
+        </article>
+
+        <article class="fabric" data-cat="stretch">
+          <span class="pill">Тянется</span>
+          <h3>Бифлекс</h3>
+          <p class="benefit">Тянется за телом и не сковывает движение в наклоне, прыжке и растяжке.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>Полиэстер + эластан</dd></div>
+            <div><dt>Плотность</dt><dd>~190 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Танцы, фитнес, облегающая форма</dd></div>
+          </dl>
+        </article>
+
+        <article class="fabric" data-cat="run">
+          <span class="pill">Износ</span>
+          <h3>Микрофибра</h3>
+          <p class="benefit">Плотная и износостойкая, выдерживает частые стирки и активную носку.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
+            <div><dt>Плотность</dt><dd>~160 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Лонгсливы, трекинг</dd></div>
+          </dl>
+        </article>
+
+        <article class="fabric" data-cat="warm">
+          <span class="pill">Тепло</span>
+          <h3>Флис</h3>
+          <p class="benefit">Греет в горах, когда падает температура: мягкий, легкий и быстро согревает после привала.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
+            <div><dt>Плотность</dt><dd>~280 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Холод, межсезонье, второй слой</dd></div>
+          </dl>
+        </article>
+
+        <article class="fabric" data-cat="shield">
+          <span class="pill">Защита</span>
+          <h3>Софтшелл</h3>
+          <p class="benefit">Держит ветер и моросящий дождь, защищает на гребне и остается дышащим.</p>
+          <dl>
+            <div><dt>Состав</dt><dd>Полиэстер + мембрана</dd></div>
+            <div><dt>Плотность</dt><dd>~250 г/м²</dd></div>
+            <div><dt>Подходит</dt><dd>Дождевики, ветровки</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>Нужно выбрать ткань под задачу?</h2>
+          <p>Можно начать с активности и условий: жара, ветер, рюкзак, бег, танцы или командный мерч.</p>
+        </div>
+        <a class="btn" href="index.html#contact">Обсудить заказ</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 TREKKI store. Фильтры можно обновлять по описаниям тканей.</div>
+</footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('#fabFilter .chip');
+  var fabrics=document.querySelectorAll('#fabGrid .fabric');
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      chips.forEach(function(c){c.classList.remove('active');});
+      chip.classList.add('active');
+      var f=chip.getAttribute('data-f');
+      fabrics.forEach(function(card){
+        var cats=card.getAttribute('data-cat')||'';
+        card.style.display=(f==='all'||cats.indexOf(f)>-1)?'':'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
