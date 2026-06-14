@@ -13,8 +13,38 @@
   (function(){
     if (!window.location.hash) return;
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    document.documentElement.style.scrollBehavior = 'auto';
     history.replaceState(null, document.title, window.location.pathname + window.location.search);
-    window.addEventListener('load', function(){ window.scrollTo(0, 0); }, { once:true });
+    var forceTop = function(){
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+    };
+    forceTop();
+    document.addEventListener('DOMContentLoaded', forceTop, { once:true });
+    window.addEventListener('pageshow', function(){
+      forceTop();
+      setTimeout(forceTop, 100);
+    });
+    window.addEventListener('load', function(){
+      forceTop();
+      requestAnimationFrame(forceTop);
+      setTimeout(forceTop, 0);
+      setTimeout(forceTop, 250);
+      var attempts = 0;
+      var topTimer = setInterval(function(){
+        forceTop();
+        attempts += 1;
+        if (attempts >= 24) {
+          clearInterval(topTimer);
+          document.documentElement.style.scrollBehavior = '';
+        }
+      }, 100);
+      setTimeout(function(){
+        forceTop();
+        document.documentElement.style.scrollBehavior = '';
+      }, 3000);
+    }, { once:true });
   })();
 </script>
 <style>
@@ -693,7 +723,7 @@
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section class="section" id="process">
+<section class="section" data-anchor="process">
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Как заказать</span>
@@ -817,6 +847,20 @@
   };
   burger.addEventListener('click',function(){toggle(!menu.classList.contains('open'));});
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
+
+  // Keep initial hash URLs from jumping on load, but preserve in-page navigation.
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click',function(e){
+      var hash=link.getAttribute('href');
+      if(!hash||hash==='#') return;
+      var name=hash.slice(1);
+      var target=document.getElementById(name)||document.querySelector('[data-anchor="'+name.replace(/"/g,'\\"')+'"]');
+      if(!target) return;
+      e.preventDefault();
+      history.pushState(null,document.title,hash);
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
 
   // Reveal on scroll
   var reveals=document.querySelectorAll('[data-reveal]');
