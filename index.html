@@ -9,6 +9,14 @@
 <meta property="og:description" content="Спортивная форма для реального использования: трекинг, бег, трейл, танцы, команды и клубы. Свой пошив, ткани под задачу, тираж от 5 штук.">
 <meta property="og:image" content="https://dev.erpssl.ru/trekki.store/3/assets/gallery/2.jpg">
 <meta name="theme-color" content="#14110f">
+<script>
+  (function(){
+    if (!window.location.hash) return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    window.addEventListener('load', function(){ window.scrollTo(0, 0); }, { once:true });
+  })();
+</script>
 <style>
   @font-face{font-family:"Exo 2";src:local("Exo 2"),local("Exo2-Regular"),url("fonts/exotwo/exo2.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
   @font-face{font-family:"Exo 2";src:local("Exo 2 Medium"),local("Exo2-Medium"),url("fonts/exotwo/exo2medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
