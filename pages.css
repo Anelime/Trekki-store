@@ -128,7 +128,7 @@ tr:last-child td{border-bottom:none}
 
 .cta{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--ink);color:var(--paper);border-radius:14px;padding:28px}
 .cta p{color:rgba(247,245,241,.74);max-width:650px}
-.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--paper);color:var(--ink);padding:13px 22px;font-weight:800;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;background:var(--paper);color:var(--ink);padding:13px 22px;font-weight:800;white-space:nowrap}
 .btn-outline{background:transparent;color:var(--paper);border:1px solid var(--line-on-dark)}
 .btn-outline:hover{background:rgba(247,245,241,.08);border-color:rgba(247,245,241,.5)}
 

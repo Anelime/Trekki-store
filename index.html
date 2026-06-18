@@ -8,6 +8,7 @@
 <meta property="og:title" content="Trekki Store — кастомная спортивная форма и мерч">
 <meta property="og:description" content="Спортивная форма для реального использования: трекинг, бег, трейл, танцы, команды и клубы. Свой пошив, ткани под задачу, тираж от 5 штук.">
 <meta property="og:image" content="https://team-heroes-camp.github.io/trekki-store/assets/hero-elbrus.jpg">
+<link rel="icon" href="assets/trekki-emblem-dark.png">
 <meta name="theme-color" content="#14110f">
 <script>
   (function(){
@@ -123,7 +124,7 @@
   /* ---------- Buttons ---------- */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:9px;
-    padding:15px 28px;border-radius:100px;font-weight:600;font-size:15px;
+    padding:15px 28px;border-radius:12px;font-weight:700;font-size:15px;
     letter-spacing:.02em;transition:transform .35s var(--ease),background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
     will-change:transform;white-space:nowrap;
   }
@@ -226,7 +227,7 @@
   .card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:23px;font-weight:600;letter-spacing:.02em}
   .card .desc{margin-top:9px;color:var(--muted);font-size:15px;flex:1}
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-  .tag{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:5px 11px}
+  .tag{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 11px}
   .card .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
   .card-meta{font-family:var(--main-font),sans-serif;font-weight:600;font-size:18px;letter-spacing:.01em;line-height:1.05}
   .card-meta span{white-space:nowrap}
@@ -241,7 +242,7 @@
   .card.cta .badge{font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--accent)}
   .prod-note{margin-top:26px;font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
   .prod-note svg{flex:none;margin-top:2px;color:var(--accent)}
-  .info-links{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .info-links{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .info-link{display:block;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
   .info-link:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 22px 44px -30px rgba(20,17,15,.45)}
   .info-link .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
@@ -254,14 +255,26 @@
   .masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#ddd}
   .masonry img{width:100%;height:auto;transition:transform .8s var(--ease),filter .5s}
   .masonry figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 55%,rgba(20,17,15,.5));opacity:0;transition:opacity .4s}
-  .masonry figcaption{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;opacity:0;transform:translateY(8px);transition:.4s var(--ease)}
+  .masonry figcaption{display:none}
   .masonry figure:hover img{transform:scale(1.06)}
   .masonry figure:hover::after{opacity:1}
-  .masonry figure:hover figcaption{opacity:1;transform:none}
+
+  /* ---------- Printing ---------- */
+  .print{background:var(--paper)}
+  .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .method-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;min-height:340px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
+  .method-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
+  .method-card .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+  .method-card h3{margin-top:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:24px;font-weight:700;line-height:1.08}
+  .method-card p{margin-top:12px;color:var(--muted);font-size:15.5px;line-height:1.55}
+  .method-card ul{margin-top:18px;display:grid;gap:8px;list-style:none}
+  .method-card li{position:relative;padding-left:17px;color:var(--ink);font-size:14.5px;font-weight:600}
+  .method-card li::before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .method-link{margin-top:auto;padding-top:22px;color:var(--accent);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
 
   /* ---------- Fabrics ---------- */
   .fab-filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-  .chip{font-size:14px;font-weight:500;padding:9px 18px;border-radius:100px;border:1px solid var(--line);color:var(--muted);transition:.3s var(--ease)}
+  .chip{font-size:14px;font-weight:500;padding:9px 18px;border-radius:10px;border:1px solid var(--line);color:var(--muted);transition:.3s var(--ease)}
   .chip:hover{border-color:var(--ink);color:var(--ink)}
   .chip.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
   .fab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -381,6 +394,8 @@
     .adv-item:nth-child(4n){border-right:1px solid var(--line-on-dark)}
     .adv-item:nth-child(2n){border-right:none}
     .prod-grid{grid-template-columns:repeat(2,1fr)}
+    .info-links{grid-template-columns:repeat(2,1fr)}
+    .method-grid{grid-template-columns:1fr}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .masonry{columns:2}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
@@ -434,8 +449,8 @@
     </a>
     <nav class="nav-links" aria-label="Основная навигация">
       <a href="#products">Что шьём</a>
-      <a href="fabrics.html">Ткани</a>
-      <a href="sizes.html">Размеры</a>
+      <a href="#fabrics">Ткани</a>
+      <a href="#print">Нанесение</a>
       <a href="#process">Как заказать</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -450,9 +465,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#products">Что шьём</a>
-  <a href="fabrics.html">Ткани</a>
-  <a href="sizes.html">Размеры</a>
-  <a href="#gallery">Галерея</a>
+  <a href="#fabrics">Ткани</a>
+  <a href="#print">Нанесение</a>
   <a href="#process">Как заказать</a>
   <a href="#contact">Контакты</a>
   <div class="mm-foot">
@@ -467,11 +481,11 @@
     <img src="assets/hero-elbrus.jpg" alt="" role="presentation">
   </div>
   <div class="wrap hero-inner">
-    <span class="eyebrow on-dark" data-reveal>Trekki Store · кастомный спортивный мерч</span>
+    <span class="eyebrow on-dark" data-reveal>Trekki Store · кастомный пошив формы</span>
     <h1 class="display" data-reveal data-delay="1">Форма для тех,<br>кто двигается</h1>
     <p class="lede" data-reveal data-delay="2">Лонгсливы, футболки и бафы под ваш бренд. Собственный пошив, ткани под задачу и тираж от 5 штук — для трекинга, бега, команд и сообществ.</p>
     <div class="hero-actions" data-reveal data-delay="3">
-      <a href="#contact" class="btn btn-light">Обсудить заказ <span class="arr">→</span></a>
+      <a href="#contact" class="btn btn-light">Запросить расчёт <span class="arr">→</span></a>
       <a href="#products" class="btn btn-ghost on-dark">Что можно сшить</a>
     </div>
     <div class="hero-tag" data-reveal data-delay="3">Рождено в горах. Протестировано на высоте</div>
@@ -483,7 +497,7 @@
 <section class="section stmt">
   <div class="wrap stmt-grid">
     <h2 class="big" data-reveal>Не футболки со штампиками — <b>спортивная форма</b> для реального использования</h2>
-    <p data-reveal data-delay="1">Мы шьём мерч, который выдерживает забеги, перевалы и тренировки: правильные ткани, прочные швы и нанесение, которое не трескается после первой стирки. Делаем под команды, клубы, забеги и компании — небольшими тиражами и под ключ.</p>
+    <p data-reveal data-delay="1">Trekki Store — отдельное направление Trekki для кастомного пошива. Мы не продаём готовую полку товаров: подбираем изделие, ткань, нанесение и тираж под команду, клуб, старт, поход или мероприятие.</p>
   </div>
 </section>
 
@@ -498,26 +512,26 @@
       <div class="adv-item" data-reveal>
         <div class="adv-num">01</div>
         <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h12"/><circle cx="20" cy="18" r="2.2"/></svg></div>
-        <h3>Собственный пошив</h3>
-        <p>Полный цикл в одних руках: лекало, крой, пошив и контроль качества. Без посредников и сюрпризов на выходе.</p>
+        <h3>Не печать на готовом</h3>
+        <p>Шьём форму под задачу: крой, ткань, посадка, нанесение и контроль качества собираются в один понятный процесс.</p>
       </div>
       <div class="adv-item" data-reveal data-delay="1">
         <div class="adv-num">02</div>
         <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7l8 4 8-4-8-4Z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/></svg></div>
-        <h3>Ткань под задачу</h3>
-        <p>Подбираем материал под активность: влагоотводящий для бега, плотный для треккинга, тёплый для гор.</p>
+        <h3>Спортивные ткани</h3>
+        <p>Подбираем материал под активность: влагу и жару для бега, сетку для вентиляции, эластичность для движения, флис для прохлады.</p>
       </div>
       <div class="adv-item" data-reveal data-delay="2">
         <div class="adv-num">03</div>
         <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="9" r="1.3" fill="currentColor"/><circle cx="15.5" cy="9" r="1.3" fill="currentColor"/><circle cx="9" cy="15" r="1.3" fill="currentColor"/></svg></div>
-        <h3>Любой дизайн</h3>
-        <p>Сублимация по всей площади и шелкография. Сложные принты, градиенты и фирменные цвета — без ограничений.</p>
+        <h3>Нанесение под ткань</h3>
+        <p>Основной способ для спортивной формы — сублимация. DTF и вышивку используем там, где это уместно по ткани и изделию.</p>
       </div>
       <div class="adv-item" data-reveal data-delay="3">
         <div class="adv-num">04</div>
         <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v4H4zM4 13h16v4H4z"/><path d="M8 7V5h8v2"/></svg></div>
         <h3>Тираж от 5 штук</h3>
-        <p>Малые партии для команд, клубов и забегов. Не нужно заказывать сотню, чтобы одеть свою группу.</p>
+        <p>Малые партии для команд, клубов, стартов и событий. Не нужно заказывать сотню, чтобы одеть свою группу.</p>
       </div>
     </div>
   </div>
@@ -527,9 +541,9 @@
 <section class="section" id="products">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Не магазин</span>
+      <span class="eyebrow">Каталог возможностей</span>
       <h2 class="section-title display">Что можно сшить</h2>
-      <p class="section-intro">Пока это не витрина штучных товаров, а понятный каталог возможностей для команд, клубов и событий. Конкретные принты, медали и добор мерча можно вынести в простые страницы позже.</p>
+      <p class="section-intro">Главный продукт — кастомная спортивная форма и мерч для команд, клубов, забегов, походов и мероприятий. Вы смотрите возможности, а расчёт собирается под конкретную задачу.</p>
     </div>
     <div class="prod-grid">
       <article class="card" data-reveal>
@@ -537,10 +551,10 @@
         <div class="body">
           <h3>Лонгсливы</h3>
           <p class="desc">Длинный рукав для прохлады, защиты от солнца и активного движения в горах и на трейле.</p>
-          <div class="tags"><span class="tag">Сублимация</span><span class="tag">Шелкография</span><span class="tag">Размеры под заказ</span></div>
+          <div class="tags"><span class="tag">Сублимация</span><span class="tag">Длинный рукав</span><span class="tag">Размеры под заказ</span></div>
           <div class="foot">
             <div class="card-meta"><span>тираж от 5</span><small>расчёт после брифа</small></div>
-            <a href="#contact" class="go">Обсудить <span class="arr">→</span></a>
+            <a href="longsleeves.html" class="go">Подробнее <span class="arr">→</span></a>
           </div>
         </div>
       </article>
@@ -549,7 +563,7 @@
         <div class="body">
           <h3>Футболки</h3>
           <p class="desc">Лёгкая база для забегов, тренировок и командного мерча. Дышит и держит цвет после стирок.</p>
-          <div class="tags"><span class="tag">Сублимация</span><span class="tag">Шелкография</span><span class="tag">Командный мерч</span></div>
+          <div class="tags"><span class="tag">Сублимация</span><span class="tag">DTF по задаче</span><span class="tag">Командный мерч</span></div>
           <div class="foot">
             <div class="card-meta"><span>ткань + принт</span><small>подбираем вместе</small></div>
             <a href="#contact" class="go">Обсудить <span class="arr">→</span></a>
@@ -561,7 +575,7 @@
         <div class="body">
           <h3>Бафы</h3>
           <p class="desc">Бесшовная труба для шеи, лица и головы — защита от ветра, солнца и холода в любой сезон.</p>
-          <div class="tags"><span class="tag">Сублимация</span><span class="tag">Бесшовный</span><span class="tag">Универсальный</span></div>
+          <div class="tags"><span class="tag">Сублимация</span><span class="tag">Бесшовный</span><span class="tag">Комплектом</span></div>
           <div class="foot">
             <div class="card-meta"><span>формат под задачу</span><small>можно комплектом</small></div>
             <a href="#contact" class="go">Обсудить <span class="arr">→</span></a>
@@ -573,7 +587,7 @@
           <div>
             <span class="badge">Под заказ</span>
             <h3 style="margin-top:14px">Дождевики и другое</h3>
-            <p>Ветровки, шорты, тайтсы, флиски и аксессуары. Расширяем линейку под задачу команды — расскажите, что нужно.</p>
+            <p>Можно обсудить ветровки, дождевики, шорты, тайтсы и аксессуары. Покажем только то, что реально можем сделать качественно под вашу задачу.</p>
           </div>
           <a href="#contact" class="btn btn-light">Обсудить <span class="arr">→</span></a>
         </div>
@@ -581,7 +595,7 @@
     </div>
     <p class="prod-note" data-reveal>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
-      Это не магазин со штучной корзиной: по каждой задаче подбираем ткань, размерную сетку, нанесение и тираж. Для готовых принтов и медалей позже можно сделать отдельные простые страницы.
+      Это не магазин со штучной корзиной: по каждой задаче подбираем ткань, размерную сетку, нанесение и тираж. Готовые принты, медали и добор мерча лучше выносить в отдельные простые страницы, когда есть конкретная линейка.
     </p>
     <div class="info-links" data-reveal>
       <a class="info-link" href="sizes.html">
@@ -593,6 +607,11 @@
         <span class="kicker">Инфостраница</span>
         <h3>Все ткани</h3>
         <p>Список тканей с фильтрами: бег, жара, тепло, защита, растяжимость и сценарии использования.</p>
+      </a>
+      <a class="info-link" href="printing.html">
+        <span class="kicker">Инфостраница</span>
+        <h3>Нанесение</h3>
+        <p>Сублимация, DTF и вышивка: где какой способ подходит, а где лучше не рисковать.</p>
       </a>
       <a class="info-link" href="future-items.html">
         <span class="kicker">На перспективу</span>
@@ -630,90 +649,140 @@
     <div class="section-head" data-reveal>
       <span class="eyebrow">Ткани</span>
       <h2 class="section-title display">Материал под задачу</h2>
-      <p class="section-intro">Разные активности — разные ткани. Фильтры можно пересобирать по описаниям: отмечаем, где ткань подходит для бега, жары, тепла, растяжимости или защиты. Полный список вынесен на отдельную простую страницу.</p>
+      <p class="section-intro">Не нужно выбирать ткань по названию. Начинаем с того, где форму будут носить: жара, бег, игровая нагрузка, мерч, тепло или свобода движения.</p>
     </div>
     <div class="fab-filter" id="fabFilter" data-reveal>
       <button class="chip active" data-f="all" aria-pressed="true">Все</button>
-      <button class="chip" data-f="run" aria-pressed="false">Бег</button>
-      <button class="chip" data-f="heat" aria-pressed="false">Жара</button>
+      <button class="chip" data-f="run" aria-pressed="false">Бег и жара</button>
+      <button class="chip" data-f="game" aria-pressed="false">Игровая форма</button>
+      <button class="chip" data-f="merch" aria-pressed="false">Мерч</button>
       <button class="chip" data-f="warm" aria-pressed="false">Тепло</button>
       <button class="chip" data-f="stretch" aria-pressed="false">Тянется</button>
-      <button class="chip" data-f="shield" aria-pressed="false">Защита</button>
     </div>
     <div class="fab-grid" id="fabGrid">
 
-      <article class="fab" data-cat="run heat" data-reveal>
+      <article class="fab" data-cat="run heat sublimation" data-reveal>
         <span class="pill">Бег · Жара</span>
         <span class="en">CoolMax</span>
         <h3>Кулмакс</h3>
-        <p class="benefit">В жару +35 тело остаётся сухим — ткань отводит пот наружу и быстро сохнет на бегу.</p>
+        <p class="benefit">Быстро выводит влагу наружу и помогает сохранять комфорт на забеге или тренировке в жаркую погоду.</p>
         <div class="specs">
-          <div class="spec"><span>Состав</span><b>100% полиэстер</b></div>
-          <div class="spec"><span>Плотность</span><b>~130 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Бег, трейл, жаркая погода</b></div>
+          <div class="spec"><span>Состав</span><b>95% Coolmax, 5% лайкра</b></div>
+          <div class="spec"><span>Плотность</span><b>160 г/м²</b></div>
+          <div class="spec full"><span>Подходит</span><b>Бег, трейл, жара · сублимация</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="all" data-reveal data-delay="1">
-        <span class="pill">Повседнев</span>
-        <span class="en">Nika</span>
-        <h3>Ника</h3>
-        <p class="benefit">Мягкая, как любимая футболка — приятная к телу и держит насыщенный цвет принта.</p>
+      <article class="fab" data-cat="game merch sublimation" data-reveal data-delay="1">
+        <span class="pill">База · мерч</span>
+        <span class="en">Nika Premium</span>
+        <h3>Ника премиум</h3>
+        <p class="benefit">Мягкая полиэфирная база для формы, футболок и командного мерча, когда нужен яркий полноцветный принт.</p>
         <div class="specs">
           <div class="spec"><span>Состав</span><b>100% полиэстер</b></div>
-          <div class="spec"><span>Плотность</span><b>~150 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Футболки, командный мерч</b></div>
+          <div class="spec"><span>Плотность</span><b>135–140 г/м²</b></div>
+          <div class="spec full"><span>Подходит</span><b>Футболки, форма, промо · сублимация</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="stretch" data-reveal data-delay="2">
+      <article class="fab" data-cat="run game mesh sublimation" data-reveal data-delay="2">
+        <span class="pill">Вентиляция</span>
+        <span class="en">False Mesh</span>
+        <h3>Ложная сетка</h3>
+        <p class="benefit">Ячеистая ткань для активной формы: пропускает воздух, быстро отдаёт влагу и выдерживает интенсивную носку.</p>
+        <div class="specs">
+          <div class="spec"><span>Состав</span><b>Полиэстер</b></div>
+          <div class="spec"><span>Плотность</span><b>135–140 г/м²</b></div>
+          <div class="spec full"><span>Подходит</span><b>Игровая форма, тренировки · сублимация</b></div>
+        </div>
+      </article>
+
+      <article class="fab" data-cat="stretch merch" data-reveal>
         <span class="pill">Тянется</span>
         <span class="en">Bi-flex</span>
         <h3>Бифлекс</h3>
-        <p class="benefit">Тянется за телом на любом движении — не сковывает в наклоне, прыжке и растяжке.</p>
+        <p class="benefit">Эластичное полотно для посадки по телу, фитнеса, танцев и элементов формы, где нужна свобода движения.</p>
         <div class="specs">
-          <div class="spec"><span>Состав</span><b>Полиэстер + эластан</b></div>
-          <div class="spec"><span>Плотность</span><b>~190 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Танцы, фитнес, облегающая форма</b></div>
+          <div class="spec"><span>Состав</span><b>Эластичный трикотаж</b></div>
+          <div class="spec"><span>Плотность</span><b>по задаче</b></div>
+          <div class="spec full"><span>Подходит</span><b>Фитнес, танцы, посадка по телу</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="run" data-reveal>
-        <span class="pill">Износ</span>
-        <span class="en">Microfiber</span>
-        <h3>Микрофибра</h3>
-        <p class="benefit">Плотная и износостойкая — выдерживает частые стирки и активную носку без затяжек.</p>
+      <article class="fab" data-cat="merch stretch" data-reveal data-delay="1">
+        <span class="pill">Мягкий трикотаж</span>
+        <span class="en">Interlock Supreme</span>
+        <h3>Интерлок</h3>
+        <p class="benefit">Плотный и мягкий трикотаж с натуральной основой для носибельного мерча и базовых изделий.</p>
         <div class="specs">
-          <div class="spec"><span>Состав</span><b>100% полиэстер</b></div>
-          <div class="spec"><span>Плотность</span><b>~160 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Лонгсливы, треккинг</b></div>
+          <div class="spec"><span>Состав</span><b>57% хлопок, 43% ПЭ</b></div>
+          <div class="spec"><span>Плотность</span><b>140–150 г/м²</b></div>
+          <div class="spec full"><span>Подходит</span><b>Мерч, футболки · DTF или вышивка по задаче</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="warm" data-reveal data-delay="1">
+      <article class="fab" data-cat="warm merch sublimation" data-reveal data-delay="2">
         <span class="pill">Тепло</span>
         <span class="en">Fleece</span>
         <h3>Флис</h3>
-        <p class="benefit">Греет в горах, когда падает температура — мягкий, лёгкий и быстро согревает после привала.</p>
+        <p class="benefit">Мягкий и тёплый второй слой для прохладной погоды: быстро сохнет и остаётся комфортным при влажности.</p>
         <div class="specs">
-          <div class="spec"><span>Состав</span><b>100% полиэстер</b></div>
-          <div class="spec"><span>Плотность</span><b>~280 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Холод, межсезонье, второй слой</b></div>
+          <div class="spec"><span>Состав</span><b>Полиэстер</b></div>
+          <div class="spec"><span>Плотность</span><b>по задаче</b></div>
+          <div class="spec full"><span>Подходит</span><b>Флиски, второй слой · сублимация по задаче</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="shield" data-reveal data-delay="2">
-        <span class="pill">Защита</span>
-        <span class="en">Softshell</span>
-        <h3>Софтшелл</h3>
-        <p class="benefit">Держит ветер и моросящий дождь — защищает на гребне и в непогоду, оставаясь дышащим.</p>
-        <div class="specs">
-          <div class="spec"><span>Состав</span><b>Полиэстер + мембрана</b></div>
-          <div class="spec"><span>Плотность</span><b>~250 г/м²</b></div>
-          <div class="spec full"><span>Для чего</span><b>Дождевики, ветровки</b></div>
-        </div>
-      </article>
+    </div>
+    <p class="prod-note" data-reveal>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
+      Полный список с фото, составом, плотностью и подробными описаниями — на странице <a href="fabrics.html" style="color:var(--accent);font-weight:700">«Ткани»</a>.
+    </p>
+  </div>
+</section>
 
+<!-- ============ PRINTING ============ -->
+<section class="section print" id="print">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Нанесение</span>
+      <h2 class="section-title display">Способ зависит<br>от ткани и задачи</h2>
+      <p class="section-intro">Мы не предлагаем один способ “для всего”. Для спортивной формы чаще выбираем сублимацию, а DTF и вышивку используем там, где они действительно будут носиться хорошо.</p>
+    </div>
+    <div class="method-grid">
+      <article class="method-card" data-reveal>
+        <span class="kicker">Основной способ</span>
+        <h3>Сублимация</h3>
+        <p>Краска становится частью полиэфирной ткани, поэтому принт не ощущается отдельной плёнкой и не трескается при растяжении.</p>
+        <ul>
+          <li>лучше всего для спортивных полиэфирных тканей</li>
+          <li>подходит для яркого принта по всей площади</li>
+          <li>не работает как вышивка или наклейка поверх ткани</li>
+        </ul>
+        <a class="method-link" href="printing.html#sublimation">Подробнее</a>
+      </article>
+      <article class="method-card" data-reveal data-delay="1">
+        <span class="kicker">Для хлопка и мерча</span>
+        <h3>DTF</h3>
+        <p>Плёночное нанесение для логотипов, небольших элементов и мерча на хлопковой или смешанной основе.</p>
+        <ul>
+          <li>хорошо для кулирки, футера и базового мерча</li>
+          <li>не главный вариант для тонкой беговой формы</li>
+          <li>помогает быстро нанести логотип или знак события</li>
+        </ul>
+        <a class="method-link" href="printing.html#dtf">Подробнее</a>
+      </article>
+      <article class="method-card" data-reveal data-delay="2">
+        <span class="kicker">Плотные материалы</span>
+        <h3>Вышивка</h3>
+        <p>Аккуратный премиальный способ для плотных материалов, но не универсальный вариант для тонких спортивных тканей.</p>
+        <ul>
+          <li>подходит для плотного хлопка и отдельных деталей</li>
+          <li>на тонких тканях может утяжелять и стягивать материал</li>
+          <li>на бафах у лица обычно не рекомендуем</li>
+        </ul>
+        <a class="method-link" href="printing.html#embroidery">Подробнее</a>
+      </article>
     </div>
   </div>
 </section>
@@ -769,20 +838,20 @@
     </div>
     <div class="steps">
       <div class="step" data-reveal>
-        <h3>Заявка</h3>
-        <p>Расскажите задачу: что нужно сшить, тираж, сроки и идею дизайна.</p>
+        <h3>Вводные</h3>
+        <p>Расскажите, что нужно сшить, для кого, какой тираж, сроки и где форму будут носить.</p>
       </div>
       <div class="step" data-reveal data-delay="1">
-        <h3>Макет</h3>
-        <p>Отрисуем дизайн под ваш бренд и согласуем перед запуском в работу.</p>
+        <h3>Макет под изделие</h3>
+        <p>Размещаем логотипы, элементы и цвета на шаблоне изделия. Полная разработка дизайна — отдельная задача.</p>
       </div>
       <div class="step" data-reveal data-delay="2">
         <h3>Пошив и нанесение</h3>
-        <p>Шьём из выбранной ткани и наносим принт — сублимацией или шелкографией.</p>
+        <p>Шьём из выбранной ткани и используем подходящий способ нанесения: сублимацию, DTF или вышивку.</p>
       </div>
       <div class="step" data-reveal data-delay="3">
         <h3>Доставка</h3>
-        <p>Отправим по всей России в удобную службу доставки.</p>
+        <p>Отправляем по России и СНГ: СДЭК или другая служба по договорённости.</p>
       </div>
     </div>
   </div>
@@ -811,7 +880,7 @@
         <article class="brief-card" data-reveal data-delay="2">
           <span class="num">03</span>
           <h3>Логотип и идея</h3>
-          <p>Подойдёт даже черновая мысль, референс или старый мерч. Макет можно довести вместе.</p>
+          <p>Лучше всего прислать логотип в векторе, исходный дизайн, старый мерч, референс или короткое описание идеи.</p>
         </article>
         <article class="brief-card" data-reveal data-delay="3">
           <span class="num">04</span>
@@ -826,7 +895,7 @@
         </details>
         <details>
           <summary>Если нет готового макета?</summary>
-          <p>Можно начать с логотипа, палитры, референса или описания идеи. Дизайн адаптируем под изделие и способ нанесения.</p>
+          <p>Можно начать с логотипа, палитры, референса или описания идеи. Мы подготовим макет под изделие и способ нанесения; полноценную разработку дизайна обсуждаем отдельно.</p>
         </details>
         <details>
           <summary>Как выбрать ткань?</summary>
@@ -847,11 +916,11 @@
     <div data-reveal>
       <span class="eyebrow on-dark">Связаться</span>
       <h2 class="section-title display">Обсудим<br>ваш заказ</h2>
-      <p class="lead">Напишите или позвоните — поможем выбрать ткань, посчитаем тираж и пришлём примеры готовых работ.</p>
+      <p class="lead">Напишите или позвоните — поможем выбрать ткань, способ нанесения, размерную сетку и реалистичный формат тиража.</p>
       <div class="contact-methods">
         <a href="https://wa.me/79219526410?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%84%D0%BE%D1%80%D0%BC%D1%83%20Trekki" target="_blank" rel="noopener" class="cm">
           <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.7-5.3A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.6 9.2c.2 1.5.9 2.9 2 4s2.5 1.8 4 2c.5.1 1-.2 1.2-.7l.3-.8-2.1-1-.8.8a6 6 0 0 1-2.6-2.6l.8-.8-1-2.1-.8.3c-.5.2-.8.7-.7 1.2Z"/></svg></span>
-          <span><small>WhatsApp — быстрее всего</small><b>+7 921 952 64 10</b></span>
+          <span><small>Мессенджер — быстрее всего</small><b>+7 921 952 64 10</b></span>
         </a>
         <a href="tel:+79219526410" class="cm">
           <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
@@ -862,7 +931,7 @@
           <span><small>Почта</small><b>mail@vkspb.info</b></span>
         </a>
       </div>
-      <div class="contact-tag">Доставка по всей России · Тираж от 5 штук</div>
+      <div class="contact-tag">Доставка по России и СНГ · СДЭК по договорённости · Тираж от 5 штук</div>
     </div>
     <form id="orderForm" data-reveal data-delay="1">
       <div class="fld">
@@ -877,8 +946,8 @@
         <label for="f-msg">Что нужно сшить</label>
         <textarea id="f-msg" name="msg" placeholder="Например: 30 лонгсливов для бегового клуба, логотип есть, нужны к маю, доставка в Санкт-Петербург"></textarea>
       </div>
-      <button type="submit" class="btn btn-light">Отправить заявку в WhatsApp <span class="arr">→</span></button>
-      <p class="hint">Кнопка откроет WhatsApp с готовой заявкой — останется нажать «отправить». Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>
+      <button type="submit" class="btn btn-light">Отправить заявку <span class="arr">→</span></button>
+      <p class="hint">Кнопка откроет рабочий мессенджер с готовой заявкой — останется нажать «отправить». Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>
     </form>
   </div>
 </section>
@@ -895,17 +964,18 @@
         <div class="foot-col">
           <h4>Разделы</h4>
           <a href="#products">Что шьём</a>
-          <a href="fabrics.html">Ткани</a>
+          <a href="#fabrics">Ткани</a>
+          <a href="#print">Нанесение</a>
           <a href="sizes.html">Размеры</a>
+          <a href="longsleeves.html">Лонгсливы</a>
           <a href="#brief">Перед заявкой</a>
-          <a href="#gallery">Галерея</a>
           <a href="#process">Как заказать</a>
         </div>
         <div class="foot-col">
           <h4>Контакты</h4>
           <a href="tel:+79219526410">+7 921 952 64 10</a>
           <a href="mailto:mail@vkspb.info">mail@vkspb.info</a>
-          <span>Доставка по России</span>
+          <span>Доставка по России и СНГ</span>
           <span>Тираж от 5 штук</span>
         </div>
       </div>
@@ -993,7 +1063,7 @@
   lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
 
-  // Order form -> mailto
+  // Order form -> messenger
   var form=document.getElementById('orderForm');
   form.addEventListener('submit',function(e){
     e.preventDefault();
