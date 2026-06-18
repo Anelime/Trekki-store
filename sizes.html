@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Размерная сетка — TREKKI store</title>
-<meta name="description" content="Как выбрать размер для кастомной спортивной формы TREKKI store: лонгсливы, футболки, бафы и изделия под заказ.">
+<meta name="description" content="Размерная сетка TREKKI store для футболок, лонгсливов и бафов: как снять мерки, выбрать размер и передать данные в пошив.">
 <link rel="icon" href="assets/trekki-emblem-dark.png">
 <link rel="stylesheet" href="pages.css">
 </head>
@@ -26,80 +26,176 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Инфостраница</span>
-      <h1>Размерная сетка</h1>
-      <p class="lead">Простая страница для замеров и выбора посадки. Точные сантиметры лучше заполнять после сверки лекал по каждому изделию и ткани.</p>
+  <section class="hero fabric-hero">
+    <div class="wrap fabric-hero-grid">
+      <div>
+        <span class="eyebrow">Размеры и мерки</span>
+        <h1>Размерная сетка</h1>
+        <p class="lead">Здесь таблица не “примерная”, а рабочая: клиент может выбрать размер по понятным меркам, а в пошив можно передать те же значения A, B и длину рукава.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#tshirts">Футболки</a>
+          <a class="btn btn-outline" href="#longsleeves">Лонгсливы</a>
+          <a class="btn btn-outline" href="#buffs">Бафы</a>
+        </div>
+      </div>
+      <aside class="choice-panel" aria-label="Как пользоваться размерной сеткой">
+        <span class="panel-label">Главное правило</span>
+        <a class="choice-row" href="#how-to-measure">
+          <strong>сравнивайте с вещью, а не с телом</strong>
+          <span>Мерки A и B снимаются с готового изделия, разложенного на ровной поверхности.</span>
+        </a>
+        <a class="choice-row" href="#production">
+          <strong>в пошив отдаём цифры из таблицы</strong>
+          <span>Размер, ростовка, A, B и длина нужного рукава.</span>
+        </a>
+      </aside>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="how-to-measure">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Как выбирать размер</h2>
-        <p>У спортивной формы посадка зависит не только от размера, но и от ткани, растяжимости, длины рукава и задачи: бег, трекинг, танцы или повседневный мерч.</p>
+      <div class="section-head split-head">
+        <div>
+          <span class="eyebrow">Как снять мерки</span>
+          <h2>Берём любимую посадку и сравниваем с таблицей</h2>
+        </div>
+        <p>Положите свою удобную футболку или лонгслив на ровную поверхность, расправьте ткань без натяжения и измерьте изделие. Так размер выбирается точнее, чем по абстрактному “S/M/L”.</p>
       </div>
-      <div class="grid">
-        <article class="card">
-          <span class="kicker">01</span>
-          <h3>Сверяем изделие</h3>
-          <p>Лонгслив, футболка и ветровка могут сидеть по-разному. Размер подтверждаем отдельно для каждого типа изделия.</p>
-        </article>
-        <article class="card">
-          <span class="kicker">02</span>
-          <h3>Учитываем ткань</h3>
-          <p>Кулмакс, бифлекс, флис и софтшелл дают разную свободу движения. Для эластичных тканей можно выбирать более точную посадку.</p>
-        </article>
-        <article class="card">
-          <span class="kicker">03</span>
-          <h3>Проверяем задачу</h3>
-          <p>Для трекинга часто нужна свобода под рюкзак и слои, для бега важнее легкость, для танцев — растяжимость.</p>
-        </article>
+      <div class="measure-grid">
+        <figure class="measure-visual">
+          <img src="assets/sizes/tshirt-measurements.jpg" alt="Схема измерения футболки: A — ширина изделия, B — длина изделия">
+        </figure>
+        <div class="measure-list">
+          <article class="card">
+            <span class="kicker">A</span>
+            <h3>Ширина изделия</h3>
+            <p>Измеряется по груди от бокового шва до бокового шва. Это не обхват тела: для примерного обхвата изделия умножьте A на 2.</p>
+          </article>
+          <article class="card">
+            <span class="kicker">B</span>
+            <h3>Длина изделия</h3>
+            <p>Измеряется вертикально от верхней точки плеча до низа изделия. Важна для посадки под рост, пояс и рюкзак.</p>
+          </article>
+          <article class="card">
+            <span class="kicker">Рукав</span>
+            <h3>Короткий или длинный</h3>
+            <p>Для футболок смотрим длину короткого рукава, для лонгсливов — длину длинного рукава. Если носите свободно, выбирайте размер с запасом.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section alt">
+  <section class="section alt" id="tshirts">
     <div class="wrap">
       <div class="section-head">
-        <h2>Черновая логика сетки</h2>
-        <p>Эту таблицу можно заменить точными замерами, когда будут финальные лекала. Сейчас она задает структуру страницы.</p>
+        <span class="eyebrow">Футболки</span>
+        <h2>Короткий рукав</h2>
+        <p>Эта таблица подходит для футболок с коротким рукавом. Для команды лучше собирать не только размер, но и рост: так проще понять, где нужен запас по длине.</p>
+      </div>
+      <div class="table-wrap size-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Размер</th>
+              <th>Ростовка</th>
+              <th>A, см</th>
+              <th>B, см</th>
+              <th>Короткий рукав, см</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Размер">30</td><td data-label="Ростовка">122</td><td data-label="A, см">36</td><td data-label="B, см">47</td><td data-label="Рукав, см">12,5</td></tr>
+            <tr><td data-label="Размер">32</td><td data-label="Ростовка">128</td><td data-label="A, см">38</td><td data-label="B, см">50</td><td data-label="Рукав, см">13</td></tr>
+            <tr><td data-label="Размер">34</td><td data-label="Ростовка">134</td><td data-label="A, см">39,5</td><td data-label="B, см">53</td><td data-label="Рукав, см">13,5</td></tr>
+            <tr><td data-label="Размер">36</td><td data-label="Ростовка">140</td><td data-label="A, см">41</td><td data-label="B, см">56</td><td data-label="Рукав, см">14</td></tr>
+            <tr><td data-label="Размер">38</td><td data-label="Ростовка">146</td><td data-label="A, см">43</td><td data-label="B, см">59</td><td data-label="Рукав, см">14,5</td></tr>
+            <tr><td data-label="Размер">40</td><td data-label="Ростовка">152</td><td data-label="A, см">45,2</td><td data-label="B, см">62,7</td><td data-label="Рукав, см">15,5</td></tr>
+            <tr><td data-label="Размер">42</td><td data-label="Ростовка">158</td><td data-label="A, см">45,2</td><td data-label="B, см">65,7</td><td data-label="Рукав, см">18,0</td></tr>
+            <tr><td data-label="Размер">44</td><td data-label="Ростовка">164</td><td data-label="A, см">46,5</td><td data-label="B, см">67,7</td><td data-label="Рукав, см">18,3</td></tr>
+            <tr><td data-label="Размер">46</td><td data-label="Ростовка">170</td><td data-label="A, см">48,4</td><td data-label="B, см">69,7</td><td data-label="Рукав, см">19,0</td></tr>
+            <tr><td data-label="Размер">48</td><td data-label="Ростовка">176</td><td data-label="A, см">50,4</td><td data-label="B, см">71,7</td><td data-label="Рукав, см">19,4</td></tr>
+            <tr><td data-label="Размер">50</td><td data-label="Ростовка">182</td><td data-label="A, см">51,8</td><td data-label="B, см">73,7</td><td data-label="Рукав, см">19,6</td></tr>
+            <tr><td data-label="Размер">52</td><td data-label="Ростовка">188</td><td data-label="A, см">54,4</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">20,0</td></tr>
+            <tr><td data-label="Размер">54</td><td data-label="Ростовка">188</td><td data-label="A, см">56,4</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">20,6</td></tr>
+            <tr><td data-label="Размер">56</td><td data-label="Ростовка">188</td><td data-label="A, см">58,2</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">21,1</td></tr>
+            <tr><td data-label="Размер">58</td><td data-label="Ростовка">188</td><td data-label="A, см">60</td><td data-label="B, см">81,3</td><td data-label="Рукав, см">21,9</td></tr>
+            <tr><td data-label="Размер">60</td><td data-label="Ростовка">—</td><td data-label="A, см">62</td><td data-label="B, см">83,3</td><td data-label="Рукав, см">24</td></tr>
+            <tr><td data-label="Размер">62</td><td data-label="Ростовка">—</td><td data-label="A, см">64,5</td><td data-label="B, см">85,4</td><td data-label="Рукав, см">24,3</td></tr>
+            <tr><td data-label="Размер">64</td><td data-label="Ростовка">—</td><td data-label="A, см">66,5</td><td data-label="B, см">87,4</td><td data-label="Рукав, см">25,3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="longsleeves">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Лонгсливы</span>
+        <h2>Длинный рукав</h2>
+        <p>Для лонгслива используем те же A и B, но смотрим длину длинного рукава. В исходной сетке длинный рукав заполнен для размеров 40-60.</p>
+      </div>
+      <div class="table-wrap size-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Размер</th>
+              <th>Ростовка</th>
+              <th>A, см</th>
+              <th>B, см</th>
+              <th>Длинный рукав, см</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Размер">40</td><td data-label="Ростовка">152</td><td data-label="A, см">45,2</td><td data-label="B, см">62,7</td><td data-label="Рукав, см">59,2</td></tr>
+            <tr><td data-label="Размер">42</td><td data-label="Ростовка">158</td><td data-label="A, см">45,2</td><td data-label="B, см">65,7</td><td data-label="Рукав, см">60,6</td></tr>
+            <tr><td data-label="Размер">44</td><td data-label="Ростовка">164</td><td data-label="A, см">46,5</td><td data-label="B, см">67,7</td><td data-label="Рукав, см">62,1</td></tr>
+            <tr><td data-label="Размер">46</td><td data-label="Ростовка">170</td><td data-label="A, см">48,4</td><td data-label="B, см">69,7</td><td data-label="Рукав, см">63,8</td></tr>
+            <tr><td data-label="Размер">48</td><td data-label="Ростовка">176</td><td data-label="A, см">50,4</td><td data-label="B, см">71,7</td><td data-label="Рукав, см">65,3</td></tr>
+            <tr><td data-label="Размер">50</td><td data-label="Ростовка">182</td><td data-label="A, см">51,8</td><td data-label="B, см">73,7</td><td data-label="Рукав, см">66,8</td></tr>
+            <tr><td data-label="Размер">52</td><td data-label="Ростовка">188</td><td data-label="A, см">54,4</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">68,1</td></tr>
+            <tr><td data-label="Размер">54</td><td data-label="Ростовка">188</td><td data-label="A, см">56,4</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">69,7</td></tr>
+            <tr><td data-label="Размер">56</td><td data-label="Ростовка">188</td><td data-label="A, см">58,2</td><td data-label="B, см">75,7</td><td data-label="Рукав, см">71,1</td></tr>
+            <tr><td data-label="Размер">58</td><td data-label="Ростовка">188</td><td data-label="A, см">60</td><td data-label="B, см">81,3</td><td data-label="Рукав, см">73</td></tr>
+            <tr><td data-label="Размер">60</td><td data-label="Ростовка">—</td><td data-label="A, см">62</td><td data-label="B, см">83,3</td><td data-label="Рукав, см">74,5</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="buffs">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Бафы</span>
+        <h2>Универсальный размер, но не без уточнений</h2>
+        <p>В исходной таблице Trekki указаны футболки и лонгсливы. Для бафов размер фиксируем перед запуском партии: взрослый, детский или комплектный формат.</p>
       </div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Размер</th>
-              <th>Для чего использовать</th>
-              <th>Что уточнить перед заказом</th>
+              <th>Формат</th>
+              <th>Кому подходит</th>
+              <th>Что фиксируем для пошива</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>XS / 40</td>
-              <td>Минимальная посадка, чаще для компактной футболки или лонгслива.</td>
-              <td>Длину изделия и свободу в плечах.</td>
+              <td data-label="Формат">Взрослый one size</td>
+              <td data-label="Кому подходит">Большинство взрослых участников, походные группы, клубы, забеги.</td>
+              <td data-label="Для пошива">Фактический размер готового бафа, ткань, высоту изделия и повтор принта.</td>
             </tr>
             <tr>
-              <td>S / 42</td>
-              <td>Базовый малый размер для беговой и туристической формы.</td>
-              <td>Будет ли надеваться поверх термобелья.</td>
+              <td data-label="Формат">Детский</td>
+              <td data-label="Кому подходит">Детские группы, семейные походы, подростковые команды.</td>
+              <td data-label="Для пошива">Возраст/рост участников и отдельный согласованный размер партии.</td>
             </tr>
             <tr>
-              <td>M / 44</td>
-              <td>Универсальный размер, часто нужен для свободной посадки.</td>
-              <td>Обхват груди, длину рукава и желаемую длину низа.</td>
-            </tr>
-            <tr>
-              <td>L / 46-48</td>
-              <td>Для более свободной посадки или формы под активное движение.</td>
-              <td>Нужен ли запас под рюкзак, пояс или второй слой.</td>
-            </tr>
-            <tr>
-              <td>XL+</td>
-              <td>Расширенная сетка под командные заказы.</td>
-              <td>Финальные замеры по изделию и ткани.</td>
+              <td data-label="Формат">В комплект к форме</td>
+              <td data-label="Кому подходит">Когда баф идёт вместе с футболкой или лонгсливом.</td>
+              <td data-label="Для пошива">Связь с дизайном формы: цвета, логотипы, масштаб графики и расположение элементов.</td>
             </tr>
           </tbody>
         </table>
@@ -107,12 +203,68 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="production">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Для запуска в пошив</span>
+        <h2>Какие данные собрать с клиента</h2>
+        <p>Чтобы не пересобирать размеры в переписке, удобно сразу передавать одну таблицу по участникам и отдельный комментарий по посадке.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="kicker">01</span>
+          <h3>Изделие</h3>
+          <p>Футболка, лонгслив, баф или комплект. Для футболки и лонгслива используем разные столбцы длины рукава.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">02</span>
+          <h3>Размеры участников</h3>
+          <p>Имя или номер участника, размер по таблице, ростовка, желаемая посадка: обычная, свободная или ближе к телу.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">03</span>
+          <h3>Контрольные мерки</h3>
+          <p>A, B и длина рукава из таблицы. Если участник между размерами, лучше добавить комментарий “выбрать больше/меньше”.</p>
+        </article>
+      </div>
+      <div class="table-wrap production-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Что передать</th>
+              <th>Пример</th>
+              <th>Зачем это нужно</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Что передать">Размер и ростовка</td>
+              <td data-label="Пример">48 / ростовка 176</td>
+              <td data-label="Зачем">Чтобы производство использовало правильную строку таблицы.</td>
+            </tr>
+            <tr>
+              <td data-label="Что передать">Мерки изделия</td>
+              <td data-label="Пример">A 50,4 · B 71,7 · рукав 19,4 или 65,3</td>
+              <td data-label="Зачем">Чтобы не путать короткий и длинный рукав при раскрое.</td>
+            </tr>
+            <tr>
+              <td data-label="Что передать">Посадка</td>
+              <td data-label="Пример">Свободно под термобельё / ближе к телу</td>
+              <td data-label="Зачем">Чтобы команда не получила слишком тесную или слишком свободную форму.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">Базовые значения A, B, рукава и ростовки перенесены из текущей таблицы Trekki.travel “Размеры футболок с длинными и с короткими рукавами”.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
     <div class="wrap">
       <div class="cta">
         <div>
           <h2>Нужно подобрать размер под тираж?</h2>
-          <p>Соберем размеры участников, уточним посадку и подскажем, где лучше оставить запас.</p>
+          <p>Соберем размеры участников, проверим посадку по изделию и подготовим понятную таблицу для запуска в пошив.</p>
         </div>
         <a class="btn" href="index.html#contact">Обсудить заказ</a>
       </div>
@@ -121,7 +273,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© 2026 TREKKI store. Размерная сетка заполняется по финальным лекалам.</div>
+  <div class="wrap">© 2026 TREKKI store. Размеры выбираются по меркам готового изделия.</div>
 </footer>
 </body>
 </html>

@@ -84,8 +84,8 @@
     --ink-2:#241f1b;
     --paper:#f7f5f1;
     --paper-2:#efece5;
-    --muted:#6d675f;
-    --muted-on-dark:#a9a39a;
+    --muted:#5c554d;
+    --muted-on-dark:#c8c0b6;
     --line:rgba(20,17,15,.12);
     --line-on-dark:rgba(247,245,241,.16);
     --accent:#ea5a06;
@@ -193,11 +193,11 @@
   .hero-product-thumb{width:58px;height:58px;border-radius:10px;overflow:hidden;background:rgba(247,245,241,.92)}
   .hero-product-thumb img{width:100%;height:100%;object-fit:contain;padding:6px}
   .hero-product b{display:block;color:var(--paper);font-family:var(--main-font),sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.1}
-  .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.72);font-size:12px;line-height:1.25}
+  .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.82);font-size:12px;line-height:1.25}
   .hero-tag{margin-top:34px;display:inline-flex;align-items:center;gap:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(247,245,241,.8)}
   .hero-tag::before{content:"";width:34px;height:1px;background:rgba(247,245,241,.55)}
-  .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.7)}
-  .scrollcue .line{width:1px;height:42px;background:linear-gradient(rgba(247,245,241,.7),rgba(247,245,241,0));animation:cue 2s var(--ease) infinite}
+  .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.78)}
+  .scrollcue .line{width:1px;height:42px;background:linear-gradient(rgba(247,245,241,.78),rgba(247,245,241,0));animation:cue 2s var(--ease) infinite}
   @keyframes cue{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
 
   /* ---------- Positioning strip ---------- */
@@ -323,6 +323,15 @@
   .step h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
   .step p{margin-top:10px;color:var(--muted);font-size:15px}
 
+  /* ---------- Price factors ---------- */
+  .price{background:var(--paper-2)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .price-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;min-height:210px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
+  .price-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
+  .price-card .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+  .price-card h3{margin-top:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:700;line-height:1.1}
+  .price-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
+
   /* ---------- Order guide ---------- */
   .guide{background:var(--paper-2)}
   .guide-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(34px,5vw,74px);align-items:start}
@@ -361,7 +370,7 @@
   }
   form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted-on-dark) 50%),linear-gradient(135deg,var(--muted-on-dark) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
   form select option{background:var(--ink-2);color:var(--paper)}
-  form input::placeholder,form textarea::placeholder{color:rgba(169,163,154,.6)}
+  form input::placeholder,form textarea::placeholder{color:rgba(200,192,182,.72)}
   form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--accent);background-color:rgba(247,245,241,.07)}
   form textarea{resize:vertical;min-height:96px}
   form .btn{width:100%;margin-top:6px}
@@ -412,6 +421,7 @@
     .prod-grid{grid-template-columns:repeat(2,1fr)}
     .info-links{grid-template-columns:repeat(2,1fr)}
     .method-grid{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .masonry{columns:2}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
@@ -427,7 +437,7 @@
     .nav-links,.nav-cta .btn{display:none}
     .burger{display:flex}
     .stmt-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
-    .prod-grid,.fab-grid,.use-grid{grid-template-columns:1fr}
+    .prod-grid,.fab-grid,.use-grid,.price-grid{grid-template-columns:1fr}
     .guide-grid,.brief-list,.form-row{grid-template-columns:1fr}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
@@ -471,7 +481,7 @@
     <nav class="nav-links" aria-label="Основная навигация">
       <a href="#products">Что шьём</a>
       <a href="fabrics.html">Ткани</a>
-      <a href="#print">Принты</a>
+      <a href="printing.html">Принты</a>
       <a href="#process">Как заказать</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -487,7 +497,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#products">Что шьём</a>
   <a href="fabrics.html">Ткани</a>
-  <a href="#print">Принты</a>
+  <a href="printing.html">Принты</a>
   <a href="#process">Как заказать</a>
   <a href="#contact">Контакты</a>
   <div class="mm-foot">
@@ -898,6 +908,49 @@
   </div>
 </section>
 
+<!-- ============ PRICE FACTORS ============ -->
+<section class="section price" id="price">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Расчёт</span>
+      <h2 class="section-title display">Что влияет<br>на цену</h2>
+      <p class="section-intro">Точную стоимость считаем под задачу, но логика простая: цена зависит не от одного принта, а от всего набора решений.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price-card" data-reveal>
+        <span class="kicker">01</span>
+        <h3>Изделие</h3>
+        <p>Футболка, лонгслив, баф или комплект отличаются по расходу ткани, лекалам, обработке и времени пошива.</p>
+      </article>
+      <article class="price-card" data-reveal data-delay="1">
+        <span class="kicker">02</span>
+        <h3>Ткань</h3>
+        <p>Плотность, состав, эластичность и фактура меняют себестоимость и подбираются под сценарий: жара, старт, мерч или премиальная форма.</p>
+      </article>
+      <article class="price-card" data-reveal data-delay="2">
+        <span class="kicker">03</span>
+        <h3>Принт</h3>
+        <p>Сублимация, DTF, вышивка, шеврон или комбинация техник по-разному считаются и дают разный визуальный эффект.</p>
+      </article>
+      <article class="price-card" data-reveal>
+        <span class="kicker">04</span>
+        <h3>Тираж</h3>
+        <p>Чем меньше партия, тем заметнее настройка производства на одну вещь. Для крупных партий часть затрат распределяется мягче.</p>
+      </article>
+      <article class="price-card" data-reveal data-delay="1">
+        <span class="kicker">05</span>
+        <h3>Сроки</h3>
+        <p>Дата события и срочность влияют на маршрут: наличие ткани, загрузку пошива, печать и доставку до города.</p>
+      </article>
+      <article class="price-card" data-reveal data-delay="2">
+        <span class="kicker">06</span>
+        <h3>Макет</h3>
+        <p>Готовый векторный логотип ускоряет расчёт. Если нужен перенос идеи на изделие или подготовка файла, это отдельный объём работы.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ORDER GUIDE ============ -->
 <section class="section guide" id="brief">
   <div class="wrap guide-grid">
@@ -1043,7 +1096,7 @@
           <h4>Разделы</h4>
           <a href="#products">Что шьём</a>
           <a href="fabrics.html">Ткани</a>
-          <a href="#print">Принты</a>
+          <a href="printing.html">Принты</a>
           <a href="sizes.html">Размеры</a>
           <a href="longsleeves.html">Лонгсливы</a>
           <a href="tshirts.html">Футболки</a>
