@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ткани — TREKKI store</title>
-<meta name="description" content="Ткани для кастомной спортивной формы TREKKI store: бег, жара, тепло, растяжимость, защита и командный мерч.">
+<meta name="description" content="Ткани для кастомной спортивной формы TREKKI store: короткие карточки, фильтры и подробные описания с фото.">
 <link rel="stylesheet" href="pages.css">
 </head>
 <body>
@@ -27,102 +27,402 @@
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow">Инфостраница</span>
-      <h1>Список тканей</h1>
-      <p class="lead">Ткани можно показывать не сухим каталогом, а через сценарии: где будет прохладно, где не натирает, где тянется, где защищает от ветра.</p>
+      <h1>Ткани для формы</h1>
+      <p class="lead">Собрали дубли из двух описаний в одну страницу: сначала короткие карточки по задаче, ниже — полные описания с фото, составом и применением.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Фильтры по задаче</h2>
-        <p>Категории можно пересобирать из описаний: если у ткани появляется новое свойство, достаточно отметить ее нужным фильтром.</p>
+        <h2>Коротко по тканям</h2>
+        <p>Выберите сценарий или откройте полное описание. Карточки помогают быстро понять, какая ткань подходит для бега, игровой формы, жаркой погоды, тепла или мерча.</p>
       </div>
-      <div class="chips" id="fabFilter">
-        <button class="chip active" data-f="all" type="button">Все</button>
-        <button class="chip" data-f="run" type="button">Бег</button>
-        <button class="chip" data-f="heat" type="button">Жара</button>
-        <button class="chip" data-f="warm" type="button">Тепло</button>
-        <button class="chip" data-f="stretch" type="button">Тянется</button>
-        <button class="chip" data-f="shield" type="button">Защита</button>
+      <div class="chips" id="fabFilter" aria-label="Фильтр тканей">
+        <button class="chip active" data-f="all" type="button" aria-pressed="true">Все</button>
+        <button class="chip" data-f="run" type="button" aria-pressed="false">Бег и жара</button>
+        <button class="chip" data-f="mesh" type="button" aria-pressed="false">Сетка</button>
+        <button class="chip" data-f="stretch" type="button" aria-pressed="false">Тянется</button>
+        <button class="chip" data-f="warm" type="button" aria-pressed="false">Тепло</button>
+        <button class="chip" data-f="sublimation" type="button" aria-pressed="false">Сублимация</button>
+        <button class="chip" data-f="merch" type="button" aria-pressed="false">Мерч</button>
       </div>
 
       <div class="fabric-grid" id="fabGrid">
-        <article class="fabric" data-cat="run heat">
-          <span class="pill">Бег · Жара</span>
-          <h3>Кулмакс</h3>
-          <p class="benefit">В жару тело остается сухим: ткань отводит пот наружу и быстро сохнет на бегу.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
-            <div><dt>Плотность</dt><dd>~130 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Бег, трейл, жаркая погода</dd></div>
-          </dl>
+        <article class="fabric" data-cat="game merch sublimation">
+          <figure><img src="assets/fabrics/nika-premium.jpg" alt="Белая ткань Ника премиум"></figure>
+          <div class="fabric-body">
+            <span class="pill">База · сублимация</span>
+            <h3>Ника премиум</h3>
+            <p class="benefit">Мягкое полиэфирное полотно с пористой структурой для формы и командного мерча.</p>
+            <a class="fabric-go" href="#fabric-nika">Полное описание</a>
+          </div>
         </article>
 
-        <article class="fabric" data-cat="all">
-          <span class="pill">Повседнев</span>
-          <h3>Ника</h3>
-          <p class="benefit">Мягкая и приятная к телу, хорошо держит насыщенный цвет принта.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
-            <div><dt>Плотность</dt><dd>~150 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Футболки, командный мерч</dd></div>
-          </dl>
+        <article class="fabric" data-cat="run mesh game sublimation">
+          <figure><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ткани ложная сетка"></figure>
+          <div class="fabric-body">
+            <span class="pill">Вентиляция</span>
+            <h3>Ложная сетка</h3>
+            <p class="benefit">Ячеистая ткань для активной формы: быстро отдаёт влагу и хорошо пропускает воздух.</p>
+            <a class="fabric-go" href="#fabric-false-mesh">Полное описание</a>
+          </div>
         </article>
 
-        <article class="fabric" data-cat="stretch">
-          <span class="pill">Тянется</span>
-          <h3>Бифлекс</h3>
-          <p class="benefit">Тянется за телом и не сковывает движение в наклоне, прыжке и растяжке.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>Полиэстер + эластан</dd></div>
-            <div><dt>Плотность</dt><dd>~190 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Танцы, фитнес, облегающая форма</dd></div>
-          </dl>
+        <article class="fabric" data-cat="game merch sublimation">
+          <figure><img src="assets/fabrics/prima-microfiber.jpg" alt="Белая ткань Прима микрофибра"></figure>
+          <div class="fabric-body">
+            <span class="pill">Мягкость</span>
+            <h3>Прима микрофибра</h3>
+            <p class="benefit">Гладкая, мягкая и износостойкая ткань из тонких микроволокон.</p>
+            <a class="fabric-go" href="#fabric-prima">Полное описание</a>
+          </div>
         </article>
 
-        <article class="fabric" data-cat="run">
-          <span class="pill">Износ</span>
-          <h3>Микрофибра</h3>
-          <p class="benefit">Плотная и износостойкая, выдерживает частые стирки и активную носку.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
-            <div><dt>Плотность</dt><dd>~160 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Лонгсливы, трекинг</dd></div>
-          </dl>
+        <article class="fabric" data-cat="run heat sublimation">
+          <figure><img src="assets/fabrics/coolmax.jpg" alt="Белая ткань Coolmax"></figure>
+          <div class="fabric-body">
+            <span class="pill">Бег · жара</span>
+            <h3>Coolmax</h3>
+            <p class="benefit">Быстро выводит влагу наружу и помогает сохранять комфорт в жаркую погоду.</p>
+            <a class="fabric-go" href="#fabric-coolmax">Полное описание</a>
+          </div>
         </article>
 
-        <article class="fabric" data-cat="warm">
-          <span class="pill">Тепло</span>
-          <h3>Флис</h3>
-          <p class="benefit">Греет в горах, когда падает температура: мягкий, легкий и быстро согревает после привала.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>100% полиэстер</dd></div>
-            <div><dt>Плотность</dt><dd>~280 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Холод, межсезонье, второй слой</dd></div>
-          </dl>
+        <article class="fabric" data-cat="stretch merch">
+          <figure><img src="assets/fabrics/biflex.jpg" alt="Эластичная белая ткань Бифлекс"></figure>
+          <div class="fabric-body">
+            <span class="pill">Максимально тянется</span>
+            <h3>Бифлекс</h3>
+            <p class="benefit">Эластичное трикотажное полотно для движения, танцев, фитнеса и облегающей формы.</p>
+            <a class="fabric-go" href="#fabric-biflex">Полное описание</a>
+          </div>
         </article>
 
-        <article class="fabric" data-cat="shield">
-          <span class="pill">Защита</span>
-          <h3>Софтшелл</h3>
-          <p class="benefit">Держит ветер и моросящий дождь, защищает на гребне и остается дышащим.</p>
-          <dl>
-            <div><dt>Состав</dt><dd>Полиэстер + мембрана</dd></div>
-            <div><dt>Плотность</dt><dd>~250 г/м²</dd></div>
-            <div><dt>Подходит</dt><dd>Дождевики, ветровки</dd></div>
-          </dl>
+        <article class="fabric" data-cat="run heat mesh stretch">
+          <figure><img src="assets/fabrics/elbrus.jpg" alt="Ткань Эльбрус"></figure>
+          <div class="fabric-body">
+            <span class="pill">Лёгкая сетка</span>
+            <h3>Эльбрус</h3>
+            <p class="benefit">Лёгкая и дышащая ткань со сквозными ячейками, быстро сохнет и хорошо тянется.</p>
+            <a class="fabric-go" href="#fabric-elbrus">Полное описание</a>
+          </div>
+        </article>
+
+        <article class="fabric" data-cat="run mesh game stretch">
+          <figure><img src="assets/fabrics/jersey-setka.jpg" alt="Фактура ткани джерси сетка"></figure>
+          <div class="fabric-body">
+            <span class="pill">Сетка плотнее</span>
+            <h3>Джерси сетка</h3>
+            <p class="benefit">Похожа на Эльбрус по назначению, но отличается плотностью и размером ячейки.</p>
+            <a class="fabric-go" href="#fabric-jersey-mesh">Полное описание</a>
+          </div>
+        </article>
+
+        <article class="fabric" data-cat="merch stretch sublimation">
+          <figure><img src="assets/fabrics/interlock-supreme.jpg" alt="Ткань Интерлок суприм"></figure>
+          <div class="fabric-body">
+            <span class="pill">Мягкий трикотаж</span>
+            <h3>Интерлок суприм</h3>
+            <p class="benefit">Плотный, мягкий и эластичный трикотаж с натуральной основой.</p>
+            <a class="fabric-go" href="#fabric-interlock">Полное описание</a>
+          </div>
+        </article>
+
+        <article class="fabric" data-cat="mesh game sublimation stretch">
+          <figure><img src="assets/fabrics/jacquard-camo.jpg" alt="Ткань Жаккард Камо"></figure>
+          <div class="fabric-body">
+            <span class="pill">Фактура 3D</span>
+            <h3>Жаккард Камо</h3>
+            <p class="benefit">Матовая жаккардовая сетка с камуфляжной фактурой для интенсивной спортивной формы.</p>
+            <a class="fabric-go" href="#fabric-jacquard">Полное описание</a>
+          </div>
+        </article>
+
+        <article class="fabric" data-cat="mesh game sublimation stretch">
+          <figure><img src="assets/fabrics/baklava.jpg" alt="Фактура ткани Баклава"></figure>
+          <div class="fabric-body">
+            <span class="pill">CoolPass</span>
+            <h3>Баклава</h3>
+            <p class="benefit">Плотное ячеистое полотно, которое отводит влагу и остаётся прочным в активной носке.</p>
+            <a class="fabric-go" href="#fabric-baklava">Полное описание</a>
+          </div>
+        </article>
+
+        <article class="fabric" data-cat="warm merch sublimation">
+          <figure><img src="assets/fabrics/fleece.jpg" alt="Белый флис"></figure>
+          <div class="fabric-body">
+            <span class="pill">Тепло</span>
+            <h3>Флис</h3>
+            <p class="benefit">Мягкий, лёгкий и тёплый второй слой: быстро сохнет и сохраняет комфорт в прохладу.</p>
+            <a class="fabric-go" href="#fabric-fleece">Полное описание</a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
+  <section class="section fabric-details" id="full">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Полные описания</h2>
+        <p>Ниже — подробности по каждой ткани: состав, плотность, где лучше применять и какие свойства важны для заказа.</p>
+      </div>
+
+      <article class="fabric-detail" id="fabric-nika">
+        <figure class="detail-photo"><img src="assets/fabrics/nika-premium.jpg" alt="Фото ткани Ника премиум"></figure>
+        <div class="detail-copy">
+          <span class="kicker">135–140 г/м² · 100% полиэстер</span>
+          <h3>Ника премиум</h3>
+          <p>Полиэфирное трикотажное полотно с пористой несквозной структурой. Ткань средней растяжимости, мягкая, комфортная в носке и хорошо подходит для игровой формы, футболок и командного мерча.</p>
+          <p>Используется как основа для сублимационной печати: держит яркое изображение, не мнётся, быстро сохнет и помогает отводить влагу при активной нагрузке.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>футболки, игровая форма, промо и мерч</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>мягкая и приятная к телу</li>
+            <li>воздухопроницаемая</li>
+            <li>устойчива к сминанию</li>
+            <li>быстро сохнет и держит форму</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-false-mesh">
+        <figure class="detail-photo"><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фото ткани Ложная сетка"></figure>
+        <div class="detail-copy">
+          <span class="kicker">135–140 г/м² · полиэстер</span>
+          <h3>Ложная сетка</h3>
+          <p>Ячеистая полиэфирная ткань с хорошей растяжимостью. Структура помогает воздуху проходить через полотно, а влаге — быстро испаряться во время интенсивного движения.</p>
+          <p>Материал используют для спортивной одежды, хоккейной, футбольной, баскетбольной и другой игровой формы. Подходит для сублимационной печати.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>игровая форма, бег, тренировки</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>выраженная ячеистая фактура</li>
+            <li>хорошо отводит влагу</li>
+            <li>мягкая и приятная в носке</li>
+            <li>стойкая к активному использованию</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-prima">
+        <figure class="detail-photo"><img src="assets/fabrics/prima-microfiber.jpg" alt="Фото ткани Прима микрофибра"></figure>
+        <div class="detail-copy">
+          <span class="kicker">135–140 г/м² · 100% полиэстер</span>
+          <h3>Прима микрофибра</h3>
+          <p>Полиэфирное трикотажное полотно интерлочного переплетения, сотканное из тонких микроволокон. Материал гладкий, мягкий, приятный на ощупь, хорошо тянется и не деформируется.</p>
+          <p>Подходит для повседневной и спортивной одежды, промофутболок, фанатской атрибутики и изделий, где важны мягкость, износостойкость и чистая поверхность под печать.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>футболки, форма, промомерч</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>впитывает влагу лучше обычных материалов</li>
+            <li>дышит даже при плотной структуре</li>
+            <li>почти не мнётся</li>
+            <li>быстро высыхает после стирки</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-coolmax">
+        <figure class="detail-photo"><img src="assets/fabrics/coolmax.jpg" alt="Фото ткани Coolmax"></figure>
+        <div class="detail-copy">
+          <span class="kicker">160 г/м² · 95% Coolmax, 5% лайкра</span>
+          <h3>Coolmax / Кулмакс стрейч</h3>
+          <p>Трикотажное полотно со структурой волокон, которая быстро забирает влагу с тела и переносит её наружу для испарения. По ощущениям близко к мягкому хлопку, но лучше держит форму и быстрее сохнет.</p>
+          <p>Хороший вариант для футболок, беговой формы и изделий для жаркой погоды, где важны влагоотведение, комфорт и стабильность после многократных стирок.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>бег, трейл, жара, футболки</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>поддерживает температурный баланс кожи</li>
+            <li>быстро впитывает и выводит влагу</li>
+            <li>сохнет быстрее хлопка</li>
+            <li>мягкая, практичная и долговечная</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-biflex">
+        <figure class="detail-photo"><img src="assets/fabrics/biflex.jpg" alt="Фото ткани Бифлекс"></figure>
+        <div class="detail-copy">
+          <span class="kicker">эластичное трикотажное полотно</span>
+          <h3>Бифлекс</h3>
+          <p>Материал, который может растягиваться в несколько раз больше исходного размера. Его удобно рассматривать для изделий, где ткань должна работать вместе с телом и не сковывать движение.</p>
+          <p>Подходит для танцев, фитнеса, облегающих элементов формы и задач, где важны высокая растяжимость, посадка и свобода движения.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>танцы, фитнес, облегающая форма</dd></div>
+            <div><dt>Свойство</dt><dd>растяжимость во всех направлениях</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>очень хорошо тянется</li>
+            <li>не сковывает движение</li>
+            <li>подходит для активной посадки</li>
+            <li>помогает держать форму изделия</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-elbrus">
+        <figure class="detail-photo"><img src="assets/fabrics/elbrus.jpg" alt="Фото ткани Эльбрус"></figure>
+        <div class="detail-copy">
+          <span class="kicker">140 г/м² · 85% полиэстер, 15% спандекс</span>
+          <h3>Эльбрус</h3>
+          <p>Лёгкая дышащая ткань со сквозными ячейками. Быстро сохнет, хорошо проветривается и остаётся очень эластичной.</p>
+          <p>Подходит для спортивной формы, бега, тренировок и изделий, где нужны вентиляция, небольшая плотность и свобода движения.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>бег, жара, активная форма</dd></div>
+            <div><dt>Свойство</dt><dd>сквозная ячеистая структура</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>лёгкая и дышащая</li>
+            <li>быстро сохнет</li>
+            <li>очень эластична</li>
+            <li>комфортна в интенсивном движении</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-jersey-mesh">
+        <figure class="detail-photo"><img src="assets/fabrics/jersey-setka.jpg" alt="Фото ткани Джерси сетка"></figure>
+        <div class="detail-copy">
+          <span class="kicker">140–150 г/м² · 88% полиэстер, 12% спандекс</span>
+          <h3>Джерси сетка</h3>
+          <p>Сетчатая ткань, близкая по назначению к Эльбрусу, но отличающаяся плотностью и размером ячейки. Хорошо подходит для спортивных изделий, где нужна вентиляция и эластичность.</p>
+          <p>Её удобно выбирать, когда хочется сохранить дышащие свойства сетки, но получить другую фактуру и плотность полотна.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>форма, тренировки, активная носка</dd></div>
+            <div><dt>Свойство</dt><dd>сетка с более выраженной плотностью</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>дышит за счёт ячеистой структуры</li>
+            <li>тянется благодаря спандексу</li>
+            <li>подходит для спорта и движения</li>
+            <li>даёт другую фактуру по сравнению с Эльбрусом</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-interlock">
+        <figure class="detail-photo"><img src="assets/fabrics/interlock-supreme.jpg" alt="Фото ткани Интерлок суприм"></figure>
+        <div class="detail-copy">
+          <span class="kicker">140–150 г/м² · 57% хлопок, 43% полиэфирное волокно</span>
+          <h3>Интерлок суприм</h3>
+          <p>Плотный, мягкий и эластичный трикотаж премиального качества с гладкой поверхностью с обеих сторон. Мягче и эластичнее обычного полиэстера, при этом сохраняет свойства натуральной основы.</p>
+          <p>Изнанка имеет сотовую текстуру, которая помогает поглощать влагу, поддерживать приятное ощущение в носке и делать ткань более «дышащей».</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>мерч, футболки, базовые изделия</dd></div>
+            <div><dt>Печать</dt><dd>сублимация по задаче</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>эластичность и формоустойчивость</li>
+            <li>натуральная основа</li>
+            <li>воздухопроницаемость</li>
+            <li>приятные тактильные ощущения</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-jacquard">
+        <figure class="detail-photo"><img src="assets/fabrics/jacquard-camo.jpg" alt="Фото ткани Жаккард Камо"></figure>
+        <div class="detail-copy">
+          <span class="kicker">140–150 г/м² · 92% полиэстер, 8% спандекс</span>
+          <h3>Жаккард Камо</h3>
+          <p>Трикотажное матовое полотно с двухсторонним жаккардовым плетением и камуфляжной фактурой. Ячеистая структура помогает вентиляции и отведению влаги.</p>
+          <p>3D-рисунок при нанесении изображения даёт ткани более оригинальный внешний вид. Подходит для профессиональной спортивной экипировки, игровой формы и интенсивных нагрузок.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>регби, хоккей, игровая форма, экипировка</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>двухстороннее жаккардовое плетение</li>
+            <li>вентиляция и влагоотведение</li>
+            <li>мягкость за счёт эластана</li>
+            <li>не сковывает движения</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-baklava">
+        <figure class="detail-photo"><img src="assets/fabrics/baklava.jpg" alt="Фото ткани Баклава"></figure>
+        <div class="detail-copy">
+          <span class="kicker">140–150 г/м² · 90% ПЭ, 10% спандекс</span>
+          <h3>Баклава</h3>
+          <p>Полиэфирное трикотажное полотно несквозной ячеистой структуры, произведённое по технологии CoolPass. Отводит влагу от тела и помогает сохранять сухость во время движения.</p>
+          <p>Трикотаж плотный и прочный, хорошо растягивается в поперечном направлении. Применяется для баскетбольной, футбольной, хоккейной и другой спортивной формы, а также для повседневной одежды.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>спортивная форма, тренировки, повседневная одежда</dd></div>
+            <div><dt>Печать</dt><dd>сублимация</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>плотная и прочная структура</li>
+            <li>отводит влагу от тела</li>
+            <li>пропускает воздух</li>
+            <li>хорошо растягивается поперёк</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fabric-detail" id="fabric-fleece">
+        <figure class="detail-photo"><img src="assets/fabrics/fleece.jpg" alt="Фото ткани Флис"></figure>
+        <div class="detail-copy">
+          <span class="kicker">полиэстер · утепляющий слой</span>
+          <h3>Флис</h3>
+          <p>Мягкий на ощупь материал с хорошими теплоизоляционными свойствами. В ткани не накапливается влага, она быстро сохнет и остаётся сухой и тёплой даже при повышенной влажности.</p>
+          <p>Подходит для флисок, второго слоя, межсезонья и прохладной погоды. Может использоваться как основа для сублимационной печати по задаче.</p>
+          <dl class="detail-specs">
+            <div><dt>Подходит</dt><dd>флиски, второй слой, холодная погода</dd></div>
+            <div><dt>Свойство</dt><dd>тепло, лёгкость, быстрое высыхание</dd></div>
+          </dl>
+          <ul class="feature-list">
+            <li>хорошо сохраняет тепло</li>
+            <li>лёгкий и приятный к коже</li>
+            <li>дышит и отводит влагу</li>
+            <li>неприхотлив в уходе</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ещё ткани для мерча</h2>
+        <p>В описаниях также есть джерси, футер-петля, футер с начёсом и кулирка. Их можно добавить отдельными карточками, когда появятся фото образцов или готовых изделий.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="kicker">База</span>
+          <h3>Джерси</h3>
+          <p>Мягкая эластичная ткань с гладкой поверхностью для повседневной одежды и базового гардероба.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Тепло</span>
+          <h3>Футер</h3>
+          <p>Петля или начёс для худи, бомберов и спортивных костюмов. Лучше подходит под вышивку или ДТФ.</p>
+        </article>
+        <article class="card">
+          <span class="kicker">Лето</span>
+          <h3>Кулирка</h3>
+          <p>Тонкий хлопковый трикотаж для жаркого сезона, мягкой базовой одежды и повседневного мерча.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="wrap">
       <div class="cta">
         <div>
           <h2>Нужно выбрать ткань под задачу?</h2>
-          <p>Можно начать с активности и условий: жара, ветер, рюкзак, бег, танцы или командный мерч.</p>
+          <p>Можно начать с активности и условий: жара, ветер, рюкзак, бег, танцы или командный мерч. Мы поможем сузить выбор.</p>
         </div>
         <a class="btn" href="index.html#contact">Обсудить заказ</a>
       </div>
@@ -131,7 +431,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© 2026 TREKKI store. Фильтры можно обновлять по описаниям тканей.</div>
+  <div class="wrap">© 2026 TREKKI store. Короткие карточки ведут к полному описанию ткани.</div>
 </footer>
 
 <script>
@@ -140,8 +440,12 @@
   var fabrics=document.querySelectorAll('#fabGrid .fabric');
   chips.forEach(function(chip){
     chip.addEventListener('click',function(){
-      chips.forEach(function(c){c.classList.remove('active');});
+      chips.forEach(function(c){
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed','false');
+      });
       chip.classList.add('active');
+      chip.setAttribute('aria-pressed','true');
       var f=chip.getAttribute('data-f');
       fabrics.forEach(function(card){
         var cats=card.getAttribute('data-cat')||'';
