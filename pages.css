@@ -155,7 +155,9 @@ footer{padding:38px 0;background:#0c0a09;color:rgba(247,245,241,.74);font-size:1
   .split-head p{margin-top:0;max-width:760px}
 }
 @media(max-width:900px){
-  .top-links{display:none}
+  .nav{height:auto;min-height:72px;align-items:flex-start;flex-direction:column;justify-content:center;padding:12px 0;gap:10px}
+  .top-links{display:flex;width:100%;gap:18px;overflow-x:auto;padding:3px 0 2px;white-space:nowrap;font-size:14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .top-links::-webkit-scrollbar{display:none}
   .grid,.fabric-grid{grid-template-columns:1fr}
   .product-showcase{grid-template-columns:1fr;grid-template-rows:auto}
   .product-photo,.product-photo.featured{grid-row:auto;min-height:320px}
@@ -167,7 +169,7 @@ footer{padding:38px 0;background:#0c0a09;color:rgba(247,245,241,.74);font-size:1
 }
 @media(max-width:560px){
   .wrap{padding:0 20px}
-  .nav{height:70px}
+  .nav{min-height:70px}
   h1{font-size:40px}
   .hero-actions .btn{width:100%}
   .hero-proof{letter-spacing:.06em}
