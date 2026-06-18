@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ткани — TREKKI store</title>
-<meta name="description" content="Ткани для кастомной спортивной формы TREKKI store: короткие карточки, фильтры и подробные описания с фото.">
+<title>Как выбрать ткань для формы — TREKKI store</title>
+<meta name="description" content="Понятный выбор тканей для кастомной формы TREKKI store: сценарии, фильтры, короткие рекомендации и подробные описания с фото.">
 <link rel="stylesheet" href="pages.css">
 </head>
 <body>
@@ -24,19 +24,160 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Инфостраница</span>
-      <h1>Ткани для формы</h1>
-      <p class="lead">Собрали дубли из двух описаний в одну страницу: сначала короткие карточки по задаче, ниже — полные описания с фото, составом и применением.</p>
+  <section class="hero fabric-hero">
+    <div class="wrap fabric-hero-grid">
+      <div>
+        <span class="eyebrow">Ткани без гадания</span>
+        <h1>Выберите ткань под задачу</h1>
+        <p class="lead">Страница помогает быстро понять, что брать для бега, игровой формы, командного мерча, жары или второго слоя. Сначала — короткий маршрут выбора, ниже — фото, состав и полные описания.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#selector">Подобрать по сценарию</a>
+          <a class="btn btn-outline" href="#short">Смотреть все ткани</a>
+        </div>
+        <div class="hero-proof" aria-label="Что есть на странице">
+          <span>11 тканей с фото</span>
+          <span>фильтр по задаче</span>
+          <span>полные описания</span>
+        </div>
+      </div>
+
+      <aside class="choice-panel" aria-label="Быстрый выбор ткани">
+        <span class="panel-label">Если нужно быстро</span>
+        <a class="choice-row" href="#fabric-coolmax">
+          <span>Бег, жара, высокий пульс</span>
+          <strong>Coolmax или Эльбрус</strong>
+        </a>
+        <a class="choice-row" href="#fabric-false-mesh">
+          <span>Игровая форма и тренировки</span>
+          <strong>Ложная сетка, Баклава, Жаккард</strong>
+        </a>
+        <a class="choice-row" href="#fabric-nika">
+          <span>Футболки, промо, командный мерч</span>
+          <strong>Ника, Прима, Интерлок</strong>
+        </a>
+        <a class="choice-row" href="#fabric-fleece">
+          <span>Прохлада и второй слой</span>
+          <strong>Флис</strong>
+        </a>
+      </aside>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section selector" id="selector">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Коротко по тканям</h2>
-        <p>Выберите сценарий или откройте полное описание. Карточки помогают быстро понять, какая ткань подходит для бега, игровой формы, жаркой погоды, тепла или мерча.</p>
+      <div class="section-head split-head">
+        <div>
+          <span class="kicker">Маршрут выбора</span>
+          <h2>Начните с того, где вещь будет жить</h2>
+        </div>
+        <p>Так проще не утонуть в названиях тканей: выберите сценарий, посмотрите 2–4 подходящих варианта, а затем откройте полное описание нужной ткани.</p>
+      </div>
+
+      <div class="scenario-grid">
+        <article class="scenario-card">
+          <span class="scenario-num">01</span>
+          <h3>Бег и жара</h3>
+          <p>Нужны влагоотведение, воздух и быстрый сухой финиш после нагрузки.</p>
+          <div class="scenario-picks">
+            <a href="#fabric-coolmax">Coolmax</a>
+            <a href="#fabric-elbrus">Эльбрус</a>
+            <a href="#fabric-false-mesh">Ложная сетка</a>
+          </div>
+          <a class="scenario-link" href="#short" data-filter-link="run">Показать подборку</a>
+        </article>
+
+        <article class="scenario-card">
+          <span class="scenario-num">02</span>
+          <h3>Игровая форма</h3>
+          <p>Главное — прочность, вентиляция, печать и понятная посадка для команды.</p>
+          <div class="scenario-picks">
+            <a href="#fabric-false-mesh">Ложная сетка</a>
+            <a href="#fabric-baklava">Баклава</a>
+            <a href="#fabric-jacquard">Жаккард Камо</a>
+          </div>
+          <a class="scenario-link" href="#short" data-filter-link="game">Показать подборку</a>
+        </article>
+
+        <article class="scenario-card">
+          <span class="scenario-num">03</span>
+          <h3>Мерч и футболки</h3>
+          <p>Когда изделие должно быть приятным, носибельным и хорошо держать принт.</p>
+          <div class="scenario-picks">
+            <a href="#fabric-nika">Ника</a>
+            <a href="#fabric-prima">Прима</a>
+            <a href="#fabric-interlock">Интерлок</a>
+          </div>
+          <a class="scenario-link" href="#short" data-filter-link="merch">Показать подборку</a>
+        </article>
+
+        <article class="scenario-card">
+          <span class="scenario-num">04</span>
+          <h3>Свобода движения</h3>
+          <p>Для танцев, фитнеса и активной посадки важны растяжимость и возврат формы.</p>
+          <div class="scenario-picks">
+            <a href="#fabric-biflex">Бифлекс</a>
+            <a href="#fabric-elbrus">Эльбрус</a>
+            <a href="#fabric-jersey-mesh">Джерси сетка</a>
+          </div>
+          <a class="scenario-link" href="#short" data-filter-link="stretch">Показать подборку</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section decision-section">
+    <div class="wrap">
+      <div class="decision-grid">
+        <div>
+          <span class="kicker">Быстрая матрица</span>
+          <h2>Что выбрать в первую очередь</h2>
+          <p>Это не заменяет финальный подбор под модель и тираж, но помогает быстро сузить выбор перед заявкой.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Задача</th>
+                <th>Сначала смотреть</th>
+                <th>Почему</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Задача">Жаркая погода и бег</td>
+                <td data-label="Сначала смотреть">Coolmax, Эльбрус</td>
+                <td data-label="Почему">Влага уходит быстрее, ткань легче переносит интенсивную нагрузку.</td>
+              </tr>
+              <tr>
+                <td data-label="Задача">Командная игровая форма</td>
+                <td data-label="Сначала смотреть">Ложная сетка, Баклава, Жаккард Камо</td>
+                <td data-label="Почему">Сетка, прочность, фактура и нормальная работа с сублимацией.</td>
+              </tr>
+              <tr>
+                <td data-label="Задача">Футболки и мерч</td>
+                <td data-label="Сначала смотреть">Ника, Прима, Интерлок</td>
+                <td data-label="Почему">Комфортнее к телу, проще носить часто, хорошо подходят под принт.</td>
+              </tr>
+              <tr>
+                <td data-label="Задача">Второй слой</td>
+                <td data-label="Сначала смотреть">Флис</td>
+                <td data-label="Почему">Тепло, лёгкость, быстрое высыхание и понятный формат для прохлады.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="short">
+    <div class="wrap">
+      <div class="section-head split-head">
+        <div>
+          <span class="kicker">Каталог тканей</span>
+          <h2>Все варианты в коротких карточках</h2>
+        </div>
+        <p>Фильтр убирает лишнее, а карточка ведёт к полному описанию с фото, составом, плотностью и применением.</p>
       </div>
       <div class="chips" id="fabFilter" aria-label="Фильтр тканей">
         <button class="chip active" data-f="all" type="button" aria-pressed="true">Все</button>
@@ -52,30 +193,36 @@
         <article class="fabric" data-cat="game merch sublimation">
           <figure><img src="assets/fabrics/nika-premium.jpg" alt="Белая ткань Ника премиум"></figure>
           <div class="fabric-body">
-            <span class="pill">База · сублимация</span>
+            <span class="pill">Командный мерч</span>
             <h3>Ника премиум</h3>
-            <p class="benefit">Мягкое полиэфирное полотно с пористой структурой для формы и командного мерча.</p>
-            <a class="fabric-go" href="#fabric-nika">Полное описание</a>
+            <p class="benefit">Мягкая база для формы, футболок и мерча, когда нужен яркий принт и комфортная носка.</p>
+            <div class="fabric-meta"><span>Лучше для</span><strong>футболок, промо и командной формы</strong></div>
+            <div class="fabric-tags"><span>135–140 г/м²</span><span>сублимация</span></div>
+            <a class="fabric-go" href="#fabric-nika">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="run mesh game sublimation">
           <figure><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ткани ложная сетка"></figure>
           <div class="fabric-body">
-            <span class="pill">Вентиляция</span>
+            <span class="pill">Игровая форма</span>
             <h3>Ложная сетка</h3>
             <p class="benefit">Ячеистая ткань для активной формы: быстро отдаёт влагу и хорошо пропускает воздух.</p>
-            <a class="fabric-go" href="#fabric-false-mesh">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>тренировок, футбола, баскетбола и хоккея</strong></div>
+            <div class="fabric-tags"><span>вентиляция</span><span>сублимация</span></div>
+            <a class="fabric-go" href="#fabric-false-mesh">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="game merch sublimation">
           <figure><img src="assets/fabrics/prima-microfiber.jpg" alt="Белая ткань Прима микрофибра"></figure>
           <div class="fabric-body">
-            <span class="pill">Мягкость</span>
+            <span class="pill">Мягкая база</span>
             <h3>Прима микрофибра</h3>
-            <p class="benefit">Гладкая, мягкая и износостойкая ткань из тонких микроволокон.</p>
-            <a class="fabric-go" href="#fabric-prima">Полное описание</a>
+            <p class="benefit">Гладкая, мягкая и износостойкая ткань из тонких микроволокон для чистой печати.</p>
+            <div class="fabric-meta"><span>Лучше для</span><strong>фанатского мерча, промо и футболок</strong></div>
+            <div class="fabric-tags"><span>135–140 г/м²</span><span>мягкость</span></div>
+            <a class="fabric-go" href="#fabric-prima">Смотреть описание</a>
           </div>
         </article>
 
@@ -84,18 +231,22 @@
           <div class="fabric-body">
             <span class="pill">Бег · жара</span>
             <h3>Coolmax</h3>
-            <p class="benefit">Быстро выводит влагу наружу и помогает сохранять комфорт в жаркую погоду.</p>
-            <a class="fabric-go" href="#fabric-coolmax">Полное описание</a>
+            <p class="benefit">Если форма должна быстро выводить влагу наружу и оставаться комфортной в жару.</p>
+            <div class="fabric-meta"><span>Лучше для</span><strong>бега, трейла и жаркой погоды</strong></div>
+            <div class="fabric-tags"><span>160 г/м²</span><span>лайкра</span></div>
+            <a class="fabric-go" href="#fabric-coolmax">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="stretch merch">
           <figure><img src="assets/fabrics/biflex.jpg" alt="Эластичная белая ткань Бифлекс"></figure>
           <div class="fabric-body">
-            <span class="pill">Максимально тянется</span>
+            <span class="pill">Свобода движения</span>
             <h3>Бифлекс</h3>
-            <p class="benefit">Эластичное трикотажное полотно для движения, танцев, фитнеса и облегающей формы.</p>
-            <a class="fabric-go" href="#fabric-biflex">Полное описание</a>
+            <p class="benefit">Эластичное полотно для посадки по телу, танцев, фитнеса и активного движения.</p>
+            <div class="fabric-meta"><span>Лучше для</span><strong>фитнеса, танцев и облегающих элементов</strong></div>
+            <div class="fabric-tags"><span>очень тянется</span><span>держит форму</span></div>
+            <a class="fabric-go" href="#fabric-biflex">Смотреть описание</a>
           </div>
         </article>
 
@@ -105,7 +256,9 @@
             <span class="pill">Лёгкая сетка</span>
             <h3>Эльбрус</h3>
             <p class="benefit">Лёгкая и дышащая ткань со сквозными ячейками, быстро сохнет и хорошо тянется.</p>
-            <a class="fabric-go" href="#fabric-elbrus">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>бега, тренировок и вентиляции</strong></div>
+            <div class="fabric-tags"><span>140 г/м²</span><span>сквозная сетка</span></div>
+            <a class="fabric-go" href="#fabric-elbrus">Смотреть описание</a>
           </div>
         </article>
 
@@ -115,47 +268,57 @@
             <span class="pill">Сетка плотнее</span>
             <h3>Джерси сетка</h3>
             <p class="benefit">Похожа на Эльбрус по назначению, но отличается плотностью и размером ячейки.</p>
-            <a class="fabric-go" href="#fabric-jersey-mesh">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>активной формы с более плотной фактурой</strong></div>
+            <div class="fabric-tags"><span>140–150 г/м²</span><span>эластичность</span></div>
+            <a class="fabric-go" href="#fabric-jersey-mesh">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="merch stretch sublimation">
           <figure><img src="assets/fabrics/interlock-supreme.jpg" alt="Ткань Интерлок суприм"></figure>
           <div class="fabric-body">
-            <span class="pill">Мягкий трикотаж</span>
+            <span class="pill">Премиальный трикотаж</span>
             <h3>Интерлок суприм</h3>
-            <p class="benefit">Плотный, мягкий и эластичный трикотаж с натуральной основой.</p>
-            <a class="fabric-go" href="#fabric-interlock">Полное описание</a>
+            <p class="benefit">Плотный, мягкий и эластичный трикотаж с натуральной основой для носибельного мерча.</p>
+            <div class="fabric-meta"><span>Лучше для</span><strong>мерча, футболок и базовых изделий</strong></div>
+            <div class="fabric-tags"><span>хлопок + ПЭ</span><span>мягкость</span></div>
+            <a class="fabric-go" href="#fabric-interlock">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="mesh game sublimation stretch">
           <figure><img src="assets/fabrics/jacquard-camo.jpg" alt="Ткань Жаккард Камо"></figure>
           <div class="fabric-body">
-            <span class="pill">Фактура 3D</span>
+            <span class="pill">Фактурная форма</span>
             <h3>Жаккард Камо</h3>
             <p class="benefit">Матовая жаккардовая сетка с камуфляжной фактурой для интенсивной спортивной формы.</p>
-            <a class="fabric-go" href="#fabric-jacquard">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>игровой формы и экипировки с фактурой</strong></div>
+            <div class="fabric-tags"><span>3D-рисунок</span><span>сублимация</span></div>
+            <a class="fabric-go" href="#fabric-jacquard">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="mesh game sublimation stretch">
           <figure><img src="assets/fabrics/baklava.jpg" alt="Фактура ткани Баклава"></figure>
           <div class="fabric-body">
-            <span class="pill">CoolPass</span>
+            <span class="pill">Плотная форма</span>
             <h3>Баклава</h3>
             <p class="benefit">Плотное ячеистое полотно, которое отводит влагу и остаётся прочным в активной носке.</p>
-            <a class="fabric-go" href="#fabric-baklava">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>баскетбола, футбола, хоккея и тренировок</strong></div>
+            <div class="fabric-tags"><span>CoolPass</span><span>плотная сетка</span></div>
+            <a class="fabric-go" href="#fabric-baklava">Смотреть описание</a>
           </div>
         </article>
 
         <article class="fabric" data-cat="warm merch sublimation">
           <figure><img src="assets/fabrics/fleece.jpg" alt="Белый флис"></figure>
           <div class="fabric-body">
-            <span class="pill">Тепло</span>
+            <span class="pill">Второй слой</span>
             <h3>Флис</h3>
             <p class="benefit">Мягкий, лёгкий и тёплый второй слой: быстро сохнет и сохраняет комфорт в прохладу.</p>
-            <a class="fabric-go" href="#fabric-fleece">Полное описание</a>
+            <div class="fabric-meta"><span>Лучше для</span><strong>флисок, межсезонья и прохладной погоды</strong></div>
+            <div class="fabric-tags"><span>тепло</span><span>быстро сохнет</span></div>
+            <a class="fabric-go" href="#fabric-fleece">Смотреть описание</a>
           </div>
         </article>
       </div>
@@ -438,19 +601,28 @@
 (function(){
   var chips=document.querySelectorAll('#fabFilter .chip');
   var fabrics=document.querySelectorAll('#fabGrid .fabric');
+  var filterLinks=document.querySelectorAll('[data-filter-link]');
+  function applyFilter(f){
+    chips.forEach(function(c){
+      var active=c.getAttribute('data-f')===f;
+      c.classList.toggle('active',active);
+      c.setAttribute('aria-pressed',active?'true':'false');
+    });
+    fabrics.forEach(function(card){
+      var cats=card.getAttribute('data-cat')||'';
+      card.style.display=(f==='all'||cats.indexOf(f)>-1)?'':'none';
+    });
+  }
   chips.forEach(function(chip){
     chip.addEventListener('click',function(){
-      chips.forEach(function(c){
-        c.classList.remove('active');
-        c.setAttribute('aria-pressed','false');
-      });
-      chip.classList.add('active');
-      chip.setAttribute('aria-pressed','true');
-      var f=chip.getAttribute('data-f');
-      fabrics.forEach(function(card){
-        var cats=card.getAttribute('data-cat')||'';
-        card.style.display=(f==='all'||cats.indexOf(f)>-1)?'':'none';
-      });
+      applyFilter(chip.getAttribute('data-f'));
+    });
+  });
+  filterLinks.forEach(function(link){
+    link.addEventListener('click',function(event){
+      event.preventDefault();
+      applyFilter(link.getAttribute('data-filter-link'));
+      document.getElementById('short').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 })();
