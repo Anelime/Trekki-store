@@ -222,6 +222,8 @@
   .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(20,17,15,.4);border-color:transparent}
   .card .ph{position:relative;aspect-ratio:1/1.04;overflow:hidden;background:linear-gradient(160deg,#fafafa,#f0eee9)}
   .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+  .card .ph.product-shot{background:linear-gradient(160deg,#fff,#f2eee7)}
+  .card .ph.product-shot img{object-fit:contain;padding:18px}
   .card:hover .ph img{transform:scale(1.05)}
   .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
   .card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:23px;font-weight:600;letter-spacing:.02em}
@@ -254,6 +256,8 @@
   .masonry{columns:3;column-gap:18px}
   .masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#ddd}
   .masonry img{width:100%;height:auto;transition:transform .8s var(--ease),filter .5s}
+  .masonry.product-examples figure{background:var(--white);border:1px solid var(--line)}
+  .masonry.product-examples img{display:block;background:var(--white)}
   .masonry figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 55%,rgba(20,17,15,.5));opacity:0;transition:opacity .4s}
   .masonry figcaption{display:none}
   .masonry figure:hover img{transform:scale(1.06)}
@@ -547,7 +551,7 @@
     </div>
     <div class="prod-grid">
       <article class="card" data-reveal>
-        <div class="ph"><img src="https://dev.erpssl.ru/trekki.store/3/assets/cat-5.jpg" alt="Кастомный лонгслив с горным принтом"></div>
+        <div class="ph product-shot"><img src="assets/merch/longsleeve-black-elbrus.jpg" alt="Чёрный кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy"></div>
         <div class="body">
           <h3>Лонгсливы</h3>
           <p class="desc">Длинный рукав для прохлады, защиты от солнца и активного движения в горах и на трейле.</p>
@@ -559,7 +563,7 @@
         </div>
       </article>
       <article class="card" data-reveal data-delay="1">
-        <div class="ph"><img src="https://dev.erpssl.ru/trekki.store/3/assets/cat-1.jpg" alt="Кастомная футболка для бегового клуба"></div>
+        <div class="ph product-shot"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy"></div>
         <div class="body">
           <h3>Футболки</h3>
           <p class="desc">Лёгкая база для забегов, тренировок и командного мерча. Дышит и держит цвет после стирок.</p>
@@ -571,7 +575,7 @@
         </div>
       </article>
       <article class="card" data-reveal data-delay="2">
-        <div class="ph"><img src="https://dev.erpssl.ru/trekki.store/3/assets/cat-6.jpg" alt="Кастомный баф с авторским принтом"></div>
+        <div class="ph product-shot"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy"></div>
         <div class="body">
           <h3>Бафы</h3>
           <p class="desc">Бесшовная труба для шеи, лица и головы — защита от ветра, солнца и холода в любой сезон.</p>
@@ -626,19 +630,19 @@
 <section class="section gal" id="gallery">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">В реальных условиях</span>
-      <h2 class="section-title display">Там, где это носят</h2>
-      <p class="section-intro">Горы, перевалы, реки и трейлы — среда, под которую мы и шьём. Форма должна работать здесь, а не только на вешалке.</p>
+      <span class="eyebrow">Примеры дизайнов</span>
+      <h2 class="section-title display">Как может выглядеть форма</h2>
+      <p class="section-intro">Несколько примеров изделий и принтов: лонгсливы, футболки и бафы. Такие фото помогают быстро понять формат, а конкретный дизайн собирается под вашу команду или событие.</p>
     </div>
-    <div class="masonry" id="masonry">
-      <figure data-reveal><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/3.jpg" alt="Человек на скале у ледника" loading="lazy"><figcaption>Высота</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/7.jpg" alt="Снежные вершины над степью" loading="lazy"><figcaption>Вершины</figcaption></figure>
-      <figure data-reveal data-delay="2"><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/1.jpg" alt="Подвесной мост над рекой" loading="lazy"><figcaption>Переправа</figcaption></figure>
-      <figure data-reveal><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/10.jpg" alt="Цветные горы Алтая" loading="lazy"><figcaption>Трейл</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/4.jpg" alt="Бирюзовое озеро в горах" loading="lazy"><figcaption>Перевал</figcaption></figure>
-      <figure data-reveal data-delay="2"><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/8.jpg" alt="Горная река и лес" loading="lazy"><figcaption>Маршрут</figcaption></figure>
-      <figure data-reveal><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/5.jpg" alt="Долина и серпантин" loading="lazy"><figcaption>Долина</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/11.jpg" alt="Река Катунь среди гор" loading="lazy"><figcaption>Река</figcaption></figure>
+    <div class="masonry product-examples" id="masonry">
+      <figure data-reveal><img src="assets/merch/longsleeve-black-elbrus.jpg" alt="Чёрный лонгслив Trekki с принтом Эльбрус" loading="lazy"><figcaption>Лонгслив</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy"><figcaption>Футболка</figcaption></figure>
+      <figure data-reveal data-delay="2"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом" loading="lazy"><figcaption>Баф</figcaption></figure>
+      <figure data-reveal><img src="assets/merch/longsleeve-white-elbrus.jpg" alt="Белый лонгслив Trekki с медицинским принтом Elbrus" loading="lazy"><figcaption>Белый лонгслив</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/merch/tshirt-black-elbrus.jpg" alt="Чёрная футболка Trekki с принтом Эльбрус" loading="lazy"><figcaption>Чёрная футболка</figcaption></figure>
+      <figure data-reveal data-delay="2"><img src="assets/merch/buff-blue-baikal.jpg" alt="Синий баф Trekki Baikal" loading="lazy"><figcaption>Баф Baikal</figcaption></figure>
+      <figure data-reveal><img src="assets/merch/tshirt-purple-running.jpg" alt="Белая и фиолетовая беговая футболка с принтом Бегущая скорость" loading="lazy"><figcaption>Беговая футболка</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/merch/longsleeve-8848-front.jpg" alt="Лонгслив 8848 с горным принтом" loading="lazy"><figcaption>Лонгслив 8848</figcaption></figure>
     </div>
   </div>
 </section>
