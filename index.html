@@ -7,7 +7,7 @@
 <meta name="description" content="Кастомные лонгсливы, футболки и бафы под ваш бренд. Собственный пошив, ткани под задачу, тираж от 5 штук — для трекинга, бега, команд и сообществ.">
 <meta property="og:title" content="Trekki Store — кастомная спортивная форма и мерч">
 <meta property="og:description" content="Спортивная форма для реального использования: трекинг, бег, трейл, танцы, команды и клубы. Свой пошив, ткани под задачу, тираж от 5 штук.">
-<meta property="og:image" content="https://dev.erpssl.ru/trekki.store/3/assets/gallery/2.jpg">
+<meta property="og:image" content="https://team-heroes-camp.github.io/trekki-store/assets/hero-elbrus.jpg">
 <meta name="theme-color" content="#14110f">
 <script>
   (function(){
@@ -178,7 +178,7 @@
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper);overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:0}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 18s var(--ease) forwards}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;animation:heroZoom 18s var(--ease) forwards}
   @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
   .hero-bg::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.18) 32%,rgba(20,17,15,.4) 62%,rgba(20,17,15,.88) 100%);}
@@ -407,6 +407,7 @@
     .hero-inner{padding-top:118px}
     .hero .lede{margin-top:20px}
     .hero-actions{margin-top:28px}
+    .hero-bg img{object-position:62% center}
     .scrollcue{display:none}
     .foot-nav{gap:34px}
   }
@@ -463,7 +464,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-bg">
-    <img src="https://dev.erpssl.ru/trekki.store/3/assets/gallery/2.jpg" alt="" role="presentation">
+    <img src="assets/hero-elbrus.jpg" alt="" role="presentation">
   </div>
   <div class="wrap hero-inner">
     <span class="eyebrow on-dark" data-reveal>Trekki Store · кастомный спортивный мерч</span>
