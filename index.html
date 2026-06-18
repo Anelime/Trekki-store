@@ -187,6 +187,13 @@
   .hero h1{font-size:clamp(44px,8.4vw,118px);max-width:14ch;margin:22px 0 0;text-shadow:0 2px 40px rgba(0,0,0,.35)}
   .hero .lede{margin-top:26px;max-width:54ch;font-size:clamp(16px,1.6vw,20px);color:rgba(247,245,241,.92);font-weight:400}
   .hero-actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero-products{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px}
+  .hero-product{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;min-width:0;padding:9px 12px 9px 9px;border:1px solid rgba(247,245,241,.2);border-radius:12px;background:rgba(20,17,15,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+  .hero-product:hover{transform:translateY(-2px);background:rgba(247,245,241,.1);border-color:rgba(247,245,241,.38)}
+  .hero-product-thumb{width:58px;height:58px;border-radius:10px;overflow:hidden;background:rgba(247,245,241,.92)}
+  .hero-product-thumb img{width:100%;height:100%;object-fit:contain;padding:6px}
+  .hero-product b{display:block;color:var(--paper);font-family:var(--main-font),sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.1}
+  .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.72);font-size:12px;line-height:1.25}
   .hero-tag{margin-top:34px;display:inline-flex;align-items:center;gap:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(247,245,241,.8)}
   .hero-tag::before{content:"";width:34px;height:1px;background:rgba(247,245,241,.55)}
   .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.7)}
@@ -346,13 +353,16 @@
   .contact-tag{margin-top:30px;font-size:13px;color:var(--muted-on-dark);font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.12em}
   form{background:var(--ink-2);border:1px solid var(--line-on-dark);border-radius:var(--r);padding:clamp(24px,3vw,38px)}
   form .fld{margin-bottom:18px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   form label{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-on-dark);margin-bottom:8px}
-  form input,form textarea{
+  form input,form textarea,form select{
     width:100%;background:rgba(247,245,241,.04);border:1px solid var(--line-on-dark);border-radius:11px;
     padding:14px 16px;color:var(--paper);font-family:inherit;font-size:16px;transition:border-color .3s,background .3s;
   }
+  form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted-on-dark) 50%),linear-gradient(135deg,var(--muted-on-dark) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
+  form select option{background:var(--ink-2);color:var(--paper)}
   form input::placeholder,form textarea::placeholder{color:rgba(169,163,154,.6)}
-  form input:focus,form textarea:focus{outline:none;border-color:var(--accent);background:rgba(247,245,241,.07)}
+  form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--accent);background-color:rgba(247,245,241,.07)}
   form textarea{resize:vertical;min-height:96px}
   form .btn{width:100%;margin-top:6px}
   form .hint{margin-top:14px;font-size:12.5px;color:var(--muted-on-dark);text-align:center}
@@ -418,7 +428,7 @@
     .burger{display:flex}
     .stmt-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
     .prod-grid,.fab-grid,.use-grid{grid-template-columns:1fr}
-    .guide-grid,.brief-list{grid-template-columns:1fr}
+    .guide-grid,.brief-list,.form-row{grid-template-columns:1fr}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
     .adv-item,.use-cell{border-right:none!important}
@@ -428,6 +438,11 @@
     .hero-inner{padding-top:118px}
     .hero .lede{margin-top:20px}
     .hero-actions{margin-top:28px}
+    .hero-products{grid-template-columns:repeat(3,1fr);gap:8px;max-width:none;margin-top:18px}
+    .hero-product{display:block;padding:8px;text-align:center}
+    .hero-product-thumb{width:100%;height:64px;margin-bottom:7px}
+    .hero-product b{font-size:12px}
+    .hero-product small{display:none}
     .hero-bg img{object-position:62% center}
     .scrollcue{display:none}
     .foot-nav{gap:34px}
@@ -492,7 +507,21 @@
     <p class="lede" data-reveal data-delay="2">Лонгсливы, футболки и бафы под ваш бренд. Собственный пошив, ткани под задачу и тираж от 5 штук — для трекинга, бега, команд и сообществ.</p>
     <div class="hero-actions" data-reveal data-delay="3">
       <a href="#contact" class="btn btn-light">Запросить расчёт <span class="arr">→</span></a>
-      <a href="#products" class="btn btn-ghost on-dark">Что можно сшить</a>
+      <a href="#products" class="btn btn-ghost on-dark">Смотреть форму и ткани</a>
+    </div>
+    <div class="hero-products" data-reveal data-delay="3" aria-label="Быстрый переход к изделиям">
+      <a class="hero-product" href="longsleeves.html">
+        <span class="hero-product-thumb"><img src="assets/merch/longsleeve-black-elbrus.jpg" alt=""></span>
+        <span><b>Лонгсливы</b><small>для гор, ветра и стартов</small></span>
+      </a>
+      <a class="hero-product" href="tshirts.html">
+        <span class="hero-product-thumb"><img src="assets/merch/tshirt-orange-tibet.jpg" alt=""></span>
+        <span><b>Футболки</b><small>для забегов и клубов</small></span>
+      </a>
+      <a class="hero-product" href="buffs.html">
+        <span class="hero-product-thumb"><img src="assets/merch/buff-orange-annapurna.jpg" alt=""></span>
+        <span><b>Бафы</b><small>в комплект к форме</small></span>
+      </a>
     </div>
     <div class="hero-tag" data-reveal data-delay="3">Рождено в горах. Протестировано на высоте</div>
   </div>
@@ -567,26 +596,30 @@
         </div>
       </article>
       <article class="card" data-reveal data-delay="1">
-        <div class="ph product-shot"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy"></div>
+        <a class="ph product-shot" href="tshirts.html" aria-label="Подробнее про футболки">
+          <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy">
+        </a>
         <div class="body">
           <h3>Футболки</h3>
           <p class="desc">Лёгкая база для забегов, тренировок и командного мерча. Дышит и держит цвет после стирок.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">DTF по задаче</span><span class="tag">Командный мерч</span></div>
           <div class="foot">
             <div class="card-meta"><span>ткань + принт</span><small>подбираем вместе</small></div>
-            <a href="#contact" class="go">Обсудить <span class="arr">→</span></a>
+            <a href="tshirts.html" class="go">Подробнее <span class="arr">→</span></a>
           </div>
         </div>
       </article>
       <article class="card" data-reveal data-delay="2">
-        <div class="ph product-shot"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy"></div>
+        <a class="ph product-shot" href="buffs.html" aria-label="Подробнее про бафы">
+          <img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy">
+        </a>
         <div class="body">
           <h3>Бафы</h3>
           <p class="desc">Бесшовная труба для шеи, лица и головы — защита от ветра, солнца и холода в любой сезон.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">Бесшовный</span><span class="tag">Комплектом</span></div>
           <div class="foot">
             <div class="card-meta"><span>формат под задачу</span><small>можно комплектом</small></div>
-            <a href="#contact" class="go">Обсудить <span class="arr">→</span></a>
+            <a href="buffs.html" class="go">Подробнее <span class="arr">→</span></a>
           </div>
         </div>
       </article>
@@ -603,7 +636,7 @@
     </div>
     <p class="prod-note" data-reveal>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
-      Это не магазин со штучной корзиной: по каждой задаче подбираем ткань, размерную сетку, принт и тираж. Готовые принты, медали и добор мерча лучше выносить в отдельные простые страницы, когда есть конкретная линейка.
+      Каждый заказ собирается через подбор: ткань, размерная сетка, принт и тираж зависят от задачи. А готовые принты, медали и добор мерча выносим в отдельную простую страницу для участников и команд.
     </p>
     <div class="info-links" data-reveal>
       <a class="info-link" href="sizes.html">
@@ -622,9 +655,9 @@
         <p>Сублимация, DTF и вышивка: где какой способ подходит, а где лучше не рисковать.</p>
       </a>
       <a class="info-link" href="future-items.html">
-        <span class="kicker">На перспективу</span>
-        <h3>Штучные изделия</h3>
-        <p>Место для принтов, медалей и добора мерча для тех, кто уже ходил с Trekki.</p>
+        <span class="kicker">Для своих</span>
+        <h3>Готовые принты и мерч</h3>
+        <p>Простая страница для принтов, медалей и добора мерча после поездки, старта или клубного события.</p>
       </a>
     </div>
   </div>
@@ -899,7 +932,7 @@
       <div class="faq" data-reveal>
         <details>
           <summary>Можно ли заказать одну штуку?</summary>
-          <p>Сейчас основной формат — тиражи от 5 штук. Штучные изделия, готовые принты и медали лучше вынести на отдельную страницу, когда появится понятная линейка.</p>
+          <p>Основной формат формы — тиражи от 5 штук. Для готовых принтов, медалей и добора мерча можно собрать отдельную простую страницу с понятным выбором для участников.</p>
         </details>
         <details>
           <summary>Если нет готового макета?</summary>
@@ -951,8 +984,45 @@
         <input id="f-contact" name="contact" type="text" placeholder="+7 ... или mail@..." required>
       </div>
       <div class="fld">
-        <label for="f-msg">Что нужно сшить</label>
-        <textarea id="f-msg" name="msg" placeholder="Например: 30 лонгсливов для бегового клуба, логотип есть, нужны к маю, доставка в Санкт-Петербург"></textarea>
+        <label for="f-product">Что нужно</label>
+        <select id="f-product" name="product" required>
+          <option value="">Выберите вариант</option>
+          <option>Лонгсливы</option>
+          <option>Футболки</option>
+          <option>Бафы</option>
+          <option>Комплект формы</option>
+          <option>Готовые принты, медали или мерч</option>
+          <option>Другое / пока не знаю</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="fld">
+          <label for="f-quantity">Тираж</label>
+          <input id="f-quantity" name="quantity" type="text" placeholder="Например: 15 или 20-30">
+        </div>
+        <div class="fld">
+          <label for="f-date">К какой дате</label>
+          <input id="f-date" name="date" type="text" placeholder="Например: к 15 мая">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fld">
+          <label for="f-city">Город доставки</label>
+          <input id="f-city" name="city" type="text" placeholder="Санкт-Петербург">
+        </div>
+        <div class="fld">
+          <label for="f-design">Логотип или макет</label>
+          <select id="f-design" name="design">
+            <option>Логотип / макет есть</option>
+            <option>Есть идея, макета нет</option>
+            <option>Нужна помощь с макетом</option>
+            <option>Пока не знаю</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld">
+        <label for="f-msg">Комментарий</label>
+        <textarea id="f-msg" name="msg" placeholder="Например: для бегового клуба, нужна лёгкая ткань, хочется принт с маршрутом и логотипом команды"></textarea>
       </div>
       <button type="submit" class="btn btn-light">Отправить заявку <span class="arr">→</span></button>
       <p class="hint">Кнопка откроет рабочий мессенджер с готовой заявкой — останется нажать «отправить». Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>
@@ -976,6 +1046,8 @@
           <a href="#print">Принты</a>
           <a href="sizes.html">Размеры</a>
           <a href="longsleeves.html">Лонгсливы</a>
+          <a href="tshirts.html">Футболки</a>
+          <a href="buffs.html">Бафы</a>
           <a href="#brief">Перед заявкой</a>
           <a href="#process">Как заказать</a>
         </div>
@@ -1077,8 +1149,23 @@
     e.preventDefault();
     var name=(document.getElementById('f-name').value||'').trim();
     var contact=(document.getElementById('f-contact').value||'').trim();
+    var product=(document.getElementById('f-product').value||'').trim();
+    var quantity=(document.getElementById('f-quantity').value||'').trim();
+    var date=(document.getElementById('f-date').value||'').trim();
+    var city=(document.getElementById('f-city').value||'').trim();
+    var design=(document.getElementById('f-design').value||'').trim();
     var msg=(document.getElementById('f-msg').value||'').trim();
-    var text='Здравствуйте! Заявка с сайта Trekki Store.\nИмя: '+name+'\nКонтакт: '+contact+'\nЧто нужно сшить: '+msg;
+    var text=[
+      'Здравствуйте! Заявка с сайта Trekki Store.',
+      'Имя: '+name,
+      'Контакт: '+contact,
+      'Что нужно: '+product,
+      'Тираж: '+(quantity||'не указан'),
+      'К какой дате: '+(date||'не указано'),
+      'Город доставки: '+(city||'не указан'),
+      'Логотип / макет: '+design,
+      'Комментарий: '+(msg||'нет')
+    ].join('\n');
     window.open('https://wa.me/79219526410?text='+encodeURIComponent(text),'_blank');
   });
 })();
