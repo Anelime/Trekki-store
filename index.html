@@ -276,11 +276,19 @@
   .masonry figcaption{display:none}
   .masonry figure:hover img{transform:scale(1.06)}
   .masonry figure:hover::after{opacity:1}
+  .trip-showcase{margin-top:42px;padding-top:36px;border-top:1px solid var(--line)}
+  .trip-showcase .section-head{margin-bottom:24px}
+  .trip-strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .trip-card{position:relative;min-height:300px;border-radius:12px;overflow:hidden;background:var(--ink);scroll-snap-align:start}
+  .trip-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .4s var(--ease)}
+  .trip-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 38%,rgba(20,17,15,.76) 100%)}
+  .trip-card figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:var(--paper);font-size:15px;font-weight:700;line-height:1.25}
+  .trip-card:hover img{transform:scale(1.05);filter:saturate(1.06)}
 
   /* ---------- Printing ---------- */
-  .print{background:var(--paper-2)}
+  .print{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .method-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;min-height:340px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
+  .method-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;min-height:340px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
   .method-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
   .method-card .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
   .method-card h3{margin-top:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:24px;font-weight:700;line-height:1.08}
@@ -338,14 +346,14 @@
   .price-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
 
   /* ---------- Order guide ---------- */
-  .guide{background:var(--paper)}
+  .guide{background:var(--white)}
   .guide-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(34px,5vw,74px);align-items:start}
   .brief-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .brief-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px}
+  .brief-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px}
   .brief-card .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--main-font),sans-serif;font-size:12px;font-weight:700;margin-bottom:18px}
   .brief-card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:18px;font-weight:700;line-height:1.1}
   .brief-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
-  .faq{margin-top:16px;background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .faq{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
   .faq details{border-top:1px solid var(--line)}
   .faq details:first-child{border-top:none}
   .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 24px;font-family:var(--main-font),sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
@@ -506,6 +514,7 @@
   <a href="#process">Как заказать</a>
   <a href="#contact">Контакты</a>
   <div class="mm-foot">
+    <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a><br>
     <a href="tel:+79219526410">+7 921 952 64 10</a><br>
     <a href="mailto:mail@vkspb.info">mail@vkspb.info</a>
   </div>
@@ -654,7 +663,7 @@
     </div>
     <p class="prod-note" data-reveal>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
-      Каждый заказ собирается через подбор: ткань, размерная сетка, принт и тираж зависят от задачи. Для готовых принтов, медалей и добора мерча есть отдельная простая страница для участников и команд.
+      Каждый заказ собирается через подбор: ткань, размерная сетка, принт и тираж зависят от задачи. Для готовых принтов, медалей и добора мерча можно собрать короткую подборку для участников и команд.
     </p>
     <div class="info-links" data-reveal>
       <a class="info-link" href="sizes.html">
@@ -675,7 +684,7 @@
       <a class="info-link" href="future-items.html">
         <span class="kicker">Для своих</span>
         <h3>Готовые принты и мерч</h3>
-        <p>Простая страница для принтов, медалей и добора мерча после поездки, старта или клубного события.</p>
+        <p>Собираем короткую подборку вещей под ваше событие: принты, медали, бафы и мерч, который участникам легко выбрать.</p>
       </a>
     </div>
   </div>
@@ -699,6 +708,31 @@
       <figure data-reveal><img src="assets/merch/buff-northern-lights.jpg" alt="Тёмный баф Trekki с северным сиянием" loading="lazy"><figcaption>Баф Север</figcaption></figure>
       <figure data-reveal data-delay="1"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом Tibet" loading="lazy"><figcaption>Футболка Tibet</figcaption></figure>
     </div>
+    <div class="trip-showcase" data-reveal>
+      <div class="section-head">
+        <span class="eyebrow">В поездках</span>
+        <h2 class="section-title display">Форма живёт<br>в реальных маршрутах</h2>
+        <p class="section-intro">Добавили кадры из походов и командных выездов: они разбавляют товарные фото и показывают, что мерч работает не только на белом фоне.</p>
+      </div>
+      <div class="trip-strip" aria-label="Фото из поездок Trekki">
+        <figure class="trip-card">
+          <img src="assets/trips/trip-team-elbrus.jpg" alt="Команда Trekki в горах на фоне Эльбруса" loading="lazy">
+          <figcaption>Команда на маршруте: форма сразу считывается в группе</figcaption>
+        </figure>
+        <figure class="trip-card">
+          <img src="assets/trips/trip-team-flag.jpg" alt="Группа Trekki с флагом на горном маршруте" loading="lazy">
+          <figcaption>Событие, маршрут, флаг и мерч собираются в одну историю</figcaption>
+        </figure>
+        <figure class="trip-card">
+          <img src="assets/trips/trip-team-merch.jpg" alt="Участники Trekki в брендированной форме у указателя" loading="lazy">
+          <figcaption>Участникам проще выбрать вещь, когда видно живой контекст</figcaption>
+        </figure>
+        <figure class="trip-card">
+          <img src="assets/trips/trip-runner-mountain.jpg" alt="Участник Trekki в футболке на фоне гор" loading="lazy">
+          <figcaption>Футболка или лонгслив остаются частью поездки после финиша</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -708,32 +742,33 @@
     <div class="section-head" data-reveal>
       <span class="eyebrow">Ткани</span>
       <h2 class="section-title display">Качественный материал<br>под задачу</h2>
-      <p class="section-intro">Не нужно выбирать ткань по названию. Начинаем с того, где форму будут носить: трекинг, жара, бег, активная нагрузка, мерч, бафы или свобода движения.</p>
+      <p class="section-intro">Не нужно выбирать ткань по названию. Начинаем с того, где форму будут носить: трекинг, жара, бег, активная нагрузка, бафы, хлопковый мерч или свобода движения.</p>
     </div>
     <div class="fab-filter" id="fabFilter" data-reveal>
       <button class="chip active" data-f="all" aria-pressed="true">Все</button>
-      <button class="chip" data-f="run" aria-pressed="false">Трекинг и бег</button>
-      <button class="chip" data-f="game" aria-pressed="false">Активная форма</button>
-      <button class="chip" data-f="merch" aria-pressed="false">Мерч</button>
-      <button class="chip" data-f="warm" aria-pressed="false">Бафы и тепло</button>
+      <button class="chip" data-f="trekking" aria-pressed="false">Трекинг</button>
+      <button class="chip" data-f="run" aria-pressed="false">Бег и жара</button>
+      <button class="chip" data-f="active" aria-pressed="false">Активная форма</button>
+      <button class="chip" data-f="buff" aria-pressed="false">Бафы</button>
+      <button class="chip" data-f="cotton" aria-pressed="false">Хлопок / мерч</button>
       <button class="chip" data-f="stretch" aria-pressed="false">Тянется</button>
     </div>
     <div class="fab-grid" id="fabGrid">
 
-      <article class="fab" data-cat="run heat sublimation" data-reveal>
-        <span class="pill">Бег · Жара</span>
+      <article class="fab" data-cat="trekking run heat stretch sublimation" data-reveal>
+        <span class="pill">Трекинг · бег · жара</span>
         <span class="en">CoolMax</span>
         <h3>Кулмакс</h3>
-        <p class="benefit">Быстро выводит влагу наружу и помогает сохранять комфорт на забеге или тренировке в жаркую погоду.</p>
+        <p class="benefit">Быстро выводит влагу наружу, хорошо тянется за счёт лайкры и помогает сохранять комфорт на жарком маршруте.</p>
         <div class="specs">
           <div class="spec"><span>Состав</span><b>95% Coolmax, 5% лайкра</b></div>
           <div class="spec"><span>Плотность</span><b>160 г/м²</b></div>
-          <div class="spec full"><span>Подходит</span><b>Бег, трейл, жара · сублимация</b></div>
+          <div class="spec full"><span>Подходит</span><b>Трекинг, бег, жара · сублимация</b></div>
         </div>
       </article>
 
-      <article class="fab" data-cat="run merch sublimation" data-reveal data-delay="1">
-        <span class="pill">Трекинг · мерч</span>
+      <article class="fab" data-cat="trekking run merch sublimation" data-reveal data-delay="1">
+        <span class="pill">Трекинг · футболки</span>
         <span class="en">Nika Premium</span>
         <h3>Ника премиум</h3>
         <p class="benefit">Мягкая полиэфирная база для трекинга, футболок и командного мерча, когда нужен яркий полноцветный принт.</p>
@@ -744,7 +779,7 @@
         </div>
       </article>
 
-      <article class="fab" data-cat="run game mesh sublimation" data-reveal data-delay="2">
+      <article class="fab" data-cat="run active mesh sublimation" data-reveal data-delay="2">
         <span class="pill">Вентиляция</span>
         <span class="en">False Mesh</span>
         <h3>Ложная сетка</h3>
@@ -756,7 +791,7 @@
         </div>
       </article>
 
-      <article class="fab" data-cat="stretch merch" data-reveal>
+      <article class="fab" data-cat="active stretch" data-reveal>
         <span class="pill">Тянется</span>
         <span class="en">Bi-flex</span>
         <h3>Бифлекс</h3>
@@ -768,8 +803,8 @@
         </div>
       </article>
 
-      <article class="fab" data-cat="merch stretch" data-reveal data-delay="1">
-        <span class="pill">Мягкий трикотаж</span>
+      <article class="fab" data-cat="cotton merch stretch" data-reveal data-delay="1">
+        <span class="pill">Хлопок · мерч</span>
         <span class="en">Interlock Supreme</span>
         <h3>Интерлок</h3>
         <p class="benefit">Плотный и мягкий трикотаж с натуральной основой для носибельного мерча и базовых изделий.</p>
@@ -780,7 +815,7 @@
         </div>
       </article>
 
-      <article class="fab" data-cat="warm sublimation" data-reveal data-delay="2">
+      <article class="fab" data-cat="buff warm sublimation" data-reveal data-delay="2">
         <span class="pill">Бафы · тепло</span>
         <span class="en">Fleece</span>
         <h3>Флис</h3>
@@ -922,7 +957,7 @@
     <div class="section-head" data-reveal>
       <span class="eyebrow">Расчёт</span>
       <h2 class="section-title display">Что влияет<br>на цену</h2>
-      <p class="section-intro">Точную стоимость считаем под задачу, но логика простая: цена зависит не от одного принта, а от всего набора решений.</p>
+      <p class="section-intro">Точную стоимость считаем под задачу, но логика понятная: цена зависит не от одного принта, а от всего набора решений.</p>
     </div>
     <div class="price-grid">
       <article class="price-card" data-reveal>
@@ -933,7 +968,7 @@
       <article class="price-card" data-reveal data-delay="1">
         <span class="kicker">02</span>
         <h3>Ткань</h3>
-        <p>Плотность, состав, эластичность и фактура влияют на стоимость и подбираются под сценарий: жара, старт, мерч или премиальная форма.</p>
+        <p>Плотность, состав, эластичность и фактура влияют на стоимость и подбираются под сценарий: жара, старт, мерч, бафы или выразительная форма.</p>
       </article>
       <article class="price-card" data-reveal data-delay="2">
         <span class="kicker">03</span>
@@ -993,7 +1028,7 @@
       <div class="faq" data-reveal>
         <details>
           <summary>Можно ли заказать одну штуку?</summary>
-          <p>Основной формат формы — тиражи от 5 штук. Для готовых принтов, медалей и добора мерча можно собрать отдельную простую страницу с понятным выбором для участников.</p>
+          <p>Основной формат формы — тиражи от 5 штук. Для готовых принтов, медалей и добора мерча можно собрать короткую подборку с понятным выбором для участников.</p>
         </details>
         <details>
           <summary>Если нет готового макета?</summary>
@@ -1114,8 +1149,10 @@
         </div>
         <div class="foot-col">
           <h4>Контакты</h4>
+          <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a>
           <a href="tel:+79219526410">+7 921 952 64 10</a>
           <a href="mailto:mail@vkspb.info">mail@vkspb.info</a>
+          <span>Логотипы и макеты можно прислать в Telegram</span>
           <span>Доставка по России и СНГ</span>
           <span>Тираж от 5 штук</span>
         </div>
