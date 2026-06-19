@@ -95,6 +95,22 @@ h1{max-width:850px;margin-top:18px;font-size:clamp(38px,7vw,74px);font-weight:80
 .measure-visual img{display:block;width:100%;height:auto}
 .measure-list{display:grid;gap:14px}
 .size-table table{min-width:760px}
+.size-helper{display:grid;grid-template-columns:minmax(260px,.46fr) minmax(0,1fr);gap:18px;align-items:center;margin:-8px 0 22px;padding:22px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.size-helper h3{font-size:clamp(20px,3vw,29px);font-weight:800;text-transform:uppercase;line-height:1.08}
+.size-helper p{color:var(--muted);font-size:16px;line-height:1.55}
+.matrix-wrap{overflow:auto;-webkit-overflow-scrolling:touch}
+.matrix-table{border-collapse:separate;border-spacing:0}
+.size-table .matrix-table{min-width:1160px}
+.matrix-table caption{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.matrix-table th,.matrix-table td{padding:16px 18px;text-align:center;white-space:nowrap}
+.matrix-table th{color:var(--ink);font-size:14px;text-transform:none;letter-spacing:0}
+.matrix-table th:first-child{position:sticky;left:0;z-index:2;width:214px;min-width:214px;background:#eef1f5;text-align:left;box-shadow:1px 0 0 var(--line)}
+.matrix-table th span{display:block;color:var(--ink);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;line-height:1.15}
+.matrix-table th small{display:block;margin-top:4px;color:#66717a;font-size:12px;font-weight:500;letter-spacing:0;line-height:1.25}
+.matrix-table td{font-size:16px;font-weight:600;color:var(--ink)}
+.matrix-table tbody tr:nth-child(even) td{background:rgba(239,236,229,.54)}
+.matrix-table tbody tr:nth-child(even) th:first-child{background:#e8ecf1}
+.matrix-table tbody tr:last-child th{border-bottom:none}
 .production-table{margin-top:24px}
 .source-note{margin-top:18px;color:var(--muted);font-size:14px}
 
@@ -162,6 +178,7 @@ footer{padding:38px 0;background:#0c0a09;color:rgba(247,245,241,.74);font-size:1
   .product-showcase{grid-template-columns:1fr;grid-template-rows:auto}
   .product-photo,.product-photo.featured{grid-row:auto;min-height:320px}
   .measure-grid{grid-template-columns:1fr}
+  .size-helper{grid-template-columns:1fr}
   .fabric-detail{grid-template-columns:1fr}
   .detail-specs,.feature-list{grid-template-columns:1fr}
   .cta{display:block}
@@ -185,5 +202,14 @@ footer{padding:38px 0;background:#0c0a09;color:rgba(247,245,241,.74);font-size:1
   td::before{content:attr(data-label);color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
   tr:last-child td{border-bottom:1px solid var(--line)}
   td:last-child{border-bottom:none}
+  .matrix-wrap{overflow:auto;border:1px solid var(--line);background:var(--white)}
+  .size-table .matrix-table{display:table;min-width:920px}
+  .matrix-table tbody{display:table-row-group}
+  .matrix-table tr{display:table-row;background:transparent;border:0;border-radius:0;overflow:visible}
+  .matrix-table th,.matrix-table td{display:table-cell;padding:13px 12px;border-bottom:1px solid var(--line);font-size:14px}
+  .matrix-table td{gap:0}
+  .matrix-table td::before{content:none}
+  .matrix-table th:first-child{width:170px;min-width:170px}
+  .matrix-table tr:last-child th,.matrix-table tr:last-child td{border-bottom:none}
   .fabric-body{padding:20px}
 }
