@@ -234,11 +234,16 @@
   .card .ph.product-shot{background:linear-gradient(160deg,#fff,#f2eee7)}
   .card .ph.product-shot img{object-fit:contain;padding:18px}
   .card:hover .ph img{transform:scale(1.05)}
+  .product-card{scroll-margin-top:110px}
+  .product-card:target{border-color:rgba(234,90,6,.65);box-shadow:0 28px 56px -30px rgba(234,90,6,.55)}
   .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
   .card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:23px;font-weight:600;letter-spacing:.02em}
   .card .desc{margin-top:9px;color:var(--muted);font-size:15px;flex:1}
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
   .tag{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 11px}
+  .size-link{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.42}
+  .size-link a{color:var(--accent);font-weight:700}
+  .size-link a:hover{text-decoration:underline;text-underline-offset:3px}
   .card .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
   .card-meta{font-family:var(--main-font),sans-serif;font-weight:600;font-size:18px;letter-spacing:.01em;line-height:1.05}
   .card-meta span{white-space:nowrap}
@@ -480,9 +485,8 @@
     </a>
     <nav class="nav-links" aria-label="Основная навигация">
       <a href="#products">Что шьём</a>
-      <a href="fabrics.html">Ткани</a>
-      <a href="printing.html">Принты</a>
-      <a href="sizes.html">Размеры</a>
+      <a href="#fabrics">Ткани</a>
+      <a href="#print">Принты</a>
       <a href="#process">Как заказать</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -497,9 +501,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#products">Что шьём</a>
-  <a href="fabrics.html">Ткани</a>
-  <a href="printing.html">Принты</a>
-  <a href="sizes.html">Размеры</a>
+  <a href="#fabrics">Ткани</a>
+  <a href="#print">Принты</a>
   <a href="#process">Как заказать</a>
   <a href="#contact">Контакты</a>
   <div class="mm-foot">
@@ -522,15 +525,15 @@
       <a href="#products" class="btn btn-ghost on-dark">Смотреть форму и ткани</a>
     </div>
     <div class="hero-products" data-reveal data-delay="3" aria-label="Быстрый переход к изделиям">
-      <a class="hero-product" href="longsleeves.html">
+      <a class="hero-product" href="#product-longsleeves">
         <span class="hero-product-thumb"><img src="assets/merch/longsleeve-black-elbrus.jpg" alt=""></span>
         <span><b>Лонгсливы</b><small>для гор, ветра и стартов</small></span>
       </a>
-      <a class="hero-product" href="tshirts.html">
+      <a class="hero-product" href="#product-tshirts">
         <span class="hero-product-thumb"><img src="assets/merch/tshirt-orange-tibet.jpg" alt=""></span>
         <span><b>Футболки</b><small>для забегов и клубов</small></span>
       </a>
-      <a class="hero-product" href="buffs.html">
+      <a class="hero-product" href="#product-buffs">
         <span class="hero-product-thumb"><img src="assets/merch/buff-orange-annapurna.jpg" alt=""></span>
         <span><b>Бафы</b><small>в комплект к форме</small></span>
       </a>
@@ -593,7 +596,7 @@
       <p class="section-intro">Главный продукт — кастомная спортивная форма и мерч для команд, клубов, забегов, походов и мероприятий. Вы смотрите возможности, а расчёт собирается под конкретную задачу.</p>
     </div>
     <div class="prod-grid">
-      <article class="card" data-reveal>
+      <article class="card product-card" id="product-longsleeves" data-reveal>
         <a class="ph product-shot" href="longsleeves.html" aria-label="Подробнее про лонгсливы">
           <img src="assets/merch/longsleeve-black-elbrus.jpg" alt="Чёрный кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy">
         </a>
@@ -601,13 +604,14 @@
           <h3>Лонгсливы</h3>
           <p class="desc">Длинный рукав для прохлады, защиты от солнца и активного движения в горах и на трейле.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">Длинный рукав</span><span class="tag">Размеры под заказ</span></div>
+          <p class="size-link">Чтобы выбрать посадку, откройте <a href="sizes.html#longsleeves">размеры лонгсливов</a> и сравните A, B и рукав.</p>
           <div class="foot">
             <div class="card-meta"><span>тираж от 5</span><small>расчёт после брифа</small></div>
             <a href="longsleeves.html" class="go">Подробнее <span class="arr">→</span></a>
           </div>
         </div>
       </article>
-      <article class="card" data-reveal data-delay="1">
+      <article class="card product-card" id="product-tshirts" data-reveal data-delay="1">
         <a class="ph product-shot" href="tshirts.html" aria-label="Подробнее про футболки">
           <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy">
         </a>
@@ -615,13 +619,14 @@
           <h3>Футболки</h3>
           <p class="desc">Лёгкая база для забегов, тренировок и командного мерча. Дышит и держит цвет после стирок.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">DTF по задаче</span><span class="tag">Командный мерч</span></div>
+          <p class="size-link">Перед заявкой удобно открыть <a href="sizes.html#tshirts">размеры футболок</a> и выбрать колонку по своей посадке.</p>
           <div class="foot">
             <div class="card-meta"><span>ткань + принт</span><small>подбираем вместе</small></div>
             <a href="tshirts.html" class="go">Подробнее <span class="arr">→</span></a>
           </div>
         </div>
       </article>
-      <article class="card" data-reveal data-delay="2">
+      <article class="card product-card" id="product-buffs" data-reveal data-delay="2">
         <a class="ph product-shot" href="buffs.html" aria-label="Подробнее про бафы">
           <img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy">
         </a>
@@ -629,6 +634,7 @@
           <h3>Бафы</h3>
           <p class="desc">Бесшовная труба для шеи, лица и головы — защита от ветра, солнца и холода в любой сезон.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">Бесшовный</span><span class="tag">Комплектом</span></div>
+          <p class="size-link">У бафов меньше размерных вопросов, но можно заранее <a href="sizes.html#buffs">посмотреть форматы</a>.</p>
           <div class="foot">
             <div class="card-meta"><span>формат под задачу</span><small>можно комплектом</small></div>
             <a href="buffs.html" class="go">Подробнее <span class="arr">→</span></a>
