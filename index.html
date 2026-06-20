@@ -137,7 +137,7 @@
   .hero-products{grid-column:1;margin-top:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px}
   .hero-product{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;min-width:0;padding:9px 12px 9px 9px;border:1px solid rgba(247,245,241,.2);border-radius:12px;background:rgba(20,17,15,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
   .hero-product:hover{transform:translateY(-2px);background:rgba(247,245,241,.1);border-color:rgba(247,245,241,.38)}
-  .hero-product-thumb{width:58px;height:58px;border-radius:10px;overflow:hidden;background:rgba(247,245,241,.92)}
+  .hero-product-thumb{width:58px;height:58px;border-radius:10px;overflow:hidden;background:rgba(247,245,241,.12)}
   .hero-product-thumb img{width:100%;height:100%;object-fit:contain;padding:6px}
   .hero-product b{display:block;color:var(--paper);font-family:var(--main-font),sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.1}
   .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.82);font-size:12px;line-height:1.25}
@@ -146,8 +146,10 @@
   .hero-collage{position:relative;min-height:clamp(430px,46vw,650px)}
   .hero-collage::before{content:"";position:absolute;inset:9% -5% 6% 10%;border:1px solid rgba(247,245,241,.22);border-radius:26px;background:rgba(20,17,15,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:rotate(-2deg)}
   .hero-collage::after{content:"форма прошла маршрут";position:absolute;right:4%;top:7%;z-index:4;border:1px solid rgba(234,90,6,.7);border-radius:999px;padding:9px 12px;color:var(--paper);background:rgba(234,90,6,.82);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em;box-shadow:0 18px 36px -26px rgba(0,0,0,.8)}
-  .collage-card{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,245,241,.22);border-radius:18px;background:rgba(247,245,241,.95);box-shadow:0 32px 70px -42px rgba(0,0,0,.9);overflow:hidden}
+  .collage-card{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,245,241,.22);border-radius:18px;background:rgba(20,17,15,.16);box-shadow:0 32px 70px -42px rgba(0,0,0,.9);overflow:hidden}
   .collage-card img{width:100%;height:100%;object-fit:contain;padding:18px}
+  .collage-card:not(.collage-live){background:transparent;border-color:transparent;box-shadow:none;overflow:visible}
+  .collage-card:not(.collage-live) img{filter:drop-shadow(0 24px 34px rgba(0,0,0,.42));padding:0}
   .collage-long{left:7%;bottom:3%;width:58%;height:74%;transform:rotate(-5deg)}
   .collage-tee{right:2%;bottom:17%;width:44%;height:52%;transform:rotate(5deg)}
   .collage-buff{right:16%;top:4%;width:34%;height:31%;transform:rotate(-8deg)}
@@ -630,28 +632,28 @@
         <img src="assets/trips/trip-two-girls-mountain.jpg" alt="Участницы Trekki в форме на фоне гор" width="2000" height="1333" decoding="async">
       </figure>
       <figure class="collage-card collage-long">
-        <img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Кастомный лонгслив Trekki с принтом Эльбрус" width="1400" height="1400" decoding="async">
+        <img src="assets/merch/hero-longsleeve-transparent.png" alt="Кастомный лонгслив Trekki с принтом Эльбрус" width="1400" height="1400" decoding="async">
       </figure>
       <figure class="collage-card collage-tee">
-        <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Кастомная футболка Trekki с принтом Tibet" width="1028" height="1400" decoding="async">
+        <img src="assets/merch/hero-tshirt-transparent.png" alt="Кастомная футболка Trekki с принтом Tibet" width="1028" height="1400" decoding="async">
       </figure>
       <figure class="collage-card collage-buff">
-        <img src="assets/merch/buff-orange-annapurna.jpg" alt="Кастомный баф Trekki с принтом Annapurna" width="1400" height="1400" decoding="async">
+        <img src="assets/merch/hero-buff-transparent.png" alt="Кастомный баф Trekki с принтом Annapurna" width="1400" height="1400" decoding="async">
       </figure>
       <div class="collage-stamp" aria-hidden="true"><span>tested</span><strong>5642</strong><span>elbrus</span></div>
       <div class="collage-meta" aria-hidden="true"><b>Annapurna · Elbrus · Trekki</b><span>лонгслив + футболка + баф под событие</span></div>
     </aside>
     <div class="hero-products" aria-label="Быстрый переход к изделиям">
       <a class="hero-product" href="#product-longsleeves">
-        <span class="hero-product-thumb"><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="" width="1400" height="1400" decoding="async"></span>
+        <span class="hero-product-thumb"><img src="assets/merch/hero-longsleeve-transparent.png" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Лонгсливы</b><small>для гор, ветра и стартов</small></span>
       </a>
       <a class="hero-product" href="#product-tshirts">
-        <span class="hero-product-thumb"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="" width="1028" height="1400" decoding="async"></span>
+        <span class="hero-product-thumb"><img src="assets/merch/hero-tshirt-transparent.png" alt="" width="1028" height="1400" decoding="async"></span>
         <span><b>Футболки</b><small>для забегов и клубов</small></span>
       </a>
       <a class="hero-product" href="#product-buffs">
-        <span class="hero-product-thumb"><img src="assets/merch/buff-orange-annapurna.jpg" alt="" width="1400" height="1400" decoding="async"></span>
+        <span class="hero-product-thumb"><img src="assets/merch/hero-buff-transparent.png" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Бафы</b><small>в комплект к форме</small></span>
       </a>
     </div>
