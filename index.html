@@ -145,14 +145,14 @@
   .hero-tag::before{content:"";width:34px;height:1px;background:rgba(247,245,241,.55)}
   .hero-collage{position:relative;min-height:clamp(430px,46vw,650px)}
   .hero-collage::before{content:"";position:absolute;inset:9% -5% 6% 10%;border:1px solid rgba(247,245,241,.22);border-radius:26px;background:rgba(20,17,15,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:rotate(-2deg)}
-  .hero-collage::after{content:"форма прошла маршрут";position:absolute;right:4%;top:7%;z-index:4;border:1px solid rgba(234,90,6,.7);border-radius:999px;padding:9px 12px;color:var(--paper);background:rgba(234,90,6,.82);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em;box-shadow:0 18px 36px -26px rgba(0,0,0,.8)}
+  .hero-collage::after{content:"форма прошла маршрут";position:absolute;right:2%;top:1%;z-index:5;border:1px solid rgba(234,90,6,.7);border-radius:999px;padding:9px 12px;color:var(--paper);background:rgba(234,90,6,.86);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em;box-shadow:0 18px 36px -26px rgba(0,0,0,.8)}
   .collage-card{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,245,241,.22);border-radius:18px;background:rgba(20,17,15,.16);box-shadow:0 32px 70px -42px rgba(0,0,0,.9);overflow:hidden}
   .collage-card img{width:100%;height:100%;object-fit:contain;padding:18px}
   .collage-card:not(.collage-live){background:transparent;border-color:transparent;box-shadow:none;overflow:visible}
   .collage-card:not(.collage-live) img{filter:drop-shadow(0 24px 34px rgba(0,0,0,.42));padding:0}
   .collage-long{left:7%;bottom:3%;width:58%;height:74%;transform:rotate(-5deg)}
   .collage-tee{right:2%;bottom:17%;width:44%;height:52%;transform:rotate(5deg)}
-  .collage-buff{right:16%;top:4%;width:34%;height:31%;transform:rotate(-8deg)}
+  .collage-buff{right:17%;top:11%;width:30%;height:27%;transform:rotate(-8deg)}
   .collage-live{left:0;top:11%;width:34%;height:28%;padding:0;background:var(--ink)}
   .collage-live img{object-fit:cover;padding:0}
   .collage-stamp{position:absolute;left:4%;bottom:4%;z-index:4;display:grid;gap:3px;width:132px;height:132px;place-content:center;border:2px solid rgba(247,245,241,.72);border-radius:50%;color:var(--paper);background:rgba(20,17,15,.62);text-align:center;text-transform:uppercase;letter-spacing:.1em;transform:rotate(-11deg)}
@@ -201,8 +201,8 @@
   a.ph{display:block}
   a.ph:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-  .card .ph.product-shot{background:linear-gradient(160deg,#fff,#f2eee7)}
-  .card .ph.product-shot img{object-fit:contain;padding:18px}
+  .card .ph.product-shot{background:radial-gradient(circle at 42% 32%,rgba(247,245,241,.38),rgba(224,218,207,.74) 58%,rgba(196,187,171,.42) 100%)}
+  .card .ph.product-shot img{object-fit:contain;padding:18px;filter:drop-shadow(0 18px 26px rgba(20,17,15,.18))}
   .card:hover .ph img{transform:scale(1.05)}
   .product-card{scroll-margin-top:110px}
   .product-card:target{border-color:rgba(234,90,6,.65);box-shadow:0 28px 56px -30px rgba(234,90,6,.55)}
@@ -245,8 +245,8 @@
   .masonry{columns:3;column-gap:18px}
   .masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#ddd}
   .masonry img{width:100%;height:auto;transition:transform .8s var(--ease),filter .5s}
-  .masonry.product-examples figure{background:var(--white);border:1px solid var(--line)}
-  .masonry.product-examples img{display:block;background:var(--white)}
+  .masonry.product-examples figure{background:rgba(239,236,229,.46);border:1px solid var(--line)}
+  .masonry.product-examples img{display:block;background:transparent}
   .masonry figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 55%,rgba(20,17,15,.5));opacity:0;transition:opacity .4s}
   .masonry figcaption{display:none}
   .masonry figure:hover img{transform:scale(1.06)}
@@ -263,8 +263,8 @@
   .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .case-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--white);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);cursor:zoom-in}
   .case-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -34px rgba(20,17,15,.45);border-color:transparent}
-  .case-photo{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(160deg,#fff,#f1eee8);overflow:hidden}
-  .case-photo img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .55s var(--ease)}
+  .case-photo{aspect-ratio:1/1;display:grid;place-items:center;background:radial-gradient(circle at 45% 30%,rgba(247,245,241,.38),rgba(224,218,207,.74) 58%,rgba(196,187,171,.42) 100%);overflow:hidden}
+  .case-photo img{width:100%;height:100%;object-fit:contain;padding:18px;filter:drop-shadow(0 16px 24px rgba(20,17,15,.16));transition:transform .55s var(--ease)}
   .case-card:hover .case-photo img{transform:scale(1.04)}
   .case-card figcaption{display:grid;gap:8px;padding:18px 18px 20px}
   .case-label{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
@@ -521,11 +521,12 @@
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
     .hero-collage{min-height:310px;margin-top:30px}
+    .hero-collage::after{left:0;right:auto;top:1%}
     .collage-card{border-radius:14px}
     .collage-card img{padding:10px}
     .collage-long{left:3%;bottom:2%;width:58%;height:72%}
     .collage-tee{right:0;bottom:14%;width:44%;height:48%}
-    .collage-buff{right:12%;top:3%;width:32%;height:29%}
+    .collage-buff{right:11%;top:12%;width:30%;height:27%}
     .collage-live{left:0;top:8%;width:36%;height:27%}
     .collage-stamp{width:94px;height:94px;left:3%;bottom:3%}
     .collage-stamp strong{font-size:15px}
@@ -723,7 +724,7 @@
     <div class="prod-grid">
       <article class="card product-card" id="product-longsleeves" data-reveal>
         <a class="ph product-shot" href="longsleeves.html" aria-label="Подробнее про лонгсливы">
-          <img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async">
+          <img src="assets/merch/hero-longsleeve-transparent.png" alt="Белый кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Лонгсливы</h3>
@@ -738,7 +739,7 @@
       </article>
       <article class="card product-card" id="product-tshirts" data-reveal data-delay="1">
         <a class="ph product-shot" href="tshirts.html" aria-label="Подробнее про футболки">
-          <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy" width="1028" height="1400" decoding="async">
+          <img src="assets/merch/hero-tshirt-transparent.png" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy" width="1028" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Футболки</h3>
@@ -753,7 +754,7 @@
       </article>
       <article class="card product-card" id="product-buffs" data-reveal data-delay="2">
         <a class="ph product-shot" href="buffs.html" aria-label="Подробнее про бафы">
-          <img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy" width="1400" height="1400" decoding="async">
+          <img src="assets/merch/hero-buff-transparent.png" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy" width="1400" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Бафы</h3>
@@ -913,7 +914,7 @@
     </div>
     <div class="case-grid product-examples" id="masonry">
       <figure class="case-card" data-reveal>
-        <div class="case-photo"><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/hero-longsleeve-transparent.png" alt="Белый лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async"></div>
         <figcaption>
           <span class="case-label">Лонгсливы для походной группы</span>
           <strong>30–40 штук · сублимация · размеры S–XXL</strong>
@@ -921,7 +922,7 @@
         </figcaption>
       </figure>
       <figure class="case-card" data-reveal data-delay="1">
-        <div class="case-photo"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy" width="1028" height="1400" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/hero-tshirt-transparent.png" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy" width="1028" height="1400" decoding="async"></div>
         <figcaption>
           <span class="case-label">Футболки для старта или клуба</span>
           <strong>от 5 штук · лёгкая ткань · яркий принт</strong>
@@ -929,7 +930,7 @@
         </figcaption>
       </figure>
       <figure class="case-card" data-reveal data-delay="2">
-        <div class="case-photo"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/hero-buff-transparent.png" alt="Оранжевый баф Trekki с горным принтом" loading="lazy" width="1400" height="1400" decoding="async"></div>
         <figcaption>
           <span class="case-label">Бафы для маршрута</span>
           <strong>40 бафов · сублимация · доставка СДЭК</strong>
@@ -937,7 +938,7 @@
         </figcaption>
       </figure>
       <figure class="case-card" data-reveal>
-        <div class="case-photo"><img src="assets/merch/longsleeve-8848-front.jpg" alt="Лонгслив 8848 с горным принтом" loading="lazy" width="1280" height="1280" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/longsleeve-8848-transparent.png" alt="Лонгслив 8848 с горным принтом" loading="lazy" width="1280" height="1280" decoding="async"></div>
         <figcaption>
           <span class="case-label">Лонгслив под вершину или маршрут</span>
           <strong>маршрутная графика · логотипы · длинный рукав</strong>
@@ -945,7 +946,7 @@
         </figcaption>
       </figure>
       <figure class="case-card" data-reveal data-delay="1">
-        <div class="case-photo"><img src="assets/merch/buff-blue-baikal.jpg" alt="Синий баф Trekki Baikal" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/buff-blue-baikal-transparent.png" alt="Синий баф Trekki Baikal" loading="lazy" width="1400" height="1400" decoding="async"></div>
         <figcaption>
           <span class="case-label">Баф в комплект к форме</span>
           <strong>одна графика · разные изделия · без сложной размерной сетки</strong>
@@ -953,7 +954,7 @@
         </figcaption>
       </figure>
       <figure class="case-card" data-reveal data-delay="2">
-        <div class="case-photo"><img src="assets/merch/buff-northern-lights.jpg" alt="Тёмный баф Trekki с северным сиянием" loading="lazy" width="1280" height="1280" decoding="async"></div>
+        <div class="case-photo"><img src="assets/merch/buff-northern-lights-transparent.png" alt="Тёмный баф Trekki с северным сиянием" loading="lazy" width="1280" height="1280" decoding="async"></div>
         <figcaption>
           <span class="case-label">Мерч под поездку</span>
           <strong>готовый принт · баф или футболка · короткая подборка</strong>
