@@ -8,11 +8,12 @@
 <link rel="icon" href="assets/trekki-emblem-dark.png">
 <link rel="stylesheet" href="pages.css">
 </head>
-<body>
+<body data-form-product="Подбор ткани / материала" data-form-context-label="Страница" data-form-comment="Нужен подбор ткани под задачу. Хочу понять материал, способ печати, тираж и сроки." data-form-cta="Подобрать ткань и принт">
+<a class="skip-link" href="#main">Пропустить к содержимому</a>
 <header class="page-header">
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="TREKKI store">
-      <span class="mark" aria-hidden="true"><img src="assets/trekki-emblem-dark.png" alt=""></span>
+      <span class="mark" aria-hidden="true"><img src="assets/trekki-emblem-dark.png" alt="" width="718" height="718" decoding="async"></span>
       <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
     </a>
     <nav class="top-links" aria-label="Навигация">
@@ -21,12 +22,12 @@
       <a href="printing.html">Принты</a>
       <a href="sizes.html">Размеры</a>
       <a href="#contact">Контакты</a>
-      <a class="nav-cta" href="#contact">Обсудить заказ</a>
+      <a class="nav-cta" href="#contact">Подобрать ткань</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero fabric-hero">
     <div class="wrap fabric-hero-grid">
       <div>
@@ -34,38 +35,40 @@
         <h1>Выберите ткань под задачу</h1>
         <p class="lead">Страница помогает быстро понять, что брать для трекинга, бега, активной формы, хлопкового мерча или тёплых бафов. Сначала — короткий маршрут выбора, ниже — фото, состав и полные описания.</p>
         <div class="hero-actions">
-          <a class="btn" href="#selector">Подобрать по сценарию</a>
+          <a class="btn" href="#selector">Подобрать ткань по сценарию</a>
           <a class="btn btn-outline" href="#short">Смотреть все ткани</a>
         </div>
         <div class="hero-proof" aria-label="Что есть на странице">
-          <span>11 тканей с фото</span>
+          <span>фактуры тканей</span>
           <span>фильтр по задаче</span>
           <span>полные описания</span>
         </div>
       </div>
 
-      <aside class="choice-panel" aria-label="Быстрый выбор ткани">
-        <span class="panel-label">Если нужно быстро</span>
-        <a class="choice-row" href="#fabric-coolmax">
-          <span>Трекинг и бег в жару</span>
-          <strong>Coolmax или Эльбрус</strong>
-        </a>
-        <a class="choice-row" href="#fabric-false-mesh">
-          <span>Активная форма и тренировки</span>
-          <strong>Ложная сетка, Баклава, Жаккард</strong>
-        </a>
-        <a class="choice-row" href="#fabric-nika">
-          <span>Стартовые футболки и промо</span>
-          <strong>Ника, Прима, Интерлок</strong>
-        </a>
-        <a class="choice-row" href="#fabric-fleece">
-          <span>Тёплые бафы для прохлады</span>
-          <strong>Флис</strong>
-        </a>
-        <a class="choice-row" href="#fabric-kulirka">
-          <span>Хлопковый мерч</span>
-          <strong>Интерлок или кулирка</strong>
-        </a>
+      <aside class="fabric-swatch-panel" aria-label="Фактуры тканей">
+        <span class="panel-label">Фактуры и ощущения</span>
+        <div class="swatch-grid">
+          <a class="swatch-card swatch-large" href="#fabric-coolmax">
+            <img src="assets/fabrics/coolmax.jpg" alt="Фактура ткани Coolmax" width="279" height="279" decoding="async">
+            <span>Coolmax · тянется и быстро сохнет</span>
+          </a>
+          <a class="swatch-card" href="#fabric-false-mesh">
+            <img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ложной сетки" width="800" height="600" decoding="async">
+            <span>Ложная сетка</span>
+          </a>
+          <a class="swatch-card" href="#fabric-jacquard">
+            <img src="assets/fabrics/jacquard-camo.jpg" alt="Фактура Жаккард Камо" width="720" height="1280" decoding="async">
+            <span>Жаккард Камо</span>
+          </a>
+          <a class="swatch-card" href="#fabric-interlock">
+            <img src="assets/fabrics/interlock-supreme.jpg" alt="Фактура Интерлок суприм" width="720" height="1280" decoding="async">
+            <span>Интерлок</span>
+          </a>
+          <a class="swatch-card" href="#fabric-fleece">
+            <img src="assets/fabrics/fleece.jpg" alt="Фактура флиса" width="376" height="376" decoding="async">
+            <span>Флис</span>
+          </a>
+        </div>
       </aside>
     </div>
   </section>
@@ -201,7 +204,7 @@
 
       <div class="fabric-grid" id="fabGrid">
         <a class="fabric" data-cat="sport trekking merch sublimation" href="#fabric-nika">
-          <figure><img src="assets/fabrics/nika-premium.jpg" alt="Белая ткань Ника премиум"></figure>
+          <figure><img src="assets/fabrics/nika-premium.jpg" alt="Белая ткань Ника премиум" width="800" height="600" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Трекинг · мерч</span>
             <h3>Ника премиум</h3>
@@ -213,7 +216,7 @@
         </a>
 
         <a class="fabric" data-cat="sport heat mesh stretch sublimation" href="#fabric-false-mesh">
-          <figure><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ткани ложная сетка"></figure>
+          <figure><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ткани ложная сетка" width="800" height="600" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Активная форма</span>
             <h3>Ложная сетка</h3>
@@ -225,7 +228,7 @@
         </a>
 
         <a class="fabric" data-cat="sport merch sublimation" href="#fabric-prima">
-          <figure><img src="assets/fabrics/prima-microfiber.jpg" alt="Белая ткань Прима микрофибра"></figure>
+          <figure><img src="assets/fabrics/prima-microfiber.jpg" alt="Белая ткань Прима микрофибра" width="376" height="376" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Мягкая база</span>
             <h3>Прима микрофибра</h3>
@@ -237,7 +240,7 @@
         </a>
 
         <a class="fabric" data-cat="sport trekking heat stretch sublimation" href="#fabric-coolmax">
-          <figure><img src="assets/fabrics/coolmax.jpg" alt="Белая ткань Coolmax"></figure>
+          <figure><img src="assets/fabrics/coolmax.jpg" alt="Белая ткань Coolmax" width="279" height="279" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Бег · жара</span>
             <h3>Coolmax</h3>
@@ -249,7 +252,7 @@
         </a>
 
         <a class="fabric" data-cat="sport stretch" href="#fabric-biflex">
-          <figure><img src="assets/fabrics/biflex.jpg" alt="Эластичная белая ткань Бифлекс"></figure>
+          <figure><img src="assets/fabrics/biflex.jpg" alt="Эластичная белая ткань Бифлекс" width="361" height="361" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Свобода движения</span>
             <h3>Бифлекс</h3>
@@ -261,7 +264,7 @@
         </a>
 
         <a class="fabric" data-cat="sport heat mesh stretch" href="#fabric-elbrus">
-          <figure><img src="assets/fabrics/elbrus.jpg" alt="Ткань Эльбрус"></figure>
+          <figure><img src="assets/fabrics/elbrus.jpg" alt="Ткань Эльбрус" width="720" height="1280" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Лёгкая сетка</span>
             <h3>Эльбрус</h3>
@@ -273,7 +276,7 @@
         </a>
 
         <a class="fabric" data-cat="sport mesh stretch" href="#fabric-jersey-mesh">
-          <figure><img src="assets/fabrics/jersey-setka.jpg" alt="Фактура ткани джерси сетка"></figure>
+          <figure><img src="assets/fabrics/jersey-setka.jpg" alt="Фактура ткани джерси сетка" width="720" height="612" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Сетка плотнее</span>
             <h3>Джерси сетка</h3>
@@ -285,7 +288,7 @@
         </a>
 
         <a class="fabric" data-cat="cotton merch stretch" href="#fabric-interlock">
-          <figure><img src="assets/fabrics/interlock-supreme.jpg" alt="Ткань Интерлок суприм"></figure>
+          <figure><img src="assets/fabrics/interlock-supreme.jpg" alt="Ткань Интерлок суприм" width="720" height="1280" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Хлопок · мерч</span>
             <h3>Интерлок суприм</h3>
@@ -297,7 +300,7 @@
         </a>
 
         <a class="fabric" data-cat="sport mesh stretch sublimation texture" href="#fabric-jacquard">
-          <figure><img src="assets/fabrics/jacquard-camo.jpg" alt="Ткань Жаккард Камо"></figure>
+          <figure><img src="assets/fabrics/jacquard-camo.jpg" alt="Ткань Жаккард Камо" width="720" height="1280" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Фактурная форма</span>
             <h3>Жаккард Камо</h3>
@@ -309,7 +312,7 @@
         </a>
 
         <a class="fabric" data-cat="sport mesh stretch sublimation texture" href="#fabric-baklava">
-          <figure><img src="assets/fabrics/baklava.jpg" alt="Фактура ткани Баклава"></figure>
+          <figure><img src="assets/fabrics/baklava.jpg" alt="Фактура ткани Баклава" width="720" height="1280" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Плотная форма</span>
             <h3>Баклава</h3>
@@ -321,7 +324,7 @@
         </a>
 
         <a class="fabric" data-cat="warm sublimation" href="#fabric-fleece">
-          <figure><img src="assets/fabrics/fleece.jpg" alt="Белый флис"></figure>
+          <figure><img src="assets/fabrics/fleece.jpg" alt="Белый флис" width="376" height="376" decoding="async" loading="lazy"></figure>
           <div class="fabric-body">
             <span class="pill">Бафы · тепло</span>
             <h3>Флис</h3>
@@ -355,7 +358,7 @@
       </div>
 
       <article class="fabric-detail" id="fabric-nika">
-        <figure class="detail-photo"><img src="assets/fabrics/nika-premium.jpg" alt="Фото ткани Ника премиум"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/nika-premium.jpg" alt="Фото ткани Ника премиум" width="800" height="600" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Ника премиум</h3>
           <p>Полиэфирное трикотажное полотно с пористой несквозной структурой. Ткань средней растяжимости, мягкая, комфортная в носке и хорошо подходит для трекинга, футболок и командного мерча.</p>
@@ -376,7 +379,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-false-mesh">
-        <figure class="detail-photo"><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фото ткани Ложная сетка"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фото ткани Ложная сетка" width="800" height="600" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Ложная сетка</h3>
           <p>Ячеистая полиэфирная ткань с хорошей растяжимостью. Структура помогает воздуху проходить через полотно, а влаге — быстро испаряться во время интенсивного движения.</p>
@@ -397,7 +400,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-prima">
-        <figure class="detail-photo"><img src="assets/fabrics/prima-microfiber.jpg" alt="Фото ткани Прима микрофибра"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/prima-microfiber.jpg" alt="Фото ткани Прима микрофибра" width="376" height="376" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Прима микрофибра</h3>
           <p>Полиэфирное трикотажное полотно интерлочного переплетения, сотканное из тонких микроволокон. Материал гладкий, мягкий, приятный на ощупь, хорошо тянется и не деформируется.</p>
@@ -418,7 +421,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-coolmax">
-        <figure class="detail-photo"><img src="assets/fabrics/coolmax.jpg" alt="Фото ткани Coolmax"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/coolmax.jpg" alt="Фото ткани Coolmax" width="279" height="279" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Coolmax / Кулмакс стрейч</h3>
           <p>Трикотажное полотно со структурой волокон, которая быстро забирает влагу с тела и переносит её наружу для испарения. По ощущениям близко к мягкому хлопку, но лучше держит форму и быстрее сохнет.</p>
@@ -440,7 +443,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-biflex">
-        <figure class="detail-photo"><img src="assets/fabrics/biflex.jpg" alt="Фото ткани Бифлекс"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/biflex.jpg" alt="Фото ткани Бифлекс" width="361" height="361" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Бифлекс</h3>
           <p>Материал, который может растягиваться в несколько раз больше обычного размера. Его удобно рассматривать для изделий, где ткань должна работать вместе с телом и не сковывать движение.</p>
@@ -461,7 +464,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-elbrus">
-        <figure class="detail-photo"><img src="assets/fabrics/elbrus.jpg" alt="Фото ткани Эльбрус"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/elbrus.jpg" alt="Фото ткани Эльбрус" width="720" height="1280" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Эльбрус</h3>
           <p>Лёгкая дышащая ткань со сквозными ячейками. Быстро сохнет, хорошо проветривается и остаётся очень эластичной.</p>
@@ -482,7 +485,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-jersey-mesh">
-        <figure class="detail-photo"><img src="assets/fabrics/jersey-setka.jpg" alt="Фото ткани Джерси сетка"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/jersey-setka.jpg" alt="Фото ткани Джерси сетка" width="720" height="612" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Джерси сетка</h3>
           <p>Сетчатая ткань, близкая по назначению к Эльбрусу, но отличающаяся плотностью и размером ячейки. Хорошо подходит для спортивных изделий, где нужна вентиляция и эластичность.</p>
@@ -503,7 +506,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-interlock">
-        <figure class="detail-photo"><img src="assets/fabrics/interlock-supreme.jpg" alt="Фото ткани Интерлок суприм"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/interlock-supreme.jpg" alt="Фото ткани Интерлок суприм" width="720" height="1280" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Интерлок суприм</h3>
           <p>Плотный, мягкий и эластичный трикотаж премиального качества с гладкой поверхностью с обеих сторон. Мягче и эластичнее обычного полиэстера, при этом сохраняет свойства натуральной основы.</p>
@@ -524,7 +527,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-jacquard">
-        <figure class="detail-photo"><img src="assets/fabrics/jacquard-camo.jpg" alt="Фото ткани Жаккард Камо"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/jacquard-camo.jpg" alt="Фото ткани Жаккард Камо" width="720" height="1280" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Жаккард Камо</h3>
           <p>Трикотажное матовое полотно с двухсторонним жаккардовым плетением и камуфляжной фактурой. Ячеистая структура помогает вентиляции и отведению влаги.</p>
@@ -545,7 +548,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-baklava">
-        <figure class="detail-photo"><img src="assets/fabrics/baklava.jpg" alt="Фото ткани Баклава"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/baklava.jpg" alt="Фото ткани Баклава" width="720" height="1280" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Баклава</h3>
           <p>Полиэфирное трикотажное полотно несквозной ячеистой структуры, произведённое по технологии CoolPass. Отводит влагу от тела и помогает сохранять сухость во время движения.</p>
@@ -566,7 +569,7 @@
       </article>
 
       <article class="fabric-detail" id="fabric-fleece">
-        <figure class="detail-photo"><img src="assets/fabrics/fleece.jpg" alt="Фото ткани Флис"></figure>
+        <figure class="detail-photo"><img src="assets/fabrics/fleece.jpg" alt="Фото ткани Флис" width="376" height="376" decoding="async" loading="lazy"></figure>
         <div class="detail-copy">
           <h3>Флис</h3>
           <p>Мягкий на ощупь материал с хорошими теплоизоляционными свойствами. В ткани не накапливается влага, она быстро сохнет и остаётся сухой и тёплой даже при повышенной влажности.</p>
@@ -616,129 +619,18 @@
           <h2>Нужно выбрать ткань под задачу?</h2>
           <p>Можно начать с активности и условий: жара, ветер, рюкзак, бег, танцы или командный мерч. Мы поможем сузить выбор.</p>
         </div>
-        <a class="btn" href="#contact">Обсудить заказ</a>
+        <a class="btn" href="#contact">Подобрать ткань и принт</a>
       </div>
     </div>
   </section>
-  <section class="section contact" id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <span class="eyebrow on-dark">Связаться</span>
-        <h2 class="section-title display">Обсудим<br>ваш заказ</h2>
-        <p class="lead">Напишите или позвоните — поможем выбрать ткань, способ для принта, размерную сетку и реалистичный формат тиража.</p>
-        <div class="contact-methods">
-          <a href="https://t.me/vkspb" target="_blank" rel="noopener" class="cm">
-            <span class="cm-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 3.5 2.8 10.7c-1 .4-1 1.8.1 2.1l4.7 1.4 1.8 5.6c.3 1 1.6 1.2 2.2.4l2.7-3.4 4.9 3.6c.8.6 1.9.1 2.1-.9l2.7-14.7c.2-1-.8-1.7-1.7-1.3Z"/><path d="m7.7 14.1 8.8-5.4-6.8 7.2"/></svg></span>
-            <span><small>Telegram — быстрее всего</small><b>@vkspb</b></span>
-          </a>
-          <a href="tel:+79219526410" class="cm">
-            <span class="cm-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-            <span><small>Телефон</small><b>+7 921 952 64 10</b></span>
-          </a>
-          <a href="mailto:mail@vkspb.info" class="cm">
-            <span class="cm-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
-            <span><small>Почта</small><b>mail@vkspb.info</b></span>
-          </a>
-        </div>
-        <div class="contact-tag">Доставка по России и СНГ · СДЭК по договорённости · Тираж от 5 штук</div>
-      </div>
-      <form id="orderForm">
-        <div class="fld">
-          <label for="f-name">Как к вам обращаться</label>
-          <input id="f-name" name="name" type="text" placeholder="Имя" required>
-        </div>
-        <div class="fld">
-          <label for="f-contact">Телефон или email</label>
-          <input id="f-contact" name="contact" type="text" placeholder="+7 или mail@" required>
-        </div>
-        <div class="fld">
-          <label for="f-product">Что нужно</label>
-          <select id="f-product" name="product" required>
-            <option value="">Выберите вариант</option>
-            <option>Лонгсливы</option>
-            <option>Футболки</option>
-            <option>Бафы</option>
-            <option>Комплект формы</option>
-            <option>Готовые принты, медали или мерч</option>
-            <option>Другое / пока не знаю</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="fld">
-            <label for="f-quantity">Тираж</label>
-            <input id="f-quantity" name="quantity" type="text" placeholder="15 или 20-30">
-          </div>
-          <div class="fld">
-            <label for="f-date">К какой дате</label>
-            <input id="f-date" name="date" type="text" placeholder="к 15 мая">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="fld">
-            <label for="f-city">Город доставки</label>
-            <input id="f-city" name="city" type="text" placeholder="Санкт-Петербург">
-          </div>
-          <div class="fld">
-            <label for="f-design">Логотип или макет</label>
-            <select id="f-design" name="design">
-              <option>Макет есть</option>
-              <option>Есть идея</option>
-              <option>Нужна помощь</option>
-              <option>Пока не знаю</option>
-            </select>
-          </div>
-        </div>
-        <div class="fld">
-          <label for="f-msg">Комментарий</label>
-          <textarea id="f-msg" name="msg" placeholder="Например: для бегового клуба, нужна лёгкая ткань, хочется принт с маршрутом и логотипом команды"></textarea>
-        </div>
-        <button type="submit" class="btn btn-light">Отправить в Telegram <span class="arr">→</span></button>
-        <p class="hint">Кнопка скопирует текст заявки и откроет Telegram @vkspb — останется вставить текст и нажать «отправить». Можно и позвонить: <a href="tel:+79219526410">+7 921 952 64 10</a>.</p>
-      </form>
-    </div>
-  </section>
+<div data-component="contact"></div>
 
 </main>
 
 
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="wordmark"><strong>TREKKI</strong><span>store</span></div>
-        <p>Кастомная спортивная форма и мерч под ваш бренд. Рождено в горах, протестировано на высоте.</p>
-      </div>
-      <div class="foot-nav">
-        <div class="foot-col">
-          <h4>Разделы</h4>
-          <a href="index.html#products">Что шьём</a>
-          <a href="fabrics.html">Ткани</a>
-          <a href="printing.html">Принты</a>
-          <a href="sizes.html">Размеры</a>
-          <a href="longsleeves.html">Лонгсливы</a>
-          <a href="tshirts.html">Футболки</a>
-          <a href="buffs.html">Бафы</a>
-          <a href="future-items.html">Готовый мерч</a>
-          <a href="#contact">Контакты</a>
-        </div>
-        <div class="foot-col">
-          <h4>Контакты</h4>
-          <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a>
-          <a href="tel:+79219526410">+7 921 952 64 10</a>
-          <a href="mailto:mail@vkspb.info">mail@vkspb.info</a>
-          <span>Логотипы и макеты можно прислать в Telegram</span>
-          <span>Доставка по России и СНГ</span>
-          <span>Тираж от 5 штук</span>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bot">
-      <span>© 2026 Trekki Store. «Trekki» — зарегистрированный товарный знак.</span>
-      <span>Спортивная форма · мерч · аксессуары</span>
-    </div>
-  </div>
-</footer>
+<div data-component="footer"></div>
 
+<script src="site-components.js"></script>
 <script>
 (function(){
   var chips=document.querySelectorAll('#fabFilter .chip');
@@ -767,6 +659,20 @@
       document.getElementById('short').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
+  function setFabricContextFromHash(){
+    if(!window.TrekkiForm||!location.hash||location.hash.indexOf('#fabric-')!==0) return;
+    var target=document.querySelector(location.hash);
+    var title=target&&target.querySelector('h3');
+    if(title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+  }
+  document.querySelectorAll('a[href^="#fabric-"]').forEach(function(link){
+    link.addEventListener('click',function(){
+      var title=document.querySelector(link.getAttribute('href')+' h3');
+      if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+    });
+  });
+  window.addEventListener('hashchange',setFabricContextFromHash);
+  setFabricContextFromHash();
 })();
 </script>
 <script src="contact.js"></script>

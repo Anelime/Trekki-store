@@ -10,67 +10,6 @@
 <meta property="og:image" content="https://team-heroes-camp.github.io/trekki-store/assets/hero-elbrus.jpg">
 <link rel="icon" href="assets/trekki-emblem-dark.png">
 <meta name="theme-color" content="#14110f">
-<script>
-  (function(){
-    var shouldHoldTop = window.location.hash === '#process';
-    if (!shouldHoldTop) return;
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    var cleanUrl = window.location.pathname + window.location.search;
-    var dropHash = function(){
-      if (window.location.hash) history.replaceState(null, document.title, cleanUrl);
-    };
-    document.documentElement.style.scrollBehavior = 'auto';
-    dropHash();
-    var locked = true;
-    var topTimer = null;
-    var forceTop = function(){
-      if (!locked) return;
-      dropHash();
-      document.documentElement.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-    };
-    var releaseTopLock = function(){
-      locked = false;
-      if (topTimer) clearInterval(topTimer);
-      document.documentElement.style.scrollBehavior = '';
-    };
-    window.trekkiReleaseTopLock = releaseTopLock;
-    var stopOnIntent = function(event){
-      if (event.type === 'keydown' && !/^( |Space|PageDown|PageUp|ArrowDown|ArrowUp|Home|End)$/.test(event.key)) return;
-      releaseTopLock();
-    };
-    ['wheel','touchstart','pointerdown'].forEach(function(type){
-      window.addEventListener(type, stopOnIntent, { once:true, passive:true, capture:true });
-    });
-    window.addEventListener('keydown', stopOnIntent, { once:true, capture:true });
-    window.addEventListener('beforeunload', function(){ window.scrollTo(0, 0); });
-    forceTop();
-    document.addEventListener('DOMContentLoaded', function(){
-      forceTop();
-      requestAnimationFrame(forceTop);
-    }, { once:true });
-    window.addEventListener('pageshow', function(){
-      forceTop();
-      requestAnimationFrame(forceTop);
-      setTimeout(forceTop, 100);
-    });
-    topTimer = setInterval(forceTop, 50);
-    window.addEventListener('load', function(){
-      forceTop();
-      requestAnimationFrame(forceTop);
-      setTimeout(forceTop, 0);
-      setTimeout(forceTop, 250);
-      setTimeout(forceTop, 1000);
-      setTimeout(forceTop, 2500);
-      setTimeout(forceTop, 5000);
-      setTimeout(function(){
-        forceTop();
-        releaseTopLock();
-      }, 8000);
-    }, { once:true });
-  })();
-</script>
 <style>
   @font-face{font-family:"Exo 2";src:local("Exo 2"),local("Exo2-Regular"),url("fonts/exotwo/exo2.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
   @font-face{font-family:"Exo 2";src:local("Exo 2 Medium"),local("Exo2-Medium"),url("fonts/exotwo/exo2medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
@@ -95,17 +34,19 @@
     --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+  html{-webkit-text-size-adjust:100%}
   body{
     font-family:var(--main-font),-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     background:var(--paper);color:var(--ink);
     line-height:1.6;font-size:17px;letter-spacing:.005em;
     overflow-x:hidden;-webkit-font-smoothing:antialiased;
   }
-  .anchor-trap{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;pointer-events:none}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
   button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .skip-link{position:fixed;left:16px;top:12px;z-index:100;transform:translateY(-160%);border-radius:10px;background:var(--paper);color:var(--ink);padding:10px 14px;font-weight:800;box-shadow:0 18px 40px -26px rgba(0,0,0,.55);transition:transform .2s var(--ease)}
+  .skip-link:focus-visible{transform:none;outline:3px solid var(--accent);outline-offset:3px}
+  a:focus-visible,button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .display{font-family:var(--main-font),sans-serif;font-weight:700;text-transform:uppercase;line-height:.98;letter-spacing:.005em}
@@ -115,7 +56,11 @@
   }
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
   .eyebrow.on-dark{color:var(--muted-on-dark)}
-  .section{padding:clamp(64px,9vw,128px) 0}
+  .section{position:relative;isolation:isolate;padding:clamp(64px,9vw,128px) 0}
+  .section[id]{scroll-margin-top:84px}
+  .section > .wrap{position:relative;z-index:1}
+  .section:not(.contact)::before{content:"";position:absolute;left:clamp(20px,6vw,92px);right:clamp(20px,6vw,92px);top:34px;height:1px;background:linear-gradient(90deg,rgba(234,90,6,.55),rgba(20,17,15,.14) 34%,rgba(20,17,15,0));pointer-events:none;z-index:0}
+  .section.dark::before,.section.adv::before,.section.use::before{background:linear-gradient(90deg,rgba(234,90,6,.65),rgba(247,245,241,.16) 34%,rgba(247,245,241,0))}
   .section-head{max-width:760px;margin-bottom:clamp(38px,5vw,64px)}
   .section-title{font-size:clamp(30px,5.2vw,58px);margin:18px 0 0;letter-spacing:.01em}
   .section-intro{margin-top:18px;color:var(--muted);font-size:clamp(16px,1.4vw,19px);max-width:620px}
@@ -179,23 +124,41 @@
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper);overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg picture{display:block;width:100%;height:100%}
   .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;animation:heroZoom 18s var(--ease) forwards}
   @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
   .hero-bg::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.18) 32%,rgba(20,17,15,.4) 62%,rgba(20,17,15,.88) 100%);}
-  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(56px,9vw,104px);padding-top:140px}
+  .hero-inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,.98fr) minmax(360px,.78fr);gap:clamp(28px,5vw,72px);align-items:end;padding-bottom:clamp(56px,9vw,104px);padding-top:140px}
+  .hero-copy{min-width:0}
   .hero h1{font-size:clamp(44px,8.4vw,118px);max-width:14ch;margin:22px 0 0;text-shadow:0 2px 40px rgba(0,0,0,.35)}
   .hero .lede{margin-top:26px;max-width:54ch;font-size:clamp(16px,1.6vw,20px);color:rgba(247,245,241,.92);font-weight:400}
   .hero-actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-  .hero-products{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px}
+  .hero-products{grid-column:1;margin-top:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px}
   .hero-product{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;min-width:0;padding:9px 12px 9px 9px;border:1px solid rgba(247,245,241,.2);border-radius:12px;background:rgba(20,17,15,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
   .hero-product:hover{transform:translateY(-2px);background:rgba(247,245,241,.1);border-color:rgba(247,245,241,.38)}
   .hero-product-thumb{width:58px;height:58px;border-radius:10px;overflow:hidden;background:rgba(247,245,241,.92)}
   .hero-product-thumb img{width:100%;height:100%;object-fit:contain;padding:6px}
   .hero-product b{display:block;color:var(--paper);font-family:var(--main-font),sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.1}
   .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.82);font-size:12px;line-height:1.25}
-  .hero-tag{margin-top:34px;display:inline-flex;align-items:center;gap:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(247,245,241,.8)}
+  .hero-tag{grid-column:1;margin-top:4px;display:inline-flex;align-items:center;gap:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(247,245,241,.8)}
   .hero-tag::before{content:"";width:34px;height:1px;background:rgba(247,245,241,.55)}
+  .hero-collage{position:relative;min-height:clamp(430px,46vw,650px)}
+  .hero-collage::before{content:"";position:absolute;inset:9% -5% 6% 10%;border:1px solid rgba(247,245,241,.22);border-radius:26px;background:rgba(20,17,15,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:rotate(-2deg)}
+  .hero-collage::after{content:"форма прошла маршрут";position:absolute;right:4%;top:7%;z-index:4;border:1px solid rgba(234,90,6,.7);border-radius:999px;padding:9px 12px;color:var(--paper);background:rgba(234,90,6,.82);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em;box-shadow:0 18px 36px -26px rgba(0,0,0,.8)}
+  .collage-card{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,245,241,.22);border-radius:18px;background:rgba(247,245,241,.95);box-shadow:0 32px 70px -42px rgba(0,0,0,.9);overflow:hidden}
+  .collage-card img{width:100%;height:100%;object-fit:contain;padding:18px}
+  .collage-long{left:7%;bottom:3%;width:58%;height:74%;transform:rotate(-5deg)}
+  .collage-tee{right:2%;bottom:17%;width:44%;height:52%;transform:rotate(5deg)}
+  .collage-buff{right:16%;top:4%;width:34%;height:31%;transform:rotate(-8deg)}
+  .collage-live{left:0;top:11%;width:34%;height:28%;padding:0;background:var(--ink)}
+  .collage-live img{object-fit:cover;padding:0}
+  .collage-stamp{position:absolute;left:4%;bottom:4%;z-index:4;display:grid;gap:3px;width:132px;height:132px;place-content:center;border:2px solid rgba(247,245,241,.72);border-radius:50%;color:var(--paper);background:rgba(20,17,15,.62);text-align:center;text-transform:uppercase;letter-spacing:.1em;transform:rotate(-11deg)}
+  .collage-stamp strong{font-size:20px;line-height:1}
+  .collage-stamp span{font-size:10px;color:rgba(247,245,241,.78)}
+  .collage-meta{position:absolute;right:3%;bottom:3%;z-index:4;display:grid;gap:4px;min-width:176px;border:1px solid rgba(247,245,241,.2);border-radius:14px;padding:13px 14px;background:rgba(20,17,15,.68);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--paper)}
+  .collage-meta b{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent)}
+  .collage-meta span{font-size:13px;color:rgba(247,245,241,.86)}
   .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.78)}
   .scrollcue .line{width:1px;height:42px;background:linear-gradient(rgba(247,245,241,.78),rgba(247,245,241,0));animation:cue 2s var(--ease) infinite}
   @keyframes cue{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
@@ -206,6 +169,11 @@
   .stmt .big b{color:var(--accent);font-weight:600}
   .stmt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:end}
   .stmt p{color:var(--muted);font-size:18px;max-width:42ch}
+  .route-strip{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .route-token{min-height:96px;border:1px solid var(--line);border-radius:12px;background:var(--white);padding:16px 16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 34px -32px rgba(20,17,15,.5)}
+  .route-token small{display:block;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+  .route-token b{display:block;margin-top:10px;font-size:clamp(20px,2.4vw,30px);font-weight:800;text-transform:uppercase;line-height:.96}
+  .route-token span{color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
 
   /* ---------- Advantages ---------- */
   .adv{background:var(--ink);color:var(--paper)}
@@ -258,6 +226,11 @@
   .card.cta .badge{font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--accent)}
   .prod-note{margin-top:26px;font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
   .prod-note svg{flex:none;margin-top:2px;color:var(--accent)}
+  .brand-proof{display:grid;grid-template-columns:minmax(0,.9fr) minmax(260px,.42fr);gap:16px;margin-top:22px}
+  .brand-proof-card{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--line);border-radius:var(--r);background:var(--ink);color:var(--paper);padding:20px 22px}
+  .brand-proof-card strong{font-size:clamp(20px,2.8vw,34px);font-weight:800;text-transform:uppercase;line-height:1}
+  .brand-proof-card span{color:var(--muted-on-dark);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .brand-proof-card em{font-style:normal;color:var(--accent)}
   .info-links{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .info-link{display:block;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
   .info-link:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 22px 44px -30px rgba(20,17,15,.45)}
@@ -285,6 +258,17 @@
   .trip-card figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:var(--paper);font-size:15px;font-weight:700;line-height:1.25}
   .trip-card:hover img{transform:scale(1.05);filter:saturate(1.06)}
 
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .case-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--white);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);cursor:zoom-in}
+  .case-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -34px rgba(20,17,15,.45);border-color:transparent}
+  .case-photo{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(160deg,#fff,#f1eee8);overflow:hidden}
+  .case-photo img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .55s var(--ease)}
+  .case-card:hover .case-photo img{transform:scale(1.04)}
+  .case-card figcaption{display:grid;gap:8px;padding:18px 18px 20px}
+  .case-label{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+  .case-card strong{font-size:18px;line-height:1.16;text-transform:uppercase}
+  .case-card small{color:var(--muted);font-size:13.5px;line-height:1.45}
+
   /* ---------- Printing ---------- */
   .print{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -297,6 +281,39 @@
   .method-card li{position:relative;padding-left:17px;color:var(--ink);font-size:14.5px;font-weight:600}
   .method-card li::before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
   .method-link{margin-top:auto;padding-top:22px;color:var(--accent);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+
+  /* ---------- Smart brief ---------- */
+  .smart-brief{background:var(--ink);color:var(--paper);overflow:hidden}
+  .smart-brief::before{background:linear-gradient(90deg,rgba(234,90,6,.75),rgba(247,245,241,.16) 36%,rgba(247,245,241,0))}
+  .smart-brief::after{content:"ELBRUS 5642";position:absolute;right:clamp(20px,5vw,84px);top:clamp(42px,7vw,88px);z-index:0;color:rgba(247,245,241,.045);font-size:clamp(64px,12vw,170px);font-weight:800;line-height:.8;text-transform:uppercase;letter-spacing:.02em;transform:rotate(-4deg);pointer-events:none}
+  .smart-grid{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+  .smart-brief .section-head{margin-bottom:0}
+  .smart-brief .section-intro{color:var(--muted-on-dark)}
+  .brief-route{margin-top:28px;display:grid;gap:12px}
+  .brief-route span{display:inline-flex;align-items:center;gap:10px;color:rgba(247,245,241,.82);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+  .brief-route span::before{content:"";width:28px;height:2px;background:var(--accent)}
+  .brief-builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.72fr);gap:16px;align-items:start}
+  .brief-step{border:1px solid var(--line-on-dark);border-radius:var(--r);background:rgba(247,245,241,.06);padding:18px}
+  .brief-step-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:13px}
+  .brief-step-head h3{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+  .brief-step-head span{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .brief-options{display:flex;flex-wrap:wrap;gap:9px}
+  .brief-option{border:1px solid rgba(247,245,241,.2);border-radius:999px;background:rgba(247,245,241,.05);color:var(--paper);padding:9px 13px;font-size:13px;font-weight:800;transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
+  .brief-option:hover{transform:translateY(-1px);border-color:rgba(247,245,241,.46);background:rgba(247,245,241,.1)}
+  .brief-option.active{border-color:var(--accent);background:var(--accent);color:var(--white)}
+  .brief-summary{grid-column:2;grid-row:1/span 4;position:sticky;top:96px;border:1px solid rgba(247,245,241,.2);border-radius:18px;background:rgba(247,245,241,.08);padding:24px;box-shadow:0 34px 84px -62px rgba(0,0,0,.9)}
+  .brief-summary .stamp{display:inline-flex;border:1px solid rgba(234,90,6,.8);border-radius:999px;padding:7px 10px;color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+  .brief-summary h3{margin-top:16px;font-size:clamp(24px,3vw,36px);font-weight:800;text-transform:uppercase;line-height:1}
+  .brief-summary p{margin-top:12px;color:var(--muted-on-dark);font-size:15px}
+  .summary-list{display:grid;gap:10px;margin-top:20px}
+  .summary-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:12px 0;border-top:1px solid var(--line-on-dark)}
+  .summary-row dt{color:var(--muted-on-dark);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em}
+  .summary-row dd{max-width:60%;text-align:right;font-weight:800;color:var(--paper)}
+  .summary-row dd.is-empty{color:rgba(200,192,182,.65);font-weight:600}
+  .summary-note{margin-top:16px;border-radius:12px;background:rgba(234,90,6,.14);padding:13px;color:rgba(247,245,241,.9);font-size:13px;line-height:1.45}
+  .brief-summary .btn{width:100%;margin-top:18px}
+  .brief-reset{width:100%;margin-top:10px;color:var(--muted-on-dark);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+  .brief-reset:hover{color:var(--paper)}
 
   /* ---------- Fabrics ---------- */
   .fab-filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
@@ -320,6 +337,7 @@
 
   /* ---------- Use cases ---------- */
   .use{background:var(--ink);color:var(--paper)}
+  .use .section-intro{color:var(--muted-on-dark)}
   .use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-on-dark);border-radius:var(--r);overflow:hidden}
   .use-cell{padding:34px 30px;border-right:1px solid var(--line-on-dark);border-bottom:1px solid var(--line-on-dark);transition:background .4s var(--ease)}
   .use-cell:hover{background:var(--ink-2)}
@@ -328,6 +346,20 @@
   .use-cell .uc-ic{color:var(--accent);margin-bottom:14px}
   .use-cell h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
   .use-cell p{margin-top:8px;color:var(--muted-on-dark);font-size:14.5px}
+  .buyer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .buyer-card{display:flex;flex-direction:column;min-height:440px;border:1px solid var(--line-on-dark);border-radius:var(--r);background:rgba(247,245,241,.06);padding:24px;transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+  .buyer-card:hover{transform:translateY(-4px);background:var(--ink-2);border-color:rgba(247,245,241,.28)}
+  .buyer-top{display:grid;gap:14px}
+  .buyer-num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(234,90,6,.72);border-radius:50%;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.08em}
+  .buyer-card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:22px;font-weight:700;line-height:1.06}
+  .buyer-card p{margin-top:14px;color:var(--muted-on-dark);font-size:14.5px;line-height:1.55}
+  .buyer-card dl{display:grid;gap:14px;margin-top:22px}
+  .buyer-card dt{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+  .buyer-card dd{margin-top:5px;color:rgba(247,245,241,.9);font-size:14px;line-height:1.45}
+  .buyer-cta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;color:var(--paper);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+  .buyer-cta span{transition:transform .3s var(--ease)}
+  .buyer-cta:hover{color:var(--accent)}
+  .buyer-cta:hover span{transform:translateX(4px)}
 
   /* ---------- Process ---------- */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
@@ -344,6 +376,18 @@
   .price-card .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
   .price-card h3{margin-top:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:700;line-height:1.1}
   .price-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
+
+  /* ---------- Commercial ---------- */
+  .commercial{background:var(--paper)}
+  .commerce-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .commerce-card{position:relative;min-height:210px;border:1px solid var(--line);border-radius:var(--r);background:var(--white);padding:24px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
+  .commerce-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent)}
+  .commerce-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
+  .commerce-card h3{margin-top:12px;font-size:22px;font-weight:800;text-transform:uppercase;line-height:1.05}
+  .commerce-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
+  .commercial-cta{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--line);border-radius:var(--r);background:var(--ink);color:var(--paper);padding:22px}
+  .commercial-cta strong{display:block;font-size:22px;text-transform:uppercase;line-height:1.05}
+  .commercial-cta span{display:block;margin-top:7px;color:var(--muted-on-dark);font-size:14.5px}
 
   /* ---------- Order guide ---------- */
   .guide{background:var(--white)}
@@ -385,9 +429,22 @@
   form select option{background:var(--ink-2);color:var(--paper)}
   form input::placeholder,form textarea::placeholder{color:rgba(200,192,182,.72)}
   form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--accent);background-color:rgba(247,245,241,.07)}
+  form input:focus-visible,form textarea:focus-visible,form select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   form textarea{resize:vertical;min-height:96px}
   form .btn{width:100%;margin-top:6px}
+  form .btn:disabled{cursor:progress;opacity:.72}
   form .hint{margin-top:14px;font-size:12.5px;color:var(--muted-on-dark);text-align:center}
+  .form-status{margin-top:14px;color:var(--muted-on-dark);font-size:13px;line-height:1.5;text-align:center}
+  .form-status.is-success{color:var(--paper)}
+  .form-status.is-error{color:#ffd2bd}
+  .form-fallback{margin-top:16px;padding:14px;border:1px solid var(--line-on-dark);border-radius:12px;background:rgba(247,245,241,.04)}
+  .form-fallback p{color:var(--muted-on-dark);font-size:13px;line-height:1.5}
+  .form-fallback textarea{margin-top:10px;min-height:128px;font-size:13px;line-height:1.45}
+  .fallback-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .copy-again,.telegram-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:800}
+  .copy-again{border:1px solid var(--line-on-dark);background:rgba(247,245,241,.08);color:var(--paper);cursor:pointer}
+  .copy-again:hover,.telegram-link:hover{border-color:var(--accent);background:var(--accent);color:var(--white)}
+  .telegram-link{border:1px solid var(--paper);background:var(--paper);color:var(--ink)}
 
   /* ---------- Footer ---------- */
   footer{background:#0c0a09;color:var(--muted-on-dark);padding:56px 0 30px}
@@ -421,20 +478,28 @@
 
   /* ---------- Mobile menu ---------- */
   .mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);transform:translateY(-100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;justify-content:center;padding:40px 28px}
-  .mobile-menu.open{transform:none}
+  .mobile-menu[hidden]{display:flex;visibility:hidden;pointer-events:none}
+  .mobile-menu.open{transform:none;visibility:visible;pointer-events:auto}
   .mobile-menu a{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:30px;font-weight:600;color:var(--paper);padding:13px 0;border-bottom:1px solid var(--line-on-dark);letter-spacing:.02em}
   .mobile-menu .mm-foot{margin-top:34px;color:var(--muted-on-dark);font-size:15px}
   .mobile-menu .mm-foot a{font-family:var(--main-font);font-size:17px;text-transform:none;border:none;padding:4px 0;color:var(--accent)}
 
   /* ---------- Responsive ---------- */
   @media(max-width:1024px){
+    .hero-inner{grid-template-columns:1fr;align-items:end}
+    .hero-collage{min-height:430px;max-width:620px}
+    .route-strip{grid-template-columns:repeat(2,1fr)}
     .adv-grid{grid-template-columns:repeat(2,1fr)}
     .adv-item:nth-child(4n){border-right:1px solid var(--line-on-dark)}
     .adv-item:nth-child(2n){border-right:none}
     .prod-grid{grid-template-columns:repeat(2,1fr)}
     .info-links{grid-template-columns:repeat(2,1fr)}
     .method-grid{grid-template-columns:1fr}
+    .smart-grid{grid-template-columns:1fr}
+    .brief-builder{grid-template-columns:minmax(0,1fr) minmax(290px,.72fr)}
+    .brief-summary{position:relative;top:auto}
     .price-grid{grid-template-columns:repeat(2,1fr)}
+    .buyer-grid,.commerce-grid,.case-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .masonry{columns:2}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
@@ -450,15 +515,36 @@
     .nav-links,.nav-cta .btn{display:none}
     .burger{display:flex}
     .stmt-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
+    .section:not(.contact)::before{left:20px;right:20px;top:24px}
+    .hero{min-height:auto}
+    .hero-inner{display:block;padding-top:118px}
+    .hero-collage{min-height:310px;margin-top:30px}
+    .collage-card{border-radius:14px}
+    .collage-card img{padding:10px}
+    .collage-long{left:3%;bottom:2%;width:58%;height:72%}
+    .collage-tee{right:0;bottom:14%;width:44%;height:48%}
+    .collage-buff{right:12%;top:3%;width:32%;height:29%}
+    .collage-live{left:0;top:8%;width:36%;height:27%}
+    .collage-stamp{width:94px;height:94px;left:3%;bottom:3%}
+    .collage-stamp strong{font-size:15px}
+    .collage-stamp span{font-size:8px}
+    .collage-meta{display:none}
+    .route-strip,.brand-proof{grid-template-columns:1fr}
+    .brand-proof-card{display:block}
+    .brand-proof-card span{display:block;margin-top:10px}
     .prod-grid,.fab-grid,.use-grid,.price-grid{grid-template-columns:1fr}
-    .guide-grid,.brief-list,.form-row{grid-template-columns:1fr}
+    .buyer-grid,.commerce-grid,.case-grid{grid-template-columns:1fr}
+    .guide-grid,.brief-list,.form-row,.smart-grid,.brief-builder{grid-template-columns:1fr}
+    .brief-summary{grid-column:auto;grid-row:auto}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
     .adv-item,.use-cell{border-right:none!important}
     .masonry{columns:1}
+    .buyer-card{min-height:auto}
+    .commercial-cta{display:block}
+    .commercial-cta .btn{width:100%;margin-top:16px}
     .steps{grid-template-columns:1fr;gap:30px}
     .hero h1{font-size:clamp(40px,12vw,60px)}
-    .hero-inner{padding-top:118px}
     .hero .lede{margin-top:20px}
     .hero-actions{margin-top:28px}
     .hero-products{grid-template-columns:repeat(3,1fr);gap:8px;max-width:none;margin-top:18px}
@@ -477,17 +563,16 @@
   }
 </style>
 </head>
-<body>
-
-<span class="anchor-trap" id="process" aria-hidden="true"></span>
+<body id="top" data-form-cta="Получить расчёт и сроки">
+<a class="skip-link" href="#main">Пропустить к содержимому</a>
 
 <!-- ============ HEADER ============ -->
 <header id="header">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Trekki Store">
       <span class="mark" aria-hidden="true">
-        <img class="logo-light" src="assets/trekki-emblem-light.png" alt="">
-        <img class="logo-dark" src="assets/trekki-emblem-dark.png" alt="">
+        <img class="logo-light" src="assets/trekki-emblem-light.png" alt="" width="718" height="718" decoding="async">
+        <img class="logo-dark" src="assets/trekki-emblem-dark.png" alt="" width="718" height="718" decoding="async">
       </span>
       <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
     </a>
@@ -495,11 +580,11 @@
       <a href="#products">Что шьём</a>
       <a href="#fabrics">Ткани</a>
       <a href="#print">Принты</a>
-      <a href="#process">Как заказать</a>
+      <a href="#smart-brief">Бриф</a>
       <a href="#contact">Контакты</a>
     </nav>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary">Обсудить заказ</a>
+      <a href="#contact" class="btn btn-primary">Получить расчёт и сроки</a>
     </div>
     <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -507,11 +592,11 @@
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" hidden inert>
   <a href="#products">Что шьём</a>
   <a href="#fabrics">Ткани</a>
   <a href="#print">Принты</a>
-  <a href="#process">Как заказать</a>
+  <a href="#smart-brief">Бриф</a>
   <a href="#contact">Контакты</a>
   <div class="mm-foot">
     <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a><br>
@@ -520,34 +605,57 @@
   </div>
 </div>
 
+<main id="main">
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
+<section class="hero" id="hero">
   <div class="hero-bg">
-    <img src="assets/hero-elbrus.jpg" alt="" role="presentation">
+    <picture>
+      <source type="image/avif" srcset="assets/optimized/hero-elbrus-1280.avif 1280w, assets/optimized/hero-elbrus-1920.avif 1920w" sizes="100vw">
+      <source type="image/webp" srcset="assets/optimized/hero-elbrus-1280.webp 1280w, assets/optimized/hero-elbrus-1920.webp 1920w" sizes="100vw">
+      <img src="assets/hero-elbrus.jpg" width="2666" height="1500" alt="" role="presentation" fetchpriority="high" decoding="async">
+    </picture>
   </div>
   <div class="wrap hero-inner">
-    <span class="eyebrow on-dark" data-reveal>Trekki Store · кастомный пошив формы</span>
-    <h1 class="display" data-reveal data-delay="1">Форма для тех,<br>кто двигается</h1>
-    <p class="lede" data-reveal data-delay="2">Лонгсливы, футболки и бафы под ваш бренд. Собственный пошив, ткани под задачу и тираж от 5 штук — для трекинга, бега, команд и сообществ.</p>
-    <div class="hero-actions" data-reveal data-delay="3">
-      <a href="#contact" class="btn btn-light">Запросить расчёт <span class="arr">→</span></a>
-      <a href="#products" class="btn btn-ghost on-dark">Смотреть форму и ткани</a>
+    <div class="hero-copy">
+      <span class="eyebrow on-dark">Trekki Store · кастомный пошив формы</span>
+      <h1 class="display">Форма для тех,<br>кто двигается</h1>
+      <p class="lede">Лонгсливы, футболки и бафы под ваш бренд. Собственный пошив, ткани под задачу и тираж от 5 штук — для трекинга, бега, команд и сообществ.</p>
+      <div class="hero-actions">
+        <a href="#smart-brief" class="btn btn-light">Собрать бриф <span class="arr">→</span></a>
+        <a href="#products" class="btn btn-ghost on-dark">Смотреть форму и ткани</a>
+      </div>
     </div>
-    <div class="hero-products" data-reveal data-delay="3" aria-label="Быстрый переход к изделиям">
+    <aside class="hero-collage" aria-label="Примеры формы Trekki Store">
+      <figure class="collage-card collage-live">
+        <img src="assets/trips/trip-two-girls-mountain.jpg" alt="Участницы Trekki в форме на фоне гор" width="2000" height="1333" decoding="async">
+      </figure>
+      <figure class="collage-card collage-long">
+        <img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Кастомный лонгслив Trekki с принтом Эльбрус" width="1400" height="1400" decoding="async">
+      </figure>
+      <figure class="collage-card collage-tee">
+        <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Кастомная футболка Trekki с принтом Tibet" width="1028" height="1400" decoding="async">
+      </figure>
+      <figure class="collage-card collage-buff">
+        <img src="assets/merch/buff-orange-annapurna.jpg" alt="Кастомный баф Trekki с принтом Annapurna" width="1400" height="1400" decoding="async">
+      </figure>
+      <div class="collage-stamp" aria-hidden="true"><span>tested</span><strong>5642</strong><span>elbrus</span></div>
+      <div class="collage-meta" aria-hidden="true"><b>Annapurna · Elbrus · Trekki</b><span>лонгслив + футболка + баф под событие</span></div>
+    </aside>
+    <div class="hero-products" aria-label="Быстрый переход к изделиям">
       <a class="hero-product" href="#product-longsleeves">
-        <span class="hero-product-thumb"><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt=""></span>
+        <span class="hero-product-thumb"><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Лонгсливы</b><small>для гор, ветра и стартов</small></span>
       </a>
       <a class="hero-product" href="#product-tshirts">
-        <span class="hero-product-thumb"><img src="assets/merch/tshirt-orange-tibet.jpg" alt=""></span>
+        <span class="hero-product-thumb"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="" width="1028" height="1400" decoding="async"></span>
         <span><b>Футболки</b><small>для забегов и клубов</small></span>
       </a>
       <a class="hero-product" href="#product-buffs">
-        <span class="hero-product-thumb"><img src="assets/merch/buff-orange-annapurna.jpg" alt=""></span>
+        <span class="hero-product-thumb"><img src="assets/merch/buff-orange-annapurna.jpg" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Бафы</b><small>в комплект к форме</small></span>
       </a>
     </div>
-    <div class="hero-tag" data-reveal data-delay="3">Рождено в горах. Протестировано на высоте</div>
+    <div class="hero-tag">Рождено в горах. Протестировано на высоте</div>
   </div>
   <div class="scrollcue"><span>листайте</span><span class="line"></span></div>
 </section>
@@ -557,6 +665,12 @@
   <div class="wrap stmt-grid">
     <h2 class="big" data-reveal>Не футболки со штампиками — <b>спортивная форма</b> для реального использования</h2>
     <p data-reveal data-delay="1">Trekki Store — отдельное направление Trekki для кастомного пошива. Мы не продаём готовую полку товаров: подбираем изделие, ткань, принт и тираж под команду, клуб, старт, поход или мероприятие.</p>
+  </div>
+  <div class="wrap route-strip" aria-label="Брендовые маршрутные метки Trekki Store">
+    <div class="route-token" data-reveal><small>Высота</small><b>Elbrus 5642</b><span>форма прошла маршрут</span></div>
+    <div class="route-token" data-reveal data-delay="1"><small>Маршрут</small><b>Annapurna</b><span>бафы и мерч в поездке</span></div>
+    <div class="route-token" data-reveal data-delay="2"><small>Координаты</small><b>43.3499°N</b><span>горы вместо шоурума</span></div>
+    <div class="route-token" data-reveal data-delay="3"><small>Формат</small><b>от 5 штук</b><span>для своих команд</span></div>
   </div>
 </section>
 
@@ -607,7 +721,7 @@
     <div class="prod-grid">
       <article class="card product-card" id="product-longsleeves" data-reveal>
         <a class="ph product-shot" href="longsleeves.html" aria-label="Подробнее про лонгсливы">
-          <img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy">
+          <img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый кастомный лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Лонгсливы</h3>
@@ -622,7 +736,7 @@
       </article>
       <article class="card product-card" id="product-tshirts" data-reveal data-delay="1">
         <a class="ph product-shot" href="tshirts.html" aria-label="Подробнее про футболки">
-          <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy">
+          <img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая кастомная футболка Trekki с маршрутом TIBET" loading="lazy" width="1028" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Футболки</h3>
@@ -637,7 +751,7 @@
       </article>
       <article class="card product-card" id="product-buffs" data-reveal data-delay="2">
         <a class="ph product-shot" href="buffs.html" aria-label="Подробнее про бафы">
-          <img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy">
+          <img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом Annapurna Nepal" loading="lazy" width="1400" height="1400" decoding="async">
         </a>
         <div class="body">
           <h3>Бафы</h3>
@@ -657,7 +771,7 @@
             <h3 style="margin-top:14px">Дождевики и другое</h3>
             <p>Можно обсудить ветровки, дождевики, шорты, тайтсы и аксессуары. Покажем только то, что реально можем сделать качественно под вашу задачу.</p>
           </div>
-          <a href="#contact" class="btn btn-light">Обсудить <span class="arr">→</span></a>
+          <a href="#contact" class="btn btn-light">Посчитать <span class="arr">→</span></a>
         </div>
       </article>
     </div>
@@ -665,6 +779,16 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
       Каждый заказ собирается через подбор: ткань, размерная сетка, принт и тираж зависят от задачи. Для готовых принтов, медалей и добора мерча можно собрать короткую подборку для участников и команд.
     </p>
+    <div class="brand-proof" data-reveal>
+      <div class="brand-proof-card">
+        <strong>Форма прошла маршрут</strong>
+        <span>Elbrus 5642 · Annapurna · Patagonia</span>
+      </div>
+      <div class="brand-proof-card">
+        <strong><em>1</em> история</strong>
+        <span>изделие + ткань + принт + размеры</span>
+      </div>
+    </div>
     <div class="info-links" data-reveal>
       <a class="info-link" href="sizes.html">
         <span class="kicker">Гид</span>
@@ -690,23 +814,150 @@
   </div>
 </section>
 
+<!-- ============ SMART BRIEF ============ -->
+<section class="section smart-brief" id="smart-brief">
+  <div class="wrap smart-grid">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-dark">Умный бриф</span>
+      <h2 class="section-title display">Соберите маршрут<br>заказа</h2>
+      <p class="section-intro">Это не корзина и не финальный расчёт. Выберите основу заказа за минуту — изделие, ткань, принт и размеры. Мы сохраним выбор и добавим его в заявку.</p>
+      <div class="brief-route" aria-label="Шаги брифа">
+        <span>изделие</span>
+        <span>ткань</span>
+        <span>принт</span>
+        <span>размеры</span>
+        <span>заявка</span>
+      </div>
+    </div>
+
+    <div class="brief-builder" data-brief-builder data-reveal data-delay="1">
+      <article class="brief-step" data-brief-step="product">
+        <div class="brief-step-head">
+          <h3>Изделие</h3>
+          <span>01</span>
+        </div>
+        <div class="brief-options" role="group" aria-label="Выберите изделие">
+          <button type="button" class="brief-option" data-brief-field="product" data-brief-value="Лонгсливы">Лонгсливы</button>
+          <button type="button" class="brief-option" data-brief-field="product" data-brief-value="Футболки">Футболки</button>
+          <button type="button" class="brief-option" data-brief-field="product" data-brief-value="Бафы">Бафы</button>
+          <button type="button" class="brief-option" data-brief-field="product" data-brief-value="Комплект формы">Комплект формы</button>
+        </div>
+      </article>
+
+      <article class="brief-step" data-brief-step="fabric">
+        <div class="brief-step-head">
+          <h3>Ткань</h3>
+          <span>02</span>
+        </div>
+        <div class="brief-options" role="group" aria-label="Выберите сценарий ткани">
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для жары и бега">Для жары</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для трекинга и походов">Трекинг</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для активной формы">Активная форма</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Хлопок / мерч">Хлопок / мерч</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Помогите подобрать">Помогите подобрать</button>
+        </div>
+      </article>
+
+      <article class="brief-step" data-brief-step="print">
+        <div class="brief-step-head">
+          <h3>Принт</h3>
+          <span>03</span>
+        </div>
+        <div class="brief-options" role="group" aria-label="Выберите способ принта">
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Сублимация по всей площади">Сублимация</button>
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="DTF логотипы / элементы">DTF</button>
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Вышивка или шеврон">Вышивка / шеврон</button>
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Пока нужна рекомендация">Нужна рекомендация</button>
+        </div>
+      </article>
+
+      <article class="brief-step" data-brief-step="sizes">
+        <div class="brief-step-head">
+          <h3>Размеры</h3>
+          <span>04</span>
+        </div>
+        <div class="brief-options" role="group" aria-label="Выберите готовность по размерам">
+          <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Размерная сетка уже понятна">Размеры понятны</button>
+          <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Нужно помочь подобрать размеры">Нужна помощь</button>
+          <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Нужны разные размеры для команды">Командная сетка</button>
+        </div>
+      </article>
+
+      <aside class="brief-summary" aria-live="polite">
+        <span class="stamp">Trekki route brief</span>
+        <h3>Ваш заказ</h3>
+        <p>Выбор сохранится в браузере и автоматически попадёт в форму ниже.</p>
+        <dl class="summary-list">
+          <div class="summary-row"><dt>Изделие</dt><dd data-summary="product" class="is-empty">не выбрано</dd></div>
+          <div class="summary-row"><dt>Ткань</dt><dd data-summary="fabric" class="is-empty">не выбрано</dd></div>
+          <div class="summary-row"><dt>Принт</dt><dd data-summary="print" class="is-empty">не выбрано</dd></div>
+          <div class="summary-row"><dt>Размеры</dt><dd data-summary="sizes" class="is-empty">не выбрано</dd></div>
+        </dl>
+        <div class="summary-note" data-brief-note>Можно заполнить не всё. Даже два выбора уже помогут быстрее предложить ткань, принт и реалистичный тираж.</div>
+        <a href="#contact" class="btn btn-light" data-brief-cta>Передать в заявку <span class="arr">→</span></a>
+        <button type="button" class="brief-reset" data-brief-reset>Сбросить выбор</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <!-- ============ GALLERY ============ -->
 <section class="section gal" id="gallery">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Примеры дизайнов</span>
-      <h2 class="section-title display">Как может выглядеть форма</h2>
-      <p class="section-intro">Несколько примеров изделий и принтов: лонгсливы, футболки и бафы. Такие фото помогают быстро понять формат, а конкретный дизайн собирается под вашу команду или событие.</p>
+      <span class="eyebrow">Кейсы и примеры</span>
+      <h2 class="section-title display">Что можно собрать<br>под реальный заказ</h2>
+      <p class="section-intro">Фото оставили как визуальное доказательство, но добавили к ним смысл: для кого такой формат, какая технология и какие вводные нужны для расчёта.</p>
     </div>
-    <div class="masonry product-examples" id="masonry">
-      <figure data-reveal><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый лонгслив Trekki с принтом Эльбрус" loading="lazy"><figcaption>Лонгслив</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy"><figcaption>Футболка</figcaption></figure>
-      <figure data-reveal data-delay="2"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом" loading="lazy"><figcaption>Баф</figcaption></figure>
-      <figure data-reveal><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый лонгслив Trekki с горным принтом Elbrus" loading="lazy"><figcaption>Белый лонгслив</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="assets/merch/longsleeve-8848-front.jpg" alt="Лонгслив 8848 с горным принтом" loading="lazy"><figcaption>Лонгслив 8848</figcaption></figure>
-      <figure data-reveal data-delay="2"><img src="assets/merch/buff-blue-baikal.jpg" alt="Синий баф Trekki Baikal" loading="lazy"><figcaption>Баф Baikal</figcaption></figure>
-      <figure data-reveal><img src="assets/merch/buff-northern-lights.jpg" alt="Тёмный баф Trekki с северным сиянием" loading="lazy"><figcaption>Баф Север</figcaption></figure>
-      <figure data-reveal data-delay="1"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом Tibet" loading="lazy"><figcaption>Футболка Tibet</figcaption></figure>
+    <div class="case-grid product-examples" id="masonry">
+      <figure class="case-card" data-reveal>
+        <div class="case-photo"><img src="assets/merch/longsleeve-white-elbrus.jpg?v=front-20260620" alt="Белый лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Лонгсливы для походной группы</span>
+          <strong>30–40 штук · сублимация · размеры S–XXL</strong>
+          <small>Для расчёта нужны тираж, дата, город и логотип/идея маршрута.</small>
+        </figcaption>
+      </figure>
+      <figure class="case-card" data-reveal data-delay="1">
+        <div class="case-photo"><img src="assets/merch/tshirt-orange-tibet.jpg" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy" width="1028" height="1400" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Футболки для старта или клуба</span>
+          <strong>от 5 штук · лёгкая ткань · яркий принт</strong>
+          <small>Подходит для забега, тренировки, клубного события или подарка участникам.</small>
+        </figcaption>
+      </figure>
+      <figure class="case-card" data-reveal data-delay="2">
+        <div class="case-photo"><img src="assets/merch/buff-orange-annapurna.jpg" alt="Оранжевый баф Trekki с горным принтом" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Бафы для маршрута</span>
+          <strong>40 бафов · сублимация · доставка СДЭК</strong>
+          <small>Хороший формат, когда у участников разные размеры одежды, но нужен общий мерч.</small>
+        </figcaption>
+      </figure>
+      <figure class="case-card" data-reveal>
+        <div class="case-photo"><img src="assets/merch/longsleeve-8848-front.jpg" alt="Лонгслив 8848 с горным принтом" loading="lazy" width="1280" height="1280" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Лонгслив под вершину или маршрут</span>
+          <strong>маршрутная графика · логотипы · длинный рукав</strong>
+          <small>Можно собрать дизайн вокруг горы, даты, высоты, координат и названия команды.</small>
+        </figcaption>
+      </figure>
+      <figure class="case-card" data-reveal data-delay="1">
+        <div class="case-photo"><img src="assets/merch/buff-blue-baikal.jpg" alt="Синий баф Trekki Baikal" loading="lazy" width="1400" height="1400" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Баф в комплект к форме</span>
+          <strong>одна графика · разные изделия · без сложной размерной сетки</strong>
+          <small>Удобно добавить к футболкам или лонгсливам, чтобы комплект выглядел собранно.</small>
+        </figcaption>
+      </figure>
+      <figure class="case-card" data-reveal data-delay="2">
+        <div class="case-photo"><img src="assets/merch/buff-northern-lights.jpg" alt="Тёмный баф Trekki с северным сиянием" loading="lazy" width="1280" height="1280" decoding="async"></div>
+        <figcaption>
+          <span class="case-label">Мерч под поездку</span>
+          <strong>готовый принт · баф или футболка · короткая подборка</strong>
+          <small>Подходит, когда нужно дать участникам ссылку и не собирать хаос в переписке.</small>
+        </figcaption>
+      </figure>
     </div>
     <div class="trip-showcase" data-reveal>
       <div class="section-head">
@@ -716,19 +967,19 @@
       </div>
       <div class="trip-strip" aria-label="Фото из поездок Trekki">
         <figure class="trip-card">
-          <img src="assets/trips/trip-team-elbrus.jpg" alt="Команда Trekki в горах на фоне Эльбруса" loading="lazy">
+          <img src="assets/trips/trip-team-elbrus.jpg" alt="Команда Trekki в горах на фоне Эльбруса" loading="lazy" width="1600" height="1067" decoding="async">
           <figcaption>Команда на маршруте: форма сразу считывается в группе</figcaption>
         </figure>
         <figure class="trip-card">
-          <img src="assets/trips/trip-team-flag.jpg" alt="Группа Trekki с флагом на горном маршруте" loading="lazy">
+          <img src="assets/trips/trip-team-flag.jpg" alt="Группа Trekki с флагом на горном маршруте" loading="lazy" width="1600" height="1067" decoding="async">
           <figcaption>Событие, маршрут, флаг и мерч собираются в одну историю</figcaption>
         </figure>
         <figure class="trip-card">
-          <img src="assets/trips/trip-team-merch.jpg" alt="Участники Trekki в брендированной форме у указателя" loading="lazy">
+          <img src="assets/trips/trip-team-merch.jpg" alt="Участники Trekki в брендированной форме у указателя" loading="lazy" width="1600" height="1067" decoding="async">
           <figcaption>Участникам проще выбрать вещь, когда видно, как она выглядит в поездке</figcaption>
         </figure>
         <figure class="trip-card">
-          <img src="assets/trips/trip-two-girls-mountain.jpg" alt="Две участницы Trekki в фирменных вещах на фоне гор" loading="lazy">
+          <img src="assets/trips/trip-two-girls-mountain.jpg" alt="Две участницы Trekki в фирменных вещах на фоне гор" loading="lazy" width="2000" height="1333" decoding="async">
           <figcaption>Лонгслив и баф становятся частью маршрута и общих фотографий</figcaption>
         </figure>
       </div>
@@ -885,46 +1136,65 @@
 <section class="section use">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow on-dark">Для кого</span>
-      <h2 class="section-title display">Кому нужна своя форма</h2>
+      <span class="eyebrow on-dark">Сценарии заказа</span>
+      <h2 class="section-title display">Под какую задачу<br>считаем форму</h2>
+      <p class="section-intro">Не обязательно приходить с готовым ТЗ. Выберите ближайший сценарий — мы сразу поймём, какие изделия, ткани, сроки и вводные нужны для расчёта.</p>
     </div>
-    <div class="use-grid">
-      <div class="use-cell" data-reveal>
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-9 4 5 3-4 5 8z"/><circle cx="16" cy="5" r="2"/></svg></div>
-        <h3>Трекинг и горы</h3>
-        <p>Прочная форма для походов и восхождений, которая выдержит перевал и непогоду.</p>
-      </div>
-      <div class="use-cell" data-reveal data-delay="1">
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4a2 2 0 1 0 0 0M7 21l3-6 4 2 2-5"/><path d="M5 11l4-2 4 3 4-1"/></svg></div>
-        <h3>Бег и марафоны</h3>
-        <p>Влагоотводящие футболки и лонгсливы для забегов — лёгкие и не натирают.</p>
-      </div>
-      <div class="use-cell" data-reveal data-delay="2">
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 9-9"/><path d="M21 6v4h-4"/></svg></div>
-        <h3>Трейл и спорт</h3>
-        <p>Форма для интенсивных нагрузок и пересечённой местности в любую погоду.</p>
-      </div>
-      <div class="use-cell" data-reveal>
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M12 8v6m-4 6 4-6 4 6M7 11l5-1 5 1"/></svg></div>
-        <h3>Танцы и фитнес</h3>
-        <p>Эластичные ткани, которые тянутся за телом и не сковывают движение.</p>
-      </div>
-      <div class="use-cell" data-reveal data-delay="1">
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5M9 11h.01M15 11h.01"/></svg></div>
-        <h3>Корпоративные соревнования</h3>
-        <p>Единый брендированный комплект для команды компании на забеге или спартакиаде.</p>
-      </div>
-      <div class="use-cell" data-reveal data-delay="2">
-        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.8 0 5 2.2 5 5"/></svg></div>
-        <h3>Клубы и сообщества</h3>
-        <p>Уникальная форма, по которой узнают своих — для клубов, школ и движений.</p>
-      </div>
+    <div class="buyer-grid">
+      <article class="buyer-card" data-reveal>
+        <div class="buyer-top">
+          <span class="buyer-num">01</span>
+          <h3>Забег или поход</h3>
+        </div>
+        <p>Для маршрута, старта, восхождения или выезда, где вещь должна работать в движении и остаться памятью после события.</p>
+        <dl>
+          <div><dt>Обычно заказывают</dt><dd>лонгсливы, футболки, бафы, комплект “форма + баф”.</dd></div>
+          <div><dt>Что прислать</dt><dd>дату события, город доставки, тираж, маршрут/название, логотип или идею принта.</dd></div>
+        </dl>
+        <a class="buyer-cta" href="#contact" data-scenario="Забег или поход" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
+      </article>
+      <article class="buyer-card" data-reveal data-delay="1">
+        <div class="buyer-top">
+          <span class="buyer-num">02</span>
+          <h3>Клуб или сообщество</h3>
+        </div>
+        <p>Для бегового клуба, школы, походной группы или комьюнити, где важно узнавать своих и регулярно добирать форму.</p>
+        <dl>
+          <div><dt>Обычно заказывают</dt><dd>лонгсливы, футболки по размерам, бафы, повторный добор мерча.</dd></div>
+          <div><dt>Что прислать</dt><dd>логотип клуба, цвета, примерную размерную сетку, желаемый тираж и сценарий носки.</dd></div>
+        </dl>
+        <a class="buyer-cta" href="#contact" data-scenario="Клуб или сообщество" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
+      </article>
+      <article class="buyer-card" data-reveal data-delay="2">
+        <div class="buyer-top">
+          <span class="buyer-num">03</span>
+          <h3>Корпоративная команда</h3>
+        </div>
+        <p>Для компании на забег, спартакиаду, трекинг, выезд или внутреннее спортивное событие.</p>
+        <dl>
+          <div><dt>Обычно заказывают</dt><dd>единый комплект с логотипом компании, футболки, лонгсливы, бафы.</dd></div>
+          <div><dt>Что прислать</dt><dd>брендбук или логотип, дедлайн, количество участников, город и требования к документам.</dd></div>
+        </dl>
+        <a class="buyer-cta" href="#contact" data-scenario="Корпоративная команда" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
+      </article>
+      <article class="buyer-card" data-reveal data-delay="3">
+        <div class="buyer-top">
+          <span class="buyer-num">04</span>
+          <h3>Мерч для события</h3>
+        </div>
+        <p>Для поездки, старта, клубной даты или фестиваля, где участникам нужна короткая понятная подборка вещей.</p>
+        <dl>
+          <div><dt>Обычно заказывают</dt><dd>готовый принт, футболку, баф, медаль, этикетку или небольшой комплект.</dd></div>
+          <div><dt>Что прислать</dt><dd>тему события, список изделий, ориентир по тиражу, сроки и референсы по стилю.</dd></div>
+        </dl>
+        <a class="buyer-cta" href="#contact" data-scenario="Мерч для события" data-product="Готовые принты, медали или мерч">Рассчитать такой заказ <span>→</span></a>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section class="section" data-anchor="process">
+<section class="section" id="process">
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Как заказать</span>
@@ -994,6 +1264,56 @@
   </div>
 </section>
 
+<!-- ============ COMMERCIAL INFO ============ -->
+<section class="section commercial" id="commercial">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">До заявки</span>
+      <h2 class="section-title display">Коммерческие<br>ориентиры</h2>
+      <p class="section-intro">Это не прайс, а короткая карта заказа: что уже можно понять до переписки и какие вопросы помогают сразу назвать реалистичные сроки.</p>
+    </div>
+    <div class="commerce-grid">
+      <article class="commerce-card" data-reveal>
+        <span class="kicker">Минимальный тираж</span>
+        <h3>От 5 штук</h3>
+        <p>Подходит для малых команд, клубов, походных групп и событий. Если нужно меньше или нужен добор, лучше сразу написать задачу.</p>
+      </article>
+      <article class="commerce-card" data-reveal data-delay="1">
+        <span class="kicker">Сроки</span>
+        <h3>Считаем от даты события</h3>
+        <p>На срок влияют ткань, тираж, готовность макета, способ принта, размерная сетка и доставка до города.</p>
+      </article>
+      <article class="commerce-card" data-reveal data-delay="2">
+        <span class="kicker">Срочно</span>
+        <h3>Проверяем по задаче</h3>
+        <p>Срочный заказ возможен не всегда: иногда придётся упростить изделие, ткань, принт или список размеров.</p>
+      </article>
+      <article class="commerce-card" data-reveal>
+        <span class="kicker">Доставка</span>
+        <h3>Россия и СНГ</h3>
+        <p>Отправляем СДЭК или другой службой по договорённости. Город доставки лучше указать сразу в заявке.</p>
+      </article>
+      <article class="commerce-card" data-reveal data-delay="1">
+        <span class="kicker">Оплата</span>
+        <h3>Уточняем при расчёте</h3>
+        <p>Формат оплаты зависит от тиража, сроков и состава заказа. Если нужен счёт или документы, отметьте это в комментарии.</p>
+      </article>
+      <article class="commerce-card" data-reveal data-delay="2">
+        <span class="kicker">Юрлица</span>
+        <h3>Счёт и договор — по запросу</h3>
+        <p>Для корпоративных команд лучше сразу прислать реквизиты, дедлайн и требования к документам, чтобы не терять время.</p>
+      </article>
+    </div>
+    <div class="commercial-cta" data-reveal>
+      <div>
+        <strong>Хотите понять, успеем ли к вашей дате?</strong>
+        <span>Напишите изделие, тираж, город, дату события и что уже есть по макету.</span>
+      </div>
+      <a href="#contact" class="btn btn-primary">Получить расчёт и сроки <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ORDER GUIDE ============ -->
 <section class="section guide" id="brief">
   <div class="wrap guide-grid">
@@ -1048,129 +1368,19 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="section contact" id="contact">
-  <div class="wrap contact-grid">
-    <div data-reveal>
-      <span class="eyebrow on-dark">Связаться</span>
-      <h2 class="section-title display">Обсудим<br>ваш заказ</h2>
-      <p class="lead">Напишите или позвоните — поможем выбрать ткань, способ для принта, размерную сетку и реалистичный формат тиража.</p>
-      <div class="contact-methods">
-        <a href="https://t.me/vkspb" target="_blank" rel="noopener" class="cm">
-          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 3.5 2.8 10.7c-1 .4-1 1.8.1 2.1l4.7 1.4 1.8 5.6c.3 1 1.6 1.2 2.2.4l2.7-3.4 4.9 3.6c.8.6 1.9.1 2.1-.9l2.7-14.7c.2-1-.8-1.7-1.7-1.3Z"/><path d="m7.7 14.1 8.8-5.4-6.8 7.2"/></svg></span>
-          <span><small>Telegram — быстрее всего</small><b>@vkspb</b></span>
-        </a>
-        <a href="tel:+79219526410" class="cm">
-          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-          <span><small>Телефон</small><b>+7 921 952 64 10</b></span>
-        </a>
-        <a href="mailto:mail@vkspb.info" class="cm">
-          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
-          <span><small>Почта</small><b>mail@vkspb.info</b></span>
-        </a>
-      </div>
-      <div class="contact-tag">Доставка по России и СНГ · СДЭК по договорённости · Тираж от 5 штук</div>
-    </div>
-    <form id="orderForm" data-reveal data-delay="1">
-      <div class="fld">
-        <label for="f-name">Как к вам обращаться</label>
-        <input id="f-name" name="name" type="text" placeholder="Имя" required>
-      </div>
-      <div class="fld">
-        <label for="f-contact">Телефон или email</label>
-        <input id="f-contact" name="contact" type="text" placeholder="+7 ... или mail@..." required>
-      </div>
-      <div class="fld">
-        <label for="f-product">Что нужно</label>
-        <select id="f-product" name="product" required>
-          <option value="">Выберите вариант</option>
-          <option>Лонгсливы</option>
-          <option>Футболки</option>
-          <option>Бафы</option>
-          <option>Комплект формы</option>
-          <option>Готовые принты, медали или мерч</option>
-          <option>Другое / пока не знаю</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="fld">
-          <label for="f-quantity">Тираж</label>
-          <input id="f-quantity" name="quantity" type="text" placeholder="Например: 15 или 20-30">
-        </div>
-        <div class="fld">
-          <label for="f-date">К какой дате</label>
-          <input id="f-date" name="date" type="text" placeholder="Например: к 15 мая">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="fld">
-          <label for="f-city">Город доставки</label>
-          <input id="f-city" name="city" type="text" placeholder="Санкт-Петербург">
-        </div>
-        <div class="fld">
-          <label for="f-design">Логотип или макет</label>
-          <select id="f-design" name="design">
-            <option>Логотип / макет есть</option>
-            <option>Есть идея, макета нет</option>
-            <option>Нужна помощь с макетом</option>
-            <option>Пока не знаю</option>
-          </select>
-        </div>
-      </div>
-      <div class="fld">
-        <label for="f-msg">Комментарий</label>
-        <textarea id="f-msg" name="msg" placeholder="Например: для бегового клуба, нужна лёгкая ткань, хочется принт с маршрутом и логотипом команды"></textarea>
-      </div>
-      <button type="submit" class="btn btn-light">Отправить в Telegram <span class="arr">→</span></button>
-      <p class="hint">Кнопка скопирует текст заявки и откроет Telegram @vkspb — останется вставить текст и нажать «отправить». Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>
-    </form>
-  </div>
-</section>
+<div data-component="contact"></div>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="wordmark"><strong>TREKKI</strong><span>store</span></div>
-        <p>Кастомная спортивная форма и мерч под ваш бренд. Рождено в горах, протестировано на высоте.</p>
-      </div>
-      <div class="foot-nav">
-        <div class="foot-col">
-          <h4>Разделы</h4>
-          <a href="#products">Что шьём</a>
-          <a href="fabrics.html">Ткани</a>
-          <a href="printing.html">Принты</a>
-          <a href="sizes.html">Размеры</a>
-          <a href="longsleeves.html">Лонгсливы</a>
-          <a href="tshirts.html">Футболки</a>
-          <a href="buffs.html">Бафы</a>
-          <a href="#brief">Перед заявкой</a>
-          <a href="#process">Как заказать</a>
-        </div>
-        <div class="foot-col">
-          <h4>Контакты</h4>
-          <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a>
-          <a href="tel:+79219526410">+7 921 952 64 10</a>
-          <a href="mailto:mail@vkspb.info">mail@vkspb.info</a>
-          <span>Логотипы и макеты можно прислать в Telegram</span>
-          <span>Доставка по России и СНГ</span>
-          <span>Тираж от 5 штук</span>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bot">
-      <span>© 2026 Trekki Store. «Trekki» — зарегистрированный товарный знак.</span>
-      <span>Спортивная форма · мерч · аксессуары</span>
-    </div>
-  </div>
-</footer>
+</main>
+
+<div data-component="footer"></div>
 
 <!-- ============ LIGHTBOX ============ -->
-<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true">
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true" hidden inert>
   <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
   <img src="" alt="">
 </div>
 
+<script src="site-components.js"></script>
 <script>
 (function(){
   "use strict";
@@ -1180,27 +1390,22 @@
 
   // Mobile menu
   var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
-  var toggle=function(open){
+  var menuLinks=Array.prototype.slice.call(menu.querySelectorAll('a'));
+  var toggle=function(open,returnFocus){
     menu.classList.toggle('open',open);
+    menu.hidden=!open;
+    if(open){menu.removeAttribute('inert');}
+    else{menu.setAttribute('inert','');}
     burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
     document.body.style.overflow=open?'hidden':'';
+    if(open&&menuLinks[0]) menuLinks[0].focus();
+    if(!open&&returnFocus) burger.focus();
   };
-  burger.addEventListener('click',function(){toggle(!menu.classList.contains('open'));});
-  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
-
-  // Keep initial hash URLs from jumping on load, but preserve in-page navigation.
-  document.querySelectorAll('a[href^="#"]').forEach(function(link){
-    link.addEventListener('click',function(e){
-      var hash=link.getAttribute('href');
-      if(!hash||hash==='#') return;
-      var name=hash.slice(1);
-      var target=document.querySelector('[data-anchor="'+name.replace(/"/g,'\\"')+'"]')||document.getElementById(name);
-      if(!target) return;
-      e.preventDefault();
-      if(window.trekkiReleaseTopLock) window.trekkiReleaseTopLock();
-      history.pushState(null,document.title,hash);
-      target.scrollIntoView({behavior:'smooth',block:'start'});
-    });
+  burger.addEventListener('click',function(){toggle(!menu.classList.contains('open'),true);});
+  menuLinks.forEach(function(a){a.addEventListener('click',function(){toggle(false,false);});});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&menu.classList.contains('open')) toggle(false,true);
   });
 
   // Reveal on scroll
@@ -1227,71 +1432,131 @@
     });
   });
 
-  // Lightbox
-  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbClose=document.getElementById('lbClose');
-  document.querySelectorAll('#masonry figure').forEach(function(fig){
-    fig.addEventListener('click',function(){
-      var img=fig.querySelector('img');
-      lbImg.src=img.src;lbImg.alt=img.alt;
-      lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lbClose.focus();
+  // Smart brief
+  var builder=document.querySelector('[data-brief-builder]');
+  if(builder){
+    var storageKey='trekki-store-brief';
+    var fields=['product','fabric','print','sizes'];
+    var fieldLabels={product:'Изделие',fabric:'Ткань',print:'Принт',sizes:'Размеры'};
+    var state={};
+    try{state=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};}catch(err){state={};}
+
+    var hiddenBrief=document.getElementById('f-brief-summary');
+    var productSelect=document.getElementById('f-product');
+    var note=document.querySelector('[data-brief-note]');
+    var reset=document.querySelector('[data-brief-reset]');
+    var cta=document.querySelector('[data-brief-cta]');
+
+    var buildBriefText=function(){
+      return fields.filter(function(field){return state[field];}).map(function(field){
+        return fieldLabels[field]+': '+state[field];
+      }).join('; ');
+    };
+
+    var syncForm=function(){
+      var summary=buildBriefText();
+      if(hiddenBrief) hiddenBrief.value=summary;
+      if(productSelect&&state.product){
+        Array.prototype.slice.call(productSelect.options).some(function(option){
+          if(option.text===state.product||option.value===state.product){
+            productSelect.value=option.value;
+            return true;
+          }
+          return false;
+        });
+      }
+    };
+
+    var renderBrief=function(){
+      fields.forEach(function(field){
+        var value=state[field]||'';
+        builder.querySelectorAll('[data-brief-field="'+field+'"]').forEach(function(btn){
+          var active=btn.getAttribute('data-brief-value')===value;
+          btn.classList.toggle('active',active);
+          btn.setAttribute('aria-pressed',active?'true':'false');
+        });
+        var target=document.querySelector('[data-summary="'+field+'"]');
+        if(target){
+          target.textContent=value||'не выбрано';
+          target.classList.toggle('is-empty',!value);
+        }
+      });
+      var count=fields.filter(function(field){return !!state[field];}).length;
+      if(note){
+        note.textContent=count
+          ? 'Выбрано '+count+' из 4. Этот маршрут заказа уже попадёт в форму ниже.'
+          : 'Можно заполнить не всё. Даже два выбора уже помогут быстрее предложить ткань, принт и реалистичный тираж.';
+      }
+      syncForm();
+    };
+
+    builder.querySelectorAll('[data-brief-field]').forEach(function(btn){
+      btn.setAttribute('aria-pressed','false');
+      btn.addEventListener('click',function(){
+        var field=btn.getAttribute('data-brief-field');
+        var value=btn.getAttribute('data-brief-value');
+        state[field]=value;
+        try{localStorage.setItem(storageKey,JSON.stringify(state));}catch(err){}
+        renderBrief();
+      });
+    });
+
+    if(reset){
+      reset.addEventListener('click',function(){
+        state={};
+        try{localStorage.removeItem(storageKey);}catch(err){}
+        renderBrief();
+      });
+    }
+
+    if(cta){
+      cta.addEventListener('click',function(){syncForm();});
+    }
+
+    renderBrief();
+  }
+
+  // Buyer scenarios -> contact form
+  document.querySelectorAll('[data-scenario]').forEach(function(link){
+    link.addEventListener('click',function(){
+      var scenario=link.getAttribute('data-scenario');
+      var product=link.getAttribute('data-product');
+      if(window.TrekkiForm){
+        window.TrekkiForm.setProduct(product);
+        window.TrekkiForm.setCommentContext('Сценарий заказа',scenario);
+      }
     });
   });
-  var closeLb=function(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+
+  // Lightbox
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbClose=document.getElementById('lbClose');
+  lb.hidden=true;lb.setAttribute('inert','');
+  var lbReturnFocus=null;
+  document.querySelectorAll('#masonry figure').forEach(function(fig){
+    fig.setAttribute('tabindex','0');
+    fig.setAttribute('role','button');
+    fig.setAttribute('aria-label','Открыть фото');
+    fig.addEventListener('click',function(){
+      var img=fig.querySelector('img');
+      lbReturnFocus=document.activeElement;
+      lbImg.src=img.src;lbImg.alt=img.alt;
+      lb.hidden=false;lb.removeAttribute('inert');
+      lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lbClose.focus();
+    });
+    fig.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();fig.click();}
+    });
+  });
+  var closeLb=function(){
+    if(lb.hidden) return;
+    lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lb.setAttribute('inert','');lb.hidden=true;document.body.style.overflow='';
+    if(lbReturnFocus&&typeof lbReturnFocus.focus==='function') lbReturnFocus.focus();
+  };
   lbClose.addEventListener('click',closeLb);
   lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
-
-  // Order form -> Telegram
-  var form=document.getElementById('orderForm');
-  var copyToClipboard=function(value){
-    if(navigator.clipboard&&window.isSecureContext){
-      return navigator.clipboard.writeText(value);
-    }
-    return new Promise(function(resolve,reject){
-      var area=document.createElement('textarea');
-      area.value=value;
-      area.setAttribute('readonly','');
-      area.style.position='fixed';
-      area.style.left='-9999px';
-      area.style.top='0';
-      document.body.appendChild(area);
-      area.select();
-      area.setSelectionRange(0,area.value.length);
-      try{
-        if(document.execCommand('copy')) resolve();
-        else reject();
-      }catch(err){
-        reject(err);
-      }finally{
-        document.body.removeChild(area);
-      }
-    });
-  };
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var name=(document.getElementById('f-name').value||'').trim();
-    var contact=(document.getElementById('f-contact').value||'').trim();
-    var product=(document.getElementById('f-product').value||'').trim();
-    var quantity=(document.getElementById('f-quantity').value||'').trim();
-    var date=(document.getElementById('f-date').value||'').trim();
-    var city=(document.getElementById('f-city').value||'').trim();
-    var design=(document.getElementById('f-design').value||'').trim();
-    var msg=(document.getElementById('f-msg').value||'').trim();
-    var text=[
-      'Здравствуйте! Заявка с сайта Trekki Store.',
-      'Имя: '+name,
-      'Контакт: '+contact,
-      'Что нужно: '+product,
-      'Тираж: '+(quantity||'не указан'),
-      'К какой дате: '+(date||'не указано'),
-      'Город доставки: '+(city||'не указан'),
-      'Логотип / макет: '+design,
-      'Комментарий: '+(msg||'нет')
-    ].join('\n');
-    var openTelegram=function(){window.open('https://t.me/vkspb','_blank');};
-    copyToClipboard(text).then(openTelegram).catch(openTelegram);
-  });
 })();
 </script>
+<script src="contact.js"></script>
 </body>
 </html>
