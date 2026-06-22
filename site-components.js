@@ -104,7 +104,7 @@
     '          <a href="tshirts.html">Футболки</a>',
     '          <a href="buffs.html">Бафы</a>',
     '          <a href="future-items.html">Готовый мерч</a>',
-    '          <a href="index.html#smart-brief">Умный бриф</a>',
+    '          <a href="index.html#smart-brief">Конструктор</a>',
     '          <a href="index.html#process">Как заказать</a>',
     '        </div>',
     '        <div class="foot-col">',

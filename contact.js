@@ -55,7 +55,7 @@
       "Логотип / макет: "+(get("f-design")||"не указано")
     ];
     if(get("f-brief-summary")){
-      lines.push("Выбор в умном брифе: "+get("f-brief-summary"));
+      lines.push("Выбор в конструкторе: "+get("f-brief-summary"));
     }
     lines.push("Комментарий: "+(get("f-msg")||"нет"));
     return lines.join("\n");
