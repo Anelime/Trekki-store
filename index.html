@@ -78,7 +78,7 @@
     display:inline-flex;align-items:center;justify-content:center;gap:9px;
     padding:15px 28px;border-radius:12px;font-weight:700;font-size:15px;
     letter-spacing:.02em;transition:transform .35s var(--ease),background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
-    will-change:transform;white-space:nowrap;
+    max-width:100%;min-width:0;text-align:center;white-space:normal;will-change:transform;
   }
   .btn:hover{transform:translateY(-2px)}
   .btn-primary{background:var(--ink);color:var(--paper)}
@@ -408,9 +408,11 @@
   /* ---------- Contact ---------- */
   .contact{background:var(--ink);color:var(--paper)}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:start}
+  .contact-grid > *{min-width:0}
   .contact .lead{font-size:18px;color:var(--muted-on-dark);max-width:40ch;margin-top:20px}
   .contact-methods{margin-top:36px;display:flex;flex-direction:column;gap:4px}
-  .cm{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--line-on-dark)}
+  .cm{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--line-on-dark);min-width:0}
+  .cm span{min-width:0}
   .cm:last-child{border-bottom:1px solid var(--line-on-dark)}
   .cm .cm-ic{width:42px;height:42px;border-radius:11px;border:1px solid var(--line-on-dark);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
   .cm small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-on-dark)}
@@ -1348,7 +1350,7 @@
 <!-- ============ LIGHTBOX ============ -->
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true" hidden inert>
   <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
-  <img src="" alt="">
+  <img alt="">
 </div>
 
 <script src="site-components.js"></script>
