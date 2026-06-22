@@ -136,7 +136,7 @@
   @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
   .hero-bg::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.18) 32%,rgba(20,17,15,.4) 62%,rgba(20,17,15,.88) 100%);}
-  .hero-inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,.98fr) minmax(360px,.78fr);gap:clamp(28px,5vw,72px);align-items:end;padding-bottom:clamp(56px,9vw,104px);padding-top:140px}
+  .hero-inner{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:flex-start;padding-bottom:clamp(56px,9vw,104px);padding-top:140px}
   .hero-copy{min-width:0}
   .hero h1{font-size:clamp(44px,8.4vw,118px);max-width:14ch;margin:22px 0 0;text-shadow:0 2px 40px rgba(0,0,0,.35)}
   .hero .lede{margin-top:26px;max-width:54ch;font-size:clamp(16px,1.6vw,20px);color:rgba(247,245,241,.92);font-weight:400}
@@ -150,23 +150,6 @@
   .hero-product small{display:block;margin-top:4px;color:rgba(247,245,241,.82);font-size:12px;line-height:1.25}
   .hero-tag{grid-column:1;margin-top:4px;display:inline-flex;align-items:center;gap:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(247,245,241,.8)}
   .hero-tag::before{content:"";width:34px;height:1px;background:rgba(247,245,241,.55)}
-  .hero-collage{position:relative;min-height:clamp(430px,46vw,650px)}
-  .hero-collage::before{content:"";position:absolute;inset:9% -5% 6% 10%;border:1px solid rgba(247,245,241,.22);border-radius:26px;background:rgba(20,17,15,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:rotate(-2deg)}
-  .collage-card{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,245,241,.22);border-radius:18px;background:rgba(20,17,15,.16);box-shadow:0 32px 70px -42px rgba(0,0,0,.9);overflow:hidden}
-  .collage-card img{width:100%;height:100%;object-fit:contain;padding:18px}
-  .collage-card:not(.collage-live){background:transparent;border-color:transparent;box-shadow:none;overflow:visible}
-  .collage-card:not(.collage-live) img{filter:drop-shadow(0 24px 34px rgba(0,0,0,.42));padding:0}
-  .collage-long{left:7%;bottom:3%;width:58%;height:74%;transform:rotate(-5deg)}
-  .collage-tee{right:2%;bottom:17%;width:44%;height:52%;transform:rotate(5deg)}
-  .collage-buff{right:17%;top:11%;width:30%;height:27%;transform:rotate(-8deg)}
-  .collage-live{left:0;top:11%;width:34%;height:28%;padding:0;background:var(--ink)}
-  .collage-live img{object-fit:cover;padding:0}
-  .collage-stamp{position:absolute;left:4%;bottom:4%;z-index:4;display:grid;gap:3px;width:132px;height:132px;place-content:center;border:2px solid rgba(247,245,241,.72);border-radius:50%;color:var(--paper);background:rgba(20,17,15,.62);text-align:center;text-transform:uppercase;letter-spacing:.1em;transform:rotate(-11deg)}
-  .collage-stamp strong{font-size:20px;line-height:1}
-  .collage-stamp span{font-size:10px;color:rgba(247,245,241,.78)}
-  .collage-meta{position:absolute;right:3%;bottom:3%;z-index:4;display:grid;gap:4px;min-width:176px;border:1px solid rgba(247,245,241,.2);border-radius:14px;padding:13px 14px;background:rgba(20,17,15,.68);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--paper)}
-  .collage-meta b{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent)}
-  .collage-meta span{font-size:13px;color:rgba(247,245,241,.86)}
   .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.78)}
   .scrollcue .line{width:1px;height:42px;background:linear-gradient(rgba(247,245,241,.78),rgba(247,245,241,0));animation:cue 2s var(--ease) infinite}
   @keyframes cue{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
@@ -502,8 +485,6 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:1024px){
-    .hero-inner{grid-template-columns:1fr;align-items:end}
-    .hero-collage{min-height:430px;max-width:620px}
     .route-strip{grid-template-columns:repeat(2,1fr)}
     .adv-grid{grid-template-columns:repeat(2,1fr)}
     .adv-item:nth-child(4n){border-right:1px solid var(--line-on-dark)}
@@ -534,17 +515,6 @@
     .section:not(.contact)::before{left:20px;right:20px;top:24px}
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
-    .hero-collage{min-height:310px;margin-top:30px}
-    .collage-card{border-radius:14px}
-    .collage-card img{padding:10px}
-    .collage-long{left:3%;bottom:2%;width:58%;height:72%}
-    .collage-tee{right:0;bottom:14%;width:44%;height:48%}
-    .collage-buff{right:11%;top:12%;width:30%;height:27%}
-    .collage-live{left:0;top:8%;width:36%;height:27%}
-    .collage-stamp{width:94px;height:94px;left:3%;bottom:3%}
-    .collage-stamp strong{font-size:15px}
-    .collage-stamp span{font-size:8px}
-    .collage-meta{display:none}
     .route-strip,.brand-proof{grid-template-columns:1fr}
     .brand-proof-card{display:block}
     .brand-proof-card span{display:block;margin-top:10px}
@@ -641,22 +611,6 @@
         <a href="#products" class="btn btn-ghost on-dark">Смотреть форму и ткани</a>
       </div>
     </div>
-    <aside class="hero-collage" aria-label="Примеры формы Trekki Store">
-      <figure class="collage-card collage-live">
-        <img src="assets/trips/trip-two-girls-mountain.jpg" alt="Участницы Trekki в форме на фоне гор" width="2000" height="1333" decoding="async">
-      </figure>
-      <figure class="collage-card collage-long">
-        <img src="assets/merch/hero-longsleeve-transparent.png" alt="Кастомный лонгслив Trekki с принтом Эльбрус" width="1400" height="1400" decoding="async">
-      </figure>
-      <figure class="collage-card collage-tee">
-        <img src="assets/merch/hero-tshirt-transparent.png" alt="Кастомная футболка Trekki с принтом Tibet" width="1028" height="1400" decoding="async">
-      </figure>
-      <figure class="collage-card collage-buff">
-        <img src="assets/merch/hero-buff-transparent.png" alt="Кастомный баф Trekki с принтом Annapurna" width="1400" height="1400" decoding="async">
-      </figure>
-      <div class="collage-stamp" aria-hidden="true"><span>tested</span><strong>5642</strong><span>elbrus</span></div>
-      <div class="collage-meta" aria-hidden="true"><b>Annapurna · Elbrus · Trekki</b><span>лонгслив + футболка + баф под событие</span></div>
-    </aside>
     <div class="hero-products" aria-label="Быстрый переход к изделиям">
       <a class="hero-product" href="#product-longsleeves">
         <span class="hero-product-thumb"><img src="assets/merch/hero-longsleeve-transparent.png" alt="" width="1400" height="1400" decoding="async"></span>
