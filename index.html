@@ -337,18 +337,6 @@
   .step h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
   .step p{margin-top:10px;color:var(--muted);font-size:15px}
 
-  /* ---------- Commercial ---------- */
-  .commercial{background:var(--paper)}
-  .commerce-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .commerce-card{position:relative;min-height:210px;border:1px solid var(--line);border-radius:var(--r);background:var(--white);padding:24px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
-  .commerce-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent)}
-  .commerce-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
-  .commerce-card h3{margin-top:12px;font-size:22px;font-weight:800;text-transform:uppercase;line-height:1.05}
-  .commerce-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
-  .commercial-cta{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--line);border-radius:var(--r);background:var(--ink);color:var(--paper);padding:22px}
-  .commercial-cta strong{display:block;font-size:22px;text-transform:uppercase;line-height:1.05}
-  .commercial-cta span{display:block;margin-top:7px;color:var(--muted-on-dark);font-size:14.5px}
-
   /* ---------- Order guide ---------- */
   .guide{background:var(--white)}
   .guide-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(34px,5vw,74px);align-items:start}
@@ -450,7 +438,7 @@
     .smart-grid{grid-template-columns:1fr}
     .brief-builder{grid-template-columns:minmax(0,1fr) minmax(290px,.72fr)}
     .brief-summary{position:relative;top:auto}
-    .buyer-grid,.commerce-grid{grid-template-columns:repeat(2,1fr)}
+    .buyer-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
     .use-grid{grid-template-columns:repeat(2,1fr)}
@@ -469,15 +457,13 @@
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
     .prod-grid,.fab-grid,.use-grid{grid-template-columns:1fr}
-    .buyer-grid,.commerce-grid{grid-template-columns:1fr}
+    .buyer-grid{grid-template-columns:1fr}
     .guide-grid,.brief-list,.form-row,.smart-grid,.brief-builder{grid-template-columns:1fr}
     .brief-summary{grid-column:auto;grid-row:auto}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
     .adv-item,.use-cell{border-right:none!important}
     .buyer-card{min-height:auto}
-    .commercial-cta{display:block}
-    .commercial-cta .btn{width:100%;margin-top:16px}
     .steps{grid-template-columns:1fr;gap:30px}
     .hero h1{font-size:clamp(40px,12vw,60px)}
     .hero .lede{margin-top:20px}
@@ -1066,56 +1052,6 @@
         <h3>Доставка</h3>
         <p>Отправляем по России и СНГ: СДЭК или другая служба по договорённости.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMMERCIAL INFO ============ -->
-<section class="section commercial" id="commercial">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">До заявки</span>
-      <h2 class="section-title display">Коммерческие<br>ориентиры</h2>
-      <p class="section-intro">Это не прайс, а короткая карта заказа: что уже можно понять до переписки и какие вопросы помогают сразу назвать реалистичные сроки.</p>
-    </div>
-    <div class="commerce-grid">
-      <article class="commerce-card" data-reveal>
-        <span class="kicker">Минимальный тираж</span>
-        <h3>От 5 штук</h3>
-        <p>Подходит для малых команд, клубов, походных групп и событий. Если нужно меньше или нужен добор, лучше сразу написать задачу.</p>
-      </article>
-      <article class="commerce-card" data-reveal data-delay="1">
-        <span class="kicker">Сроки</span>
-        <h3>Считаем от даты события</h3>
-        <p>На срок влияют ткань, тираж, готовность макета, способ принта, размерная сетка и доставка до города.</p>
-      </article>
-      <article class="commerce-card" data-reveal data-delay="2">
-        <span class="kicker">Срочно</span>
-        <h3>Проверяем по задаче</h3>
-        <p>Срочный заказ возможен не всегда: иногда придётся упростить изделие, ткань, принт или список размеров.</p>
-      </article>
-      <article class="commerce-card" data-reveal>
-        <span class="kicker">Доставка</span>
-        <h3>Россия и СНГ</h3>
-        <p>Отправляем СДЭК или другой службой по договорённости. Город доставки лучше указать сразу в заявке.</p>
-      </article>
-      <article class="commerce-card" data-reveal data-delay="1">
-        <span class="kicker">Оплата</span>
-        <h3>Уточняем при расчёте</h3>
-        <p>Формат оплаты зависит от тиража, сроков и состава заказа. Если нужен счёт или документы, отметьте это в комментарии.</p>
-      </article>
-      <article class="commerce-card" data-reveal data-delay="2">
-        <span class="kicker">Юрлица</span>
-        <h3>Счёт и договор — по запросу</h3>
-        <p>Для корпоративных команд лучше сразу прислать реквизиты, дедлайн и требования к документам, чтобы не терять время.</p>
-      </article>
-    </div>
-    <div class="commercial-cta" data-reveal>
-      <div>
-        <strong>Хотите понять, успеем ли к вашей дате?</strong>
-        <span>Напишите изделие, тираж, город, дату события и что уже есть по макету.</span>
-      </div>
-      <a href="#contact" class="btn btn-primary">Получить расчёт и сроки <span class="arr">→</span></a>
     </div>
   </div>
 </section>
