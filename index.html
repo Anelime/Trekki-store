@@ -229,16 +229,7 @@
 
   /* ---------- Gallery ---------- */
   .gal{background:var(--paper-2)}
-  .masonry{columns:3;column-gap:18px}
-  .masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#ddd}
-  .masonry img{width:100%;height:auto;transition:transform .8s var(--ease),filter .5s}
-  .masonry.product-examples figure{background:rgba(239,236,229,.46);border:1px solid var(--line)}
-  .masonry.product-examples img{display:block;background:transparent}
-  .masonry figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 55%,rgba(20,17,15,.5));opacity:0;transition:opacity .4s}
-  .masonry figcaption{display:none}
-  .masonry figure:hover img{transform:scale(1.06)}
-  .masonry figure:hover::after{opacity:1}
-  .trip-showcase{margin-top:42px;padding-top:36px;border-top:1px solid var(--line)}
+  .trip-showcase{margin-top:0}
   .trip-showcase .section-head{margin-bottom:24px}
   .trip-strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
   .trip-card{position:relative;min-height:300px;border-radius:12px;overflow:hidden;background:var(--ink);scroll-snap-align:start}
@@ -246,17 +237,6 @@
   .trip-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 38%,rgba(20,17,15,.76) 100%)}
   .trip-card figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:var(--paper);font-size:15px;font-weight:700;line-height:1.25}
   .trip-card:hover img{transform:scale(1.05);filter:saturate(1.06)}
-
-  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .case-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--white);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);cursor:zoom-in}
-  .case-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -34px rgba(20,17,15,.45);border-color:transparent}
-  .case-photo{aspect-ratio:1/1;display:grid;place-items:center;background:radial-gradient(circle at 45% 30%,rgba(247,245,241,.38),rgba(224,218,207,.74) 58%,rgba(196,187,171,.42) 100%);overflow:hidden}
-  .case-photo img{width:100%;height:100%;object-fit:contain;padding:18px;filter:drop-shadow(0 16px 24px rgba(20,17,15,.16));transition:transform .55s var(--ease)}
-  .case-card:hover .case-photo img{transform:scale(1.04)}
-  .case-card figcaption{display:grid;gap:8px;padding:18px 18px 20px}
-  .case-label{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
-  .case-card strong{font-size:18px;line-height:1.16;text-transform:uppercase}
-  .case-card small{color:var(--muted);font-size:13.5px;line-height:1.45}
 
   /* ---------- Printing ---------- */
   .print{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -453,13 +433,6 @@
   .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:24px;font-size:13px}
 
   /* ---------- Lightbox ---------- */
-  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,10,9,.94);display:flex;align-items:center;justify-content:center;padding:30px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
-  .lb.open{opacity:1;pointer-events:auto}
-  .lb img{max-width:92vw;max-height:88vh;border-radius:10px;transform:scale(.96);transition:transform .35s var(--ease);box-shadow:0 30px 80px rgba(0,0,0,.6)}
-  .lb.open img{transform:scale(1)}
-  .lb-close{position:absolute;top:22px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(247,245,241,.25);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;transition:.3s}
-  .lb-close:hover{background:rgba(247,245,241,.12);transform:rotate(90deg)}
-
   /* ---------- Reveal animation ---------- */
   [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   [data-reveal].in{opacity:1;transform:none}
@@ -487,9 +460,8 @@
     .brief-builder{grid-template-columns:minmax(0,1fr) minmax(290px,.72fr)}
     .brief-summary{position:relative;top:auto}
     .price-grid{grid-template-columns:repeat(2,1fr)}
-    .buyer-grid,.commerce-grid,.case-grid{grid-template-columns:repeat(2,1fr)}
+    .buyer-grid,.commerce-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
-    .masonry{columns:2}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
     .use-grid{grid-template-columns:repeat(2,1fr)}
     .use-cell:nth-child(3n){border-right:1px solid var(--line-on-dark)}
@@ -507,13 +479,12 @@
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
     .prod-grid,.fab-grid,.use-grid,.price-grid{grid-template-columns:1fr}
-    .buyer-grid,.commerce-grid,.case-grid{grid-template-columns:1fr}
+    .buyer-grid,.commerce-grid{grid-template-columns:1fr}
     .guide-grid,.brief-list,.form-row,.smart-grid,.brief-builder{grid-template-columns:1fr}
     .brief-summary{grid-column:auto;grid-row:auto}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
     .adv-item,.use-cell{border-right:none!important}
-    .masonry{columns:1}
     .buyer-card{min-height:auto}
     .commercial-cta{display:block}
     .commercial-cta .btn{width:100%;margin-top:16px}
@@ -846,61 +817,6 @@
 <!-- ============ GALLERY ============ -->
 <section class="section gal" id="gallery">
   <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Кейсы и примеры</span>
-      <h2 class="section-title display">Что можно собрать<br>под реальный заказ</h2>
-      <p class="section-intro">Фото оставили как визуальное доказательство, но добавили к ним смысл: для кого такой формат, какая технология и какие вводные нужны для расчёта.</p>
-    </div>
-    <div class="case-grid product-examples" id="masonry">
-      <figure class="case-card" data-reveal>
-        <div class="case-photo"><img src="assets/merch/hero-longsleeve-transparent.png" alt="Белый лонгслив Trekki с принтом Эльбрус" loading="lazy" width="1400" height="1400" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Лонгсливы для походной группы</span>
-          <strong>30–40 штук · сублимация · размеры S–XXL</strong>
-          <small>Для расчёта нужны тираж, дата, город и логотип/идея маршрута.</small>
-        </figcaption>
-      </figure>
-      <figure class="case-card" data-reveal data-delay="1">
-        <div class="case-photo"><img src="assets/merch/hero-tshirt-transparent.png" alt="Оранжевая футболка Trekki с принтом TIBET" loading="lazy" width="1028" height="1400" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Футболки для старта или клуба</span>
-          <strong>от 5 штук · лёгкая ткань · яркий принт</strong>
-          <small>Подходит для забега, тренировки, клубного события или подарка участникам.</small>
-        </figcaption>
-      </figure>
-      <figure class="case-card" data-reveal data-delay="2">
-        <div class="case-photo"><img src="assets/merch/hero-buff-transparent.png" alt="Оранжевый баф Trekki с горным принтом" loading="lazy" width="1400" height="1400" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Бафы для маршрута</span>
-          <strong>40 бафов · сублимация · доставка СДЭК</strong>
-          <small>Хороший формат, когда у участников разные размеры одежды, но нужен общий мерч.</small>
-        </figcaption>
-      </figure>
-      <figure class="case-card" data-reveal>
-        <div class="case-photo"><img src="assets/merch/longsleeve-8848-transparent.png" alt="Лонгслив 8848 с горным принтом" loading="lazy" width="1280" height="1280" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Лонгслив под вершину или маршрут</span>
-          <strong>маршрутная графика · логотипы · длинный рукав</strong>
-          <small>Можно собрать дизайн вокруг горы, даты, высоты, координат и названия команды.</small>
-        </figcaption>
-      </figure>
-      <figure class="case-card" data-reveal data-delay="1">
-        <div class="case-photo"><img src="assets/merch/buff-blue-baikal-transparent.png" alt="Синий баф Trekki Baikal" loading="lazy" width="1400" height="1400" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Баф в комплект к форме</span>
-          <strong>одна графика · разные изделия · без сложной размерной сетки</strong>
-          <small>Удобно добавить к футболкам или лонгсливам, чтобы комплект выглядел собранно.</small>
-        </figcaption>
-      </figure>
-      <figure class="case-card" data-reveal data-delay="2">
-        <div class="case-photo"><img src="assets/merch/buff-northern-lights-transparent.png" alt="Тёмный баф Trekki с северным сиянием" loading="lazy" width="1280" height="1280" decoding="async"></div>
-        <figcaption>
-          <span class="case-label">Мерч под поездку</span>
-          <strong>готовый принт · баф или футболка · короткая подборка</strong>
-          <small>Подходит, когда нужно дать участникам ссылку и не собирать хаос в переписке.</small>
-        </figcaption>
-      </figure>
-    </div>
     <div class="trip-showcase" data-reveal>
       <div class="section-head">
         <span class="eyebrow">В поездках</span>
@@ -1317,12 +1233,6 @@
 
 <div data-component="footer"></div>
 
-<!-- ============ LIGHTBOX ============ -->
-<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true" hidden inert>
-  <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
-  <img alt="">
-</div>
-
 <script src="site-components.js"></script>
 <script>
 (function(){
@@ -1471,33 +1381,6 @@
     });
   });
 
-  // Lightbox
-  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbClose=document.getElementById('lbClose');
-  lb.hidden=true;lb.setAttribute('inert','');
-  var lbReturnFocus=null;
-  document.querySelectorAll('#masonry figure').forEach(function(fig){
-    fig.setAttribute('tabindex','0');
-    fig.setAttribute('role','button');
-    fig.setAttribute('aria-label','Открыть фото');
-    fig.addEventListener('click',function(){
-      var img=fig.querySelector('img');
-      lbReturnFocus=document.activeElement;
-      lbImg.src=img.src;lbImg.alt=img.alt;
-      lb.hidden=false;lb.removeAttribute('inert');
-      lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lbClose.focus();
-    });
-    fig.addEventListener('keydown',function(e){
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();fig.click();}
-    });
-  });
-  var closeLb=function(){
-    if(lb.hidden) return;
-    lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lb.setAttribute('inert','');lb.hidden=true;document.body.style.overflow='';
-    if(lbReturnFocus&&typeof lbReturnFocus.focus==='function') lbReturnFocus.focus();
-  };
-  lbClose.addEventListener('click',closeLb);
-  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
 })();
 </script>
 <script src="contact.js"></script>
