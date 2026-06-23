@@ -239,7 +239,7 @@
   .trip-card:hover img{transform:scale(1.05);filter:saturate(1.06)}
 
   /* ---------- Printing ---------- */
-  .print{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .print{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-bottom:clamp(52px,6vw,78px)}
   .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .method-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;min-height:340px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
   .method-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
@@ -315,22 +315,8 @@
   .use-cell .uc-ic{color:var(--accent);margin-bottom:14px}
   .use-cell h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
   .use-cell p{margin-top:8px;color:var(--muted-on-dark);font-size:14.5px}
-  .buyer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .buyer-card{display:flex;flex-direction:column;min-height:440px;border:1px solid var(--line-on-dark);border-radius:var(--r);background:rgba(247,245,241,.06);padding:24px;transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
-  .buyer-card:hover{transform:translateY(-4px);background:var(--ink-2);border-color:rgba(247,245,241,.28)}
-  .buyer-top{display:grid;gap:14px}
-  .buyer-num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(234,90,6,.72);border-radius:50%;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.08em}
-  .buyer-card h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:22px;font-weight:700;line-height:1.06}
-  .buyer-card p{margin-top:14px;color:var(--muted-on-dark);font-size:14.5px;line-height:1.55}
-  .buyer-card dl{display:grid;gap:14px;margin-top:22px}
-  .buyer-card dt{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
-  .buyer-card dd{margin-top:5px;color:rgba(247,245,241,.9);font-size:14px;line-height:1.45}
-  .buyer-cta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;color:var(--paper);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-  .buyer-cta span{transition:transform .3s var(--ease)}
-  .buyer-cta:hover{color:var(--accent)}
-  .buyer-cta:hover span{transform:translateX(4px)}
-
   /* ---------- Process ---------- */
+  #process{padding-top:clamp(52px,6vw,78px)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
   .step{position:relative;padding-top:30px;border-top:2px solid var(--line)}
   .step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:-1px;left:0;font-family:var(--main-font),sans-serif;font-weight:700;font-size:13px;color:var(--accent);background:var(--paper);padding-right:12px;transform:translateY(-50%)}
@@ -438,7 +424,6 @@
     .smart-grid{grid-template-columns:1fr}
     .brief-builder{grid-template-columns:minmax(0,1fr) minmax(290px,.72fr)}
     .brief-summary{position:relative;top:auto}
-    .buyer-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
     .use-grid{grid-template-columns:repeat(2,1fr)}
@@ -457,13 +442,11 @@
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
     .prod-grid,.fab-grid,.use-grid{grid-template-columns:1fr}
-    .buyer-grid{grid-template-columns:1fr}
     .guide-grid,.brief-list,.form-row,.smart-grid,.brief-builder{grid-template-columns:1fr}
     .brief-summary{grid-column:auto;grid-row:auto}
     .info-links{grid-template-columns:1fr}
     .adv-grid{grid-template-columns:1fr}
     .adv-item,.use-cell{border-right:none!important}
-    .buyer-card{min-height:auto}
     .steps{grid-template-columns:1fr;gap:30px}
     .hero h1{font-size:clamp(40px,12vw,60px)}
     .hero .lede{margin-top:20px}
@@ -964,67 +947,6 @@
           <li>на бафах у лица обычно не рекомендуем</li>
         </ul>
         <a class="method-link" href="printing.html#embroidery">Подробнее</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ USE CASES ============ -->
-<section class="section use">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow on-dark">Сценарии заказа</span>
-      <h2 class="section-title display">Под какую задачу<br>считаем форму</h2>
-      <p class="section-intro">Не обязательно приходить с готовым ТЗ. Выберите ближайший сценарий — мы сразу поймём, какие изделия, ткани, сроки и вводные нужны для расчёта.</p>
-    </div>
-    <div class="buyer-grid">
-      <article class="buyer-card" data-reveal>
-        <div class="buyer-top">
-          <span class="buyer-num">01</span>
-          <h3>Забег или поход</h3>
-        </div>
-        <p>Для маршрута, старта, восхождения или выезда, где вещь должна работать в движении и остаться памятью после события.</p>
-        <dl>
-          <div><dt>Обычно заказывают</dt><dd>лонгсливы, футболки, бафы, комплект “форма + баф”.</dd></div>
-          <div><dt>Что прислать</dt><dd>дату события, город доставки, тираж, маршрут/название, логотип или идею принта.</dd></div>
-        </dl>
-        <a class="buyer-cta" href="#contact" data-scenario="Забег или поход" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
-      </article>
-      <article class="buyer-card" data-reveal data-delay="1">
-        <div class="buyer-top">
-          <span class="buyer-num">02</span>
-          <h3>Клуб или сообщество</h3>
-        </div>
-        <p>Для бегового клуба, школы, походной группы или комьюнити, где важно узнавать своих и регулярно добирать форму.</p>
-        <dl>
-          <div><dt>Обычно заказывают</dt><dd>лонгсливы, футболки по размерам, бафы, повторный добор мерча.</dd></div>
-          <div><dt>Что прислать</dt><dd>логотип клуба, цвета, примерную размерную сетку, желаемый тираж и сценарий носки.</dd></div>
-        </dl>
-        <a class="buyer-cta" href="#contact" data-scenario="Клуб или сообщество" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
-      </article>
-      <article class="buyer-card" data-reveal data-delay="2">
-        <div class="buyer-top">
-          <span class="buyer-num">03</span>
-          <h3>Корпоративная команда</h3>
-        </div>
-        <p>Для компании на забег, спартакиаду, трекинг, выезд или внутреннее спортивное событие.</p>
-        <dl>
-          <div><dt>Обычно заказывают</dt><dd>единый комплект с логотипом компании, футболки, лонгсливы, бафы.</dd></div>
-          <div><dt>Что прислать</dt><dd>брендбук или логотип, дедлайн, количество участников, город и требования к документам.</dd></div>
-        </dl>
-        <a class="buyer-cta" href="#contact" data-scenario="Корпоративная команда" data-product="Комплект формы">Рассчитать такой заказ <span>→</span></a>
-      </article>
-      <article class="buyer-card" data-reveal data-delay="3">
-        <div class="buyer-top">
-          <span class="buyer-num">04</span>
-          <h3>Мерч для события</h3>
-        </div>
-        <p>Для поездки, старта, клубной даты или фестиваля, где участникам нужна короткая понятная подборка вещей.</p>
-        <dl>
-          <div><dt>Обычно заказывают</dt><dd>готовый принт, футболку, баф, медаль, этикетку или небольшой комплект.</dd></div>
-          <div><dt>Что прислать</dt><dd>тему события, список изделий, ориентир по тиражу, сроки и референсы по стилю.</dd></div>
-        </dl>
-        <a class="buyer-cta" href="#contact" data-scenario="Мерч для события" data-product="Готовые принты, медали или мерч">Рассчитать такой заказ <span>→</span></a>
       </article>
     </div>
   </div>
