@@ -337,15 +337,6 @@
   .step h3{font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
   .step p{margin-top:10px;color:var(--muted);font-size:15px}
 
-  /* ---------- Price factors ---------- */
-  .price{background:var(--paper-2)}
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .price-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;min-height:210px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
-  .price-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(20,17,15,.45);border-color:transparent}
-  .price-card .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
-  .price-card h3{margin-top:12px;font-family:var(--main-font),sans-serif;text-transform:uppercase;font-size:20px;font-weight:700;line-height:1.1}
-  .price-card p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.55}
-
   /* ---------- Commercial ---------- */
   .commercial{background:var(--paper)}
   .commerce-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -459,7 +450,6 @@
     .smart-grid{grid-template-columns:1fr}
     .brief-builder{grid-template-columns:minmax(0,1fr) minmax(290px,.72fr)}
     .brief-summary{position:relative;top:auto}
-    .price-grid{grid-template-columns:repeat(2,1fr)}
     .buyer-grid,.commerce-grid{grid-template-columns:repeat(2,1fr)}
     .fab-grid{grid-template-columns:repeat(2,1fr)}
     .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
@@ -478,7 +468,7 @@
     .section:not(.contact)::before{left:20px;right:20px;top:24px}
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
-    .prod-grid,.fab-grid,.use-grid,.price-grid{grid-template-columns:1fr}
+    .prod-grid,.fab-grid,.use-grid{grid-template-columns:1fr}
     .buyer-grid,.commerce-grid{grid-template-columns:1fr}
     .guide-grid,.brief-list,.form-row,.smart-grid,.brief-builder{grid-template-columns:1fr}
     .brief-summary{grid-column:auto;grid-row:auto}
@@ -1076,49 +1066,6 @@
         <h3>Доставка</h3>
         <p>Отправляем по России и СНГ: СДЭК или другая служба по договорённости.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICE FACTORS ============ -->
-<section class="section price" id="price">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Расчёт</span>
-      <h2 class="section-title display">Что влияет<br>на цену</h2>
-      <p class="section-intro">Точную стоимость считаем под задачу, но логика понятная: цена зависит не от одного принта, а от всего набора решений.</p>
-    </div>
-    <div class="price-grid">
-      <article class="price-card" data-reveal>
-        <span class="kicker">01</span>
-        <h3>Изделие</h3>
-        <p>Футболка, лонгслив, баф или комплект отличаются по расходу ткани, лекалам, обработке и времени пошива.</p>
-      </article>
-      <article class="price-card" data-reveal data-delay="1">
-        <span class="kicker">02</span>
-        <h3>Ткань</h3>
-        <p>Плотность, состав, эластичность и фактура влияют на стоимость и подбираются под сценарий: жара, старт, мерч, бафы или выразительная форма.</p>
-      </article>
-      <article class="price-card" data-reveal data-delay="2">
-        <span class="kicker">03</span>
-        <h3>Принт</h3>
-        <p>Сублимация, DTF, вышивка, шеврон или комбинация техник по-разному считаются и дают разный визуальный эффект.</p>
-      </article>
-      <article class="price-card" data-reveal>
-        <span class="kicker">04</span>
-        <h3>Тираж</h3>
-        <p>Чем меньше партия, тем заметнее подготовка заказа на одну вещь. В больших партиях стоимость за штуку обычно получается мягче.</p>
-      </article>
-      <article class="price-card" data-reveal data-delay="1">
-        <span class="kicker">05</span>
-        <h3>Сроки</h3>
-        <p>Дата события и срочность влияют на маршрут: наличие ткани, подготовку принта и доставку до города.</p>
-      </article>
-      <article class="price-card" data-reveal data-delay="2">
-        <span class="kicker">06</span>
-        <h3>Макет</h3>
-        <p>Готовый векторный логотип ускоряет расчёт. Если нужен перенос идеи на изделие или подготовка файла, это отдельный объём работы.</p>
-      </article>
     </div>
   </div>
 </section>
