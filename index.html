@@ -160,11 +160,6 @@
   .stmt .big b{color:var(--accent);font-weight:600}
   .stmt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:end}
   .stmt p{color:var(--muted);font-size:18px;max-width:42ch}
-  .route-strip{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .route-token{min-height:96px;border:1px solid var(--line);border-radius:12px;background:var(--white);padding:16px 16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 34px -32px rgba(20,17,15,.5)}
-  .route-token small{display:block;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
-  .route-token b{display:block;margin-top:10px;font-size:clamp(20px,2.4vw,30px);font-weight:800;text-transform:uppercase;line-height:.96}
-  .route-token span{color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
 
   /* ---------- Advantages ---------- */
   .adv{background:var(--ink);color:var(--paper)}
@@ -487,7 +482,6 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:1024px){
-    .route-strip{grid-template-columns:repeat(2,1fr)}
     .adv-grid{grid-template-columns:repeat(2,1fr)}
     .adv-item:nth-child(4n){border-right:1px solid var(--line-on-dark)}
     .adv-item:nth-child(2n){border-right:none}
@@ -517,7 +511,7 @@
     .section:not(.contact)::before{left:20px;right:20px;top:24px}
     .hero{min-height:auto}
     .hero-inner{display:block;padding-top:118px}
-    .route-strip,.brand-proof{grid-template-columns:1fr}
+    .brand-proof{grid-template-columns:1fr}
     .brand-proof-card{display:block}
     .brand-proof-card span{display:block;margin-top:10px}
     .prod-grid,.fab-grid,.use-grid,.price-grid{grid-template-columns:1fr}
@@ -637,12 +631,6 @@
   <div class="wrap stmt-grid">
     <h2 class="big" data-reveal>Не футболки со штампиками — <b>спортивная форма</b> для реального использования</h2>
     <p data-reveal data-delay="1">Trekki Store — отдельное направление Trekki для кастомного пошива. Мы не продаём готовую полку товаров: подбираем изделие, ткань, принт и тираж под команду, клуб, старт, поход или мероприятие.</p>
-  </div>
-  <div class="wrap route-strip" aria-label="Брендовые маршрутные метки Trekki Store">
-    <div class="route-token" data-reveal><small>Высота</small><b>Elbrus 5642</b><span>форма прошла маршрут</span></div>
-    <div class="route-token" data-reveal data-delay="1"><small>Маршрут</small><b>Annapurna</b><span>бафы и мерч в поездке</span></div>
-    <div class="route-token" data-reveal data-delay="2"><small>Координаты</small><b>43.3499°N</b><span>горы вместо шоурума</span></div>
-    <div class="route-token" data-reveal data-delay="3"><small>Формат</small><b>от 5 штук</b><span>для своих команд</span></div>
   </div>
 </section>
 
