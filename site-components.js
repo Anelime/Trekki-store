@@ -34,6 +34,12 @@
     '      <input type="hidden" id="f-brief-summary" name="brief" value="">',
     '      <input type="hidden" id="f-page" name="page" value="">',
     '      <input type="hidden" id="f-source" name="source" value="Trekki Store">',
+    '      <div class="form-selection" data-form-selection hidden>',
+    '        <span class="form-selection-kicker">Добавлено в заявку</span>',
+    '        <strong data-form-selection-title></strong>',
+    '        <p data-form-selection-text></p>',
+    '        <button type="button" class="form-selection-clear" data-form-selection-clear>Очистить выбор</button>',
+    '      </div>',
     '      <div class="fld">',
     '        <label for="f-name">Как к вам обращаться</label>',
     '        <input id="f-name" name="name" type="text" placeholder="Имя" autocomplete="name" required>',
@@ -104,13 +110,12 @@
     '      <div class="foot-nav">',
     '        <div class="foot-col">',
     '          <h4>Разделы</h4>',
-    '          <a href="index.html#products">Что шьём</a>',
-    '          <a href="fabrics.html">Ткани</a>',
-    '          <a href="printing.html">Принты</a>',
-    '          <a href="sizes.html">Размеры</a>',
     '          <a href="longsleeves.html">Лонгсливы</a>',
     '          <a href="tshirts.html">Футболки</a>',
     '          <a href="buffs.html">Бафы</a>',
+    '          <a href="fabrics.html">Ткани</a>',
+    '          <a href="printing.html">Принты</a>',
+    '          <a href="sizes.html">Размеры</a>',
     '          <a href="future-items.html">Готовый мерч</a>',
     '          <a href="index.html#smart-brief">Конструктор</a>',
     '          <a href="index.html#process">Как заказать</a>',
@@ -147,6 +152,12 @@
   var message=document.getElementById("f-msg");
   var submit=document.querySelector("[data-form-submit]");
   var page=document.getElementById("f-page");
+  var selection=document.querySelector("[data-form-selection]");
+  var selectionTitle=document.querySelector("[data-form-selection-title]");
+  var selectionText=document.querySelector("[data-form-selection-text]");
+  var selectionClear=document.querySelector("[data-form-selection-clear]");
+  var selectionPrefix="";
+  var selectionPrefixes=["Выбранная ткань: ","Выбор из конструктора: ","Сценарий заказа: ","Выбранный способ нанесения: "];
 
   var setProduct=function(value){
     if(!product||!value) return;
@@ -177,6 +188,18 @@
     message.value=lines.join("\n");
   };
 
+  var removeSelectionLines=function(){
+    if(!message) return;
+    message.value=message.value.split("\n").filter(function(item){
+      return !selectionPrefixes.some(function(prefix){return item.indexOf(prefix)===0;});
+    }).join("\n");
+  };
+
+  var setHiddenBrief=function(value){
+    var hidden=document.getElementById("f-brief-summary");
+    if(hidden) hidden.value=value||"";
+  };
+
   var setSubmitLabel=function(value){
     if(!submit||!value) return;
     submit.innerHTML="";
@@ -187,10 +210,46 @@
     submit.appendChild(arrow);
   };
 
+  var setSelectionContext=function(title,text,options){
+    options=options||{};
+    selectionPrefix=(title||"Выбор")+": ";
+    if(selection&&selectionTitle&&selectionText){
+      selection.hidden=false;
+      selectionTitle.textContent=title||"Выбор добавлен";
+      selectionText.textContent=text||"";
+    }
+    if(options.product) setProduct(options.product);
+    if(options.submitLabel) setSubmitLabel(options.submitLabel);
+    setHiddenBrief(text);
+    if(text){
+      removeSelectionLines();
+      setCommentContext(title||"Выбор",text);
+    }
+  };
+
+  var clearSelectionContext=function(){
+    if(selection){
+      selection.hidden=true;
+    }
+    if(selectionTitle) selectionTitle.textContent="";
+    if(selectionText) selectionText.textContent="";
+    removeSelectionLines();
+    setHiddenBrief("");
+    selectionPrefix="";
+  };
+
+  if(selectionClear){
+    selectionClear.addEventListener("click",function(){
+      clearSelectionContext();
+    });
+  }
+
   window.TrekkiForm={
     setProduct:setProduct,
     setCommentContext:setCommentContext,
-    setSubmitLabel:setSubmitLabel
+    setSubmitLabel:setSubmitLabel,
+    setSelectionContext:setSelectionContext,
+    clearSelectionContext:clearSelectionContext
   };
 
   if(form){

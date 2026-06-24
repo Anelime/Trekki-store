@@ -195,11 +195,6 @@
   .card .desc{margin-top:9px;color:var(--muted);font-size:15px;flex:1}
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
   .tag{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 11px}
-  .size-link{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.42}
-  .size-link a{display:inline-flex;align-items:center;gap:5px;margin:0 2px;padding:2px 8px;border-radius:999px;background:rgba(234,90,6,.1);color:var(--accent);font-weight:800;line-height:1.25;white-space:nowrap}
-  .size-link a::after{content:"→";font-size:.95em;transition:transform .25s var(--ease)}
-  .size-link a:hover{background:rgba(234,90,6,.16);text-decoration:none}
-  .size-link a:hover::after{transform:translateX(3px)}
   .card .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
   .card-meta{font-family:var(--main-font),sans-serif;font-weight:600;font-size:18px;letter-spacing:.01em;line-height:1.05}
   .card-meta span{white-space:nowrap}
@@ -220,7 +215,7 @@
   .page-cta-link:hover{transform:translateY(-1px);background:#d84f04;box-shadow:0 20px 34px -24px rgba(234,90,6,.95)}
   .page-cta-link:hover::after{transform:translateX(3px)}
   .page-cta-link:focus-visible{outline:3px solid rgba(234,90,6,.36);outline-offset:3px}
-  .info-links{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .info-links{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .info-link{display:block;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
   .info-link:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 22px 44px -30px rgba(20,17,15,.45)}
   .info-link .kicker{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
@@ -351,6 +346,13 @@
   form{background:var(--ink-2);border:1px solid var(--line-on-dark);border-radius:var(--r);padding:clamp(24px,3vw,38px)}
   form .fld{margin-bottom:18px}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .form-selection{margin-bottom:18px;padding:15px 16px;border:1px solid rgba(234,90,6,.5);border-radius:12px;background:rgba(234,90,6,.12)}
+  .form-selection[hidden]{display:none}
+  .form-selection-kicker{display:block;margin-bottom:6px;color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+  .form-selection strong{display:block;color:var(--paper);font-size:17px;line-height:1.25}
+  .form-selection p{margin-top:6px;color:var(--muted-on-dark);font-size:13px;line-height:1.45}
+  .form-selection-clear{margin-top:10px;color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+  .form-selection-clear:hover{color:var(--paper)}
   form label{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-on-dark);margin-bottom:8px}
   form input,form textarea,form select{
     width:100%;background:rgba(247,245,241,.04);border:1px solid var(--line-on-dark);border-radius:11px;
@@ -480,11 +482,12 @@
       <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
     </a>
     <nav class="nav-links" aria-label="Основная навигация">
-      <a href="#products">Что шьём</a>
-      <a href="#fabrics">Ткани</a>
-      <a href="#print">Принты</a>
+      <a href="longsleeves.html">Лонгсливы</a>
+      <a href="tshirts.html">Футболки</a>
+      <a href="buffs.html">Бафы</a>
+      <a href="fabrics.html">Ткани</a>
+      <a href="printing.html">Принты</a>
       <a href="#smart-brief">Конструктор</a>
-      <a href="#contact">Контакты</a>
     </nav>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-primary">Получить расчёт и сроки</a>
@@ -496,11 +499,12 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu" hidden inert>
-  <a href="#products">Что шьём</a>
-  <a href="#fabrics">Ткани</a>
-  <a href="#print">Принты</a>
+  <a href="longsleeves.html">Лонгсливы</a>
+  <a href="tshirts.html">Футболки</a>
+  <a href="buffs.html">Бафы</a>
+  <a href="fabrics.html">Ткани</a>
+  <a href="printing.html">Принты</a>
   <a href="#smart-brief">Конструктор</a>
-  <a href="#contact">Контакты</a>
   <div class="mm-foot">
     <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a><br>
     <a href="tel:+79219526410">+7 921 952 64 10</a><br>
@@ -529,15 +533,15 @@
       </div>
     </div>
     <div class="hero-products" aria-label="Быстрый переход к изделиям">
-      <a class="hero-product" href="#product-longsleeves">
+      <a class="hero-product" href="longsleeves.html">
         <span class="hero-product-thumb"><img src="assets/merch/hero-longsleeve-transparent.png" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Лонгсливы</b><small>для гор, ветра и стартов</small></span>
       </a>
-      <a class="hero-product" href="#product-tshirts">
+      <a class="hero-product" href="tshirts.html">
         <span class="hero-product-thumb"><img src="assets/merch/hero-tshirt-transparent.png" alt="" width="1028" height="1400" decoding="async"></span>
         <span><b>Футболки</b><small>для забегов и клубов</small></span>
       </a>
-      <a class="hero-product" href="#product-buffs">
+      <a class="hero-product" href="buffs.html">
         <span class="hero-product-thumb"><img src="assets/merch/hero-buff-transparent.png" alt="" width="1400" height="1400" decoding="async"></span>
         <span><b>Бафы</b><small>в комплект к форме</small></span>
       </a>
@@ -608,10 +612,9 @@
           <h3>Лонгсливы</h3>
           <p class="desc">Длинный рукав для прохлады, защиты от солнца и активного движения в горах и на трейле.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">Длинный рукав</span><span class="tag">Размеры под заказ</span></div>
-          <p class="size-link">Чтобы выбрать посадку, откройте <a href="sizes.html#longsleeves">размеры лонгсливов</a> и сравните A, B и рукав.</p>
           <div class="foot">
             <div class="card-meta"><span>тираж от 5</span><small>расчёт после заявки</small></div>
-            <a href="longsleeves.html" class="go">Подробнее <span class="arr">→</span></a>
+            <a href="longsleeves.html" class="go">Открыть лонгсливы <span class="arr">→</span></a>
           </div>
         </div>
       </article>
@@ -623,10 +626,9 @@
           <h3>Футболки</h3>
           <p class="desc">Лёгкая база для забегов, тренировок и командного мерча. Дышит и держит цвет после стирок.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">DTF по задаче</span><span class="tag">Командный мерч</span></div>
-          <p class="size-link">Перед заявкой удобно открыть <a href="sizes.html#tshirts">размеры футболок</a> и выбрать колонку по своей посадке.</p>
           <div class="foot">
             <div class="card-meta"><span>ткань + принт</span><small>подбираем вместе</small></div>
-            <a href="tshirts.html" class="go">Подробнее <span class="arr">→</span></a>
+            <a href="tshirts.html" class="go">Открыть футболки <span class="arr">→</span></a>
           </div>
         </div>
       </article>
@@ -638,10 +640,9 @@
           <h3>Бафы</h3>
           <p class="desc">Сшивной баф с аккуратной обработкой — защита для шеи, лица и головы в походе, на старте и в дороге.</p>
           <div class="tags"><span class="tag">Сублимация</span><span class="tag">Сшивной баф</span><span class="tag">В комплект к форме</span></div>
-          <p class="size-link">У бафов меньше размерных вопросов, но можно заранее <a href="sizes.html#buffs">посмотреть форматы</a>.</p>
           <div class="foot">
             <div class="card-meta"><span>взрослый / детский</span><small>или в комплект</small></div>
-            <a href="buffs.html" class="go">Подробнее <span class="arr">→</span></a>
+            <a href="buffs.html" class="go">Открыть бафы <span class="arr">→</span></a>
           </div>
         </div>
       </article>
@@ -661,11 +662,6 @@
       Каждый заказ собирается через подбор: ткань, размерная сетка, принт и тираж зависят от задачи. Для готовых принтов, медалей и добора мерча можно собрать короткую подборку для участников и команд.
     </p>
     <div class="info-links" data-reveal>
-      <a class="info-link" href="sizes.html">
-        <span class="kicker">Гид</span>
-        <h3>Размерная сетка</h3>
-        <p>Таблицы по изделиям, замеры и подсказки по посадке перед заказом.</p>
-      </a>
       <a class="info-link" href="fabrics.html">
         <span class="kicker">Гид</span>
         <h3>Все ткани</h3>
@@ -721,11 +717,11 @@
           <span>02</span>
         </div>
         <div class="brief-options" role="group" aria-label="Выберите сценарий ткани">
-          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для жары и бега">Для жары</button>
-          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для трекинга и походов">Трекинг</button>
-          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Для активной формы">Активная форма</button>
-          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Хлопок / мерч">Хлопок / мерч</button>
-          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Помогите подобрать">Помогите подобрать</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Жара и бег">Жара и бег</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Горы и рюкзак">Горы и рюкзак</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Забег / клуб">Забег / клуб</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Мерч на каждый день">Мерч на каждый день</button>
+          <button type="button" class="brief-option" data-brief-field="fabric" data-brief-value="Подберите сами">Подберите сами</button>
         </div>
       </article>
 
@@ -735,8 +731,8 @@
           <span>03</span>
         </div>
         <div class="brief-options" role="group" aria-label="Выберите способ принта">
-          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Сублимация по всей площади">Сублимация</button>
-          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="DTF логотипы / элементы">DTF</button>
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Полный принт по ткани">Полный принт по ткани</button>
+          <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Логотип / небольшой принт">Логотип / небольшой принт</button>
           <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Вышивка или шеврон">Вышивка / шеврон</button>
           <button type="button" class="brief-option" data-brief-field="print" data-brief-value="Пока нужна рекомендация">Нужна рекомендация</button>
         </div>
@@ -750,12 +746,11 @@
         <div class="brief-options" role="group" aria-label="Выберите готовность по размерам">
           <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Размерная сетка уже понятна">Размеры понятны</button>
           <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Нужно помочь подобрать размеры">Нужна помощь</button>
-          <button type="button" class="brief-option" data-brief-field="sizes" data-brief-value="Нужны разные размеры для команды">Командная сетка</button>
         </div>
       </article>
 
       <aside class="brief-summary" aria-live="polite">
-        <span class="stamp">Trekki route brief</span>
+        <span class="stamp">Короткий бриф</span>
         <h3>Ваш заказ</h3>
         <p>Выбор сохранится в браузере и автоматически попадёт в форму ниже.</p>
         <dl class="summary-list">
@@ -765,7 +760,7 @@
           <div class="summary-row"><dt>Размеры</dt><dd data-summary="sizes" class="is-empty">не выбрано</dd></div>
         </dl>
         <div class="summary-note" data-brief-note>Можно заполнить не всё. Даже два выбора уже помогут быстрее предложить ткань, принт и реалистичный тираж.</div>
-        <a href="#contact" class="btn btn-light" data-brief-cta>Заполнить заявку этим выбором <span class="arr">→</span></a>
+        <a href="#contact" class="btn btn-light" data-brief-cta>Перейти к заявке с этим выбором <span class="arr">→</span></a>
         <button type="button" class="brief-reset" data-brief-reset>Сбросить выбор</button>
       </aside>
     </div>
@@ -1133,7 +1128,20 @@
     }
 
     if(cta){
-      cta.addEventListener('click',function(){syncForm();});
+      cta.addEventListener('click',function(){
+        syncForm();
+        var summary=buildBriefText();
+        if(window.TrekkiForm){
+          if(summary&&window.TrekkiForm.setSelectionContext){
+            window.TrekkiForm.setSelectionContext('Выбор из конструктора',summary,{
+              product:state.product||'Другое / пока не знаю',
+              submitLabel:'Отправить заявку с этим выбором'
+            });
+          }else if(summary){
+            window.TrekkiForm.setCommentContext('Выбор из конструктора',summary);
+          }
+        }
+      });
     }
 
     renderBrief();
@@ -1145,8 +1153,15 @@
       var scenario=link.getAttribute('data-scenario');
       var product=link.getAttribute('data-product');
       if(window.TrekkiForm){
-        window.TrekkiForm.setProduct(product);
-        window.TrekkiForm.setCommentContext('Сценарий заказа',scenario);
+        if(window.TrekkiForm.setSelectionContext){
+          window.TrekkiForm.setSelectionContext('Сценарий заказа',scenario,{
+            product:product,
+            submitLabel:'Рассчитать такой заказ'
+          });
+        }else{
+          window.TrekkiForm.setProduct(product);
+          window.TrekkiForm.setCommentContext('Сценарий заказа',scenario);
+        }
       }
     });
   });

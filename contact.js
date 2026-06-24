@@ -56,10 +56,12 @@
       "Город доставки: "+(get("f-city")||"не указан"),
       "Логотип / макет: "+(get("f-design")||"не указано")
     ];
-    if(get("f-brief-summary")){
-      lines.push("Выбор в конструкторе: "+get("f-brief-summary"));
+    var brief=get("f-brief-summary");
+    var comment=get("f-msg");
+    if(brief&&comment.indexOf(brief)===-1){
+      lines.push("Контекст заявки: "+brief);
     }
-    lines.push("Комментарий: "+(get("f-msg")||"нет"));
+    lines.push("Комментарий: "+(comment||"нет"));
     return lines.join("\n");
   };
 

@@ -29,10 +29,11 @@
       <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
     </a>
     <nav class="top-links" aria-label="Навигация">
-      <a href="index.html#products">Что шьём</a>
+      <a href="longsleeves.html">Лонгсливы</a>
+      <a href="tshirts.html">Футболки</a>
+      <a href="buffs.html">Бафы</a>
       <a href="fabrics.html">Ткани</a>
       <a href="printing.html">Принты</a>
-      <a href="sizes.html">Размеры</a>
       <a href="#contact">Контакты</a>
       <a class="nav-cta" href="#contact">Подобрать ткань</a>
     </nav>
@@ -51,7 +52,7 @@
           <a class="btn btn-outline" href="#short">Смотреть все ткани</a>
         </div>
         <div class="hero-proof" aria-label="Что есть на странице">
-          <span>описания в панели</span>
+          <span>описания в каталоге</span>
           <span>фильтр по задаче</span>
           <span>состав и плотность</span>
         </div>
@@ -649,7 +650,15 @@
     return detail&&title?{target:target,detail:detail,photo:photo,title:title.textContent.trim()}:null;
   }
   function setSelectedFabric(title){
-    if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title);
+    if(!window.TrekkiForm||!title) return;
+    if(window.TrekkiForm.setSelectionContext){
+      window.TrekkiForm.setSelectionContext('Выбранная ткань',title,{
+        product:'Подбор ткани / материала',
+        submitLabel:'Отправить заявку по выбранной ткани'
+      });
+    }else{
+      window.TrekkiForm.setCommentContext('Выбранная ткань',title);
+    }
   }
   function getVisibleCards(){
     return Array.prototype.filter.call(fabrics,function(card){
@@ -686,6 +695,12 @@
     ].join('');
     detailRow.querySelector('.fabric-row-close').addEventListener('click',function(){closeFabricRow(true);});
     detailRow.querySelector('.fabric-row-collapse').addEventListener('click',function(){closeFabricRow(true);});
+    detailRow.querySelector('[data-fabric-contact]').addEventListener('click',function(){
+      if(activeCard){
+        var parts=getFabricParts(activeCard.getAttribute('href').slice(1));
+        if(parts) setSelectedFabric(parts.title);
+      }
+    });
     document.addEventListener('keydown',function(event){
       if(event.key==='Escape'&&detailRow&&!detailRow.hidden) closeFabricRow(true);
     });
