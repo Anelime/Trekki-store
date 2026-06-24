@@ -1,6 +1,12 @@
 (function(){
   "use strict";
 
+  var escapeAttr=function(value){
+    return String(value||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  };
+  var formEndpoint=(window.TREKKI_FORM_ENDPOINT||document.body.getAttribute("data-form-endpoint")||"").trim();
+  var formAction=formEndpoint ? ' action="'+escapeAttr(formEndpoint)+'"' : "";
+
   var contactHtml=[
     '<section class="section contact" id="contact">',
     '  <div class="wrap contact-grid">',
@@ -24,8 +30,10 @@
     '      </div>',
     '      <div class="contact-tag">Доставка по России и СНГ · СДЭК по договорённости · Тираж от 5 штук</div>',
     '    </div>',
-    '    <form id="orderForm">',
+    '    <form id="orderForm" method="post"'+formAction+'>',
     '      <input type="hidden" id="f-brief-summary" name="brief" value="">',
+    '      <input type="hidden" id="f-page" name="page" value="">',
+    '      <input type="hidden" id="f-source" name="source" value="Trekki Store">',
     '      <div class="fld">',
     '        <label for="f-name">Как к вам обращаться</label>',
     '        <input id="f-name" name="name" type="text" placeholder="Имя" autocomplete="name" required>',
@@ -78,8 +86,8 @@
     '        <label for="f-msg">Комментарий</label>',
     '        <textarea id="f-msg" name="msg" placeholder="Например: для бегового клуба, нужна лёгкая ткань, хочется принт с маршрутом и логотипом команды"></textarea>',
     '      </div>',
-    '      <button type="submit" class="btn btn-light" data-form-submit>Отправить в Telegram <span class="arr">→</span></button>',
-    '      <p class="hint">Кнопка скопирует текст заявки и откроет Telegram @vkspb — останется вставить текст и нажать «отправить». Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>',
+    '      <button type="submit" class="btn btn-light" data-form-submit>Отправить заявку <span class="arr">→</span></button>',
+    '      <p class="hint">Кнопка отправит заявку. Если автоматическая отправка недоступна, покажем готовый текст для Telegram @vkspb, чтобы заявка не потерялась. Можно и позвонить: <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>',
     '    </form>',
     '  </div>',
     '</section>'
@@ -138,6 +146,7 @@
   var product=document.getElementById("f-product");
   var message=document.getElementById("f-msg");
   var submit=document.querySelector("[data-form-submit]");
+  var page=document.getElementById("f-page");
 
   var setProduct=function(value){
     if(!product||!value) return;
@@ -185,6 +194,7 @@
   };
 
   if(form){
+    if(page) page.value=window.location.href;
     setProduct(document.body.getAttribute("data-form-product"));
     setCommentContext(
       document.body.getAttribute("data-form-context-label")||"Контекст страницы",

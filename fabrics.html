@@ -41,47 +41,21 @@
 
 <main id="main">
   <section class="hero fabric-hero">
-    <div class="wrap fabric-hero-grid">
+    <div class="wrap fabric-hero-single">
       <div>
         <span class="eyebrow">Ткани без гадания</span>
         <h1>Выберите ткань под задачу</h1>
-        <p class="lead">Страница помогает быстро понять, что брать для трекинга, бега, активной формы, хлопкового мерча или тёплых бафов. Сначала — короткий маршрут выбора, ниже — фото, состав и полные описания.</p>
+        <p class="lead">Страница помогает быстро понять, что брать для трекинга, бега, активной формы, хлопкового мерча или тёплых бафов. Сначала — короткий маршрут выбора, ниже — карточки тканей с раскрывающимися описаниями.</p>
         <div class="hero-actions">
           <a class="btn" href="#selector">Подобрать ткань по сценарию</a>
           <a class="btn btn-outline" href="#short">Смотреть все ткани</a>
         </div>
         <div class="hero-proof" aria-label="Что есть на странице">
-          <span>фактуры тканей</span>
+          <span>описания в карточках</span>
           <span>фильтр по задаче</span>
-          <span>полные описания</span>
+          <span>состав и плотность</span>
         </div>
       </div>
-
-      <aside class="fabric-swatch-panel" aria-label="Фактуры тканей">
-        <span class="panel-label">Фактуры и ощущения</span>
-        <div class="swatch-grid">
-          <a class="swatch-card swatch-large" href="#fabric-coolmax">
-            <img src="assets/fabrics/coolmax.jpg" alt="Фактура ткани Coolmax" width="279" height="279" decoding="async">
-            <span>Coolmax · тянется и быстро сохнет</span>
-          </a>
-          <a class="swatch-card" href="#fabric-false-mesh">
-            <img src="assets/fabrics/lozhnaya-setka.jpg" alt="Фактура ложной сетки" width="800" height="600" decoding="async">
-            <span>Ложная сетка</span>
-          </a>
-          <a class="swatch-card" href="#fabric-jacquard">
-            <img src="assets/fabrics/jacquard-camo.jpg" alt="Фактура Жаккард Камо" width="720" height="1280" decoding="async">
-            <span>Жаккард Камо</span>
-          </a>
-          <a class="swatch-card" href="#fabric-interlock">
-            <img src="assets/fabrics/interlock-supreme.jpg" alt="Фактура Интерлок суприм" width="720" height="1280" decoding="async">
-            <span>Интерлок</span>
-          </a>
-          <a class="swatch-card" href="#fabric-fleece">
-            <img src="assets/fabrics/fleece.jpg" alt="Фактура флиса" width="376" height="376" decoding="async">
-            <span>Флис</span>
-          </a>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -203,7 +177,7 @@
           <span class="kicker">Каталог тканей</span>
           <h2>Все варианты в коротких карточках</h2>
         </div>
-        <p>Фильтр убирает лишнее, а карточка ведёт к полному описанию с фото, составом, плотностью и применением.</p>
+        <p>Фильтр убирает лишнее, а описание раскрывается прямо в карточке: состав, плотность, печать и для чего ткань подходит.</p>
       </div>
       <div class="chips" id="fabFilter" aria-label="Фильтр тканей">
         <button class="chip active" data-f="all" type="button" aria-pressed="true">Все</button>
@@ -671,15 +645,56 @@
       document.getElementById('short').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
-  function setFabricContextFromHash(){
-    if(!window.TrekkiForm||!location.hash||location.hash.indexOf('#fabric-')!==0) return;
-    var target=document.querySelector(location.hash);
-    var title=target&&target.querySelector('h3');
-    if(title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+  function initInlineFabricDetails(){
+    document.documentElement.classList.add('has-inline-fabrics');
+    document.querySelectorAll('#fabGrid .fabric[href^="#fabric-"]').forEach(function(card){
+      var fabricId=card.getAttribute('href').slice(1);
+      var target=document.getElementById(fabricId);
+      var body=card.querySelector('.fabric-body');
+      var action=card.querySelector('.fabric-go');
+      var detail=target&&target.querySelector('.detail-copy');
+      if(!body||!detail) return;
+      card.id=fabricId;
+      target.removeAttribute('id');
+      target.setAttribute('data-fabric-detail',fabricId);
+      var panel=document.createElement('div');
+      panel.className='fabric-inline';
+      panel.hidden=true;
+      panel.innerHTML=detail.innerHTML;
+      body.appendChild(panel);
+      card.setAttribute('role','button');
+      card.setAttribute('aria-expanded','false');
+      if(action) action.textContent='Смотреть описание';
+      card.addEventListener('click',function(event){
+        event.preventDefault();
+        var open=card.classList.toggle('is-open');
+        panel.hidden=!open;
+        card.setAttribute('aria-expanded',open?'true':'false');
+        if(action) action.textContent=open?'Скрыть описание':'Смотреть описание';
+        if(window.TrekkiForm){
+          var title=detail.querySelector('h3');
+          if(title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+        }
+      });
+    });
   }
+  function setFabricContextFromHash(){
+    if(!location.hash||location.hash.indexOf('#fabric-')!==0) return;
+    var fabricId=location.hash.slice(1);
+    var detail=document.querySelector('[data-fabric-detail="'+fabricId+'"] .detail-copy');
+    var title=detail&&detail.querySelector('h3');
+    if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+    var card=document.querySelector('#fabGrid .fabric[href="'+location.hash+'"]');
+    if(card&&!card.classList.contains('is-open')){
+      card.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));
+      card.scrollIntoView({block:'center'});
+    }
+  }
+  initInlineFabricDetails();
   document.querySelectorAll('a[href^="#fabric-"]').forEach(function(link){
     link.addEventListener('click',function(){
-      var title=document.querySelector(link.getAttribute('href')+' h3');
+      var fabricId=link.getAttribute('href').slice(1);
+      var title=document.querySelector('[data-fabric-detail="'+fabricId+'"] h3')||document.querySelector(link.getAttribute('href')+' h3');
       if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
     });
   });

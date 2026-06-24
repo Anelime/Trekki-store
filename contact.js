@@ -6,6 +6,8 @@
 
   var telegramUrl="https://t.me/vkspb";
   var submit=form.querySelector('button[type="submit"]');
+  var endpoint=(form.getAttribute("action")||"").trim();
+  var method=(form.getAttribute("method")||"post").toUpperCase();
 
   var status=document.createElement("p");
   status.className="form-status";
@@ -61,6 +63,36 @@
     return lines.join("\n");
   };
 
+  var buildPayload=function(text){
+    return {
+      source:get("f-source")||"Trekki Store",
+      page:get("f-page")||window.location.href,
+      name:get("f-name"),
+      contact:get("f-contact"),
+      product:get("f-product"),
+      quantity:get("f-quantity"),
+      date:get("f-date"),
+      city:get("f-city"),
+      design:get("f-design"),
+      brief:get("f-brief-summary"),
+      comment:get("f-msg"),
+      text:text
+    };
+  };
+
+  var submitToEndpoint=function(text){
+    return fetch(endpoint,{
+      method:method,
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(buildPayload(text)),
+      mode:"cors",
+      credentials:"omit"
+    }).then(function(response){
+      if(!response.ok) throw new Error("form endpoint responded with "+response.status);
+      return response;
+    });
+  };
+
   var copyToClipboard=function(value){
     if(navigator.clipboard&&window.isSecureContext){
       return navigator.clipboard.writeText(value);
@@ -105,12 +137,29 @@
     var telegramWindow=null;
 
     fallbackText.value=text;
-    fallback.hidden=false;
-    setStatus("Копируем заявку и открываем Telegram...","success");
+    fallback.hidden=!!endpoint;
+    setStatus(endpoint ? "Отправляем заявку..." : "Копируем заявку и открываем Telegram...","success");
 
     if(submit){
       submit.disabled=true;
-      submit.innerHTML="Копируем заявку...";
+      submit.innerHTML=endpoint ? "Отправляем заявку..." : "Копируем заявку...";
+    }
+
+    if(endpoint){
+      submitToEndpoint(text).then(function(){
+        fallback.hidden=true;
+        setStatus("Заявка отправлена. Мы получили все поля формы и скоро свяжемся с вами.","success");
+        form.reset();
+      }).catch(function(){
+        fallback.hidden=false;
+        setStatus("Не получилось отправить заявку автоматически. Скопируйте текст ниже или отправьте его в Telegram @vkspb.","error");
+      }).finally(function(){
+        if(submit){
+          submit.disabled=false;
+          submit.innerHTML=defaultLabel;
+        }
+      });
+      return;
     }
 
     try{

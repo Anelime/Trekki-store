@@ -53,6 +53,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,input:focus-visible,sele
 .hero{padding:clamp(64px,9vw,112px) 0 52px;background:var(--ink);color:var(--paper)}
 .fabric-hero{padding:clamp(54px,6vw,84px) 0 clamp(38px,5vw,64px);background:radial-gradient(circle at 88% 12%,rgba(234,90,6,.2),transparent 34%),linear-gradient(135deg,var(--ink),var(--ink-2))}
 .fabric-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.66fr);gap:clamp(30px,5vw,70px);align-items:end}
+.fabric-hero-single{max-width:980px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.16em}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
 .hero .eyebrow,.fabric-hero .eyebrow{color:rgba(247,245,241,.86)}
@@ -195,6 +196,16 @@ tr:last-child td{border-bottom:none}
 .fabric-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
 .fabric-tags span{border-radius:999px;background:var(--paper-2);padding:5px 9px;color:var(--muted);font-size:12px;font-weight:700}
 .fabric-go{display:inline-flex;margin-top:auto;padding-top:18px;color:var(--accent);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.fabric-go::after{content:" +";font-size:16px}
+.fabric.is-open .fabric-go::after{content:" -"}
+.fabric-inline{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);cursor:auto}
+.fabric-inline h3{display:none}
+.fabric-inline p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.58}
+.fabric-inline .detail-specs{grid-template-columns:repeat(2,1fr);margin-top:18px}
+.fabric-inline .detail-specs div{padding:12px}
+.fabric-inline .feature-list{grid-template-columns:1fr;margin-top:18px;gap:7px}
+.fabric-inline .feature-list li{font-size:14px}
+.has-inline-fabrics .fabric-details{display:none}
 
 .fabric-details{background:var(--paper-2)}
 .fabric-detail{scroll-margin-top:92px;display:grid;grid-template-columns:minmax(260px,.78fr) 1.22fr;gap:clamp(24px,4vw,48px);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,32px);margin-top:18px}
