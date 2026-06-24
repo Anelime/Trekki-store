@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Этнотур в Бутан — королевство счастья · фестиваль масок Паро-Цечу | Trekki</title>
+<meta name="description" content="Комфортный этнотур в Бутан на фестиваль масок Паро-Цечу. 8 дней, всё включено, малая группа 6–8 человек, русскоговорящий гид. 15–22 марта 2027, от $3 400.">
+<meta property="og:title" content="Этнотур в королевство счастья Бутан · фестиваль масок">
+<meta property="og:description" content="8 дней по дзонгам, монастырям и долинам Бутана на фестиваль масок Паро-Цечу. Всё включено, малая группа, русскоговорящий гид. 15–22 марта 2027.">
+<meta property="og:image" content="assets/bhutan/hero-tigers-nest.jpg">
+<meta name="theme-color" content="#14110f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14110f;
+    --ink-2:#241f1b;
+    --paper:#f7f5f1;
+    --paper-2:#efece5;
+    --muted:#6d675f;
+    --muted-on-dark:#a9a39a;
+    --line:rgba(20,17,15,.12);
+    --line-on-dark:rgba(247,245,241,.16);
+    --accent:#ea5a06;
+    --gold:#caa44a;
+    --white:#fff;
+    --r:14px;
+    --maxw:1240px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--paper);color:var(--ink);
+    line-height:1.6;font-size:17px;letter-spacing:.005em;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .display{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;line-height:.98;letter-spacing:.005em}
+  .eyebrow{
+    font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--muted);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+  .eyebrow.on-dark{color:var(--muted-on-dark)}
+  .section{padding:clamp(64px,9vw,128px) 0}
+  .section-head{max-width:760px;margin-bottom:clamp(38px,5vw,64px)}
+  .section-title{font-size:clamp(30px,5.2vw,58px);margin:18px 0 0;letter-spacing:.01em}
+  .section-intro{margin-top:18px;color:var(--muted);font-size:clamp(16px,1.4vw,19px);max-width:640px}
+  .section.dark .section-intro{color:var(--muted-on-dark)}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:15px 28px;border-radius:100px;font-weight:600;font-size:15px;
+    letter-spacing:.02em;transition:transform .35s var(--ease),background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
+    will-change:transform;white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);color:var(--white)}
+  .btn-accent{background:var(--accent);color:var(--white)}
+  .btn-accent:hover{background:#ff6a12}
+  .btn-light{background:var(--paper);color:var(--ink)}
+  .btn-light:hover{background:var(--accent);color:var(--white)}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink)}
+  .btn-ghost.on-dark{border-color:var(--line-on-dark);color:var(--paper)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-ghost.on-dark:hover{border-color:var(--paper);background:rgba(247,245,241,.06)}
+  .btn .arr{transition:transform .35s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    padding:18px 0;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{background:rgba(247,245,241,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--paper);transition:color .4s var(--ease)}
+  header.scrolled .brand{color:var(--ink)}
+  .brand .mark{width:34px;height:34px;flex:none}
+  .brand .mark rect{transition:stroke .4s var(--ease)}
+  .brand .wordmark{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:21px;letter-spacing:.04em;line-height:1}
+  .brand .wordmark small{display:block;font-size:9.5px;letter-spacing:.42em;font-weight:500;opacity:.7;margin-top:2px}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{
+    font-size:14.5px;font-weight:500;color:var(--paper);opacity:.92;position:relative;padding:4px 0;
+    transition:color .4s var(--ease),opacity .25s;
+  }
+  header.scrolled .nav-links a{color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--accent);transition:width .3s var(--ease)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-cta .btn{padding:11px 22px}
+  header:not(.scrolled) .nav-cta .btn-primary{background:var(--paper);color:var(--ink)}
+  header:not(.scrolled) .nav-cta .btn-primary:hover{background:var(--accent);color:var(--white)}
+  .burger{display:none;width:42px;height:42px;border-radius:10px;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+  .burger span{width:21px;height:2px;background:var(--paper);transition:.35s var(--ease)}
+  header.scrolled .burger span{background:var(--ink)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 18s var(--ease) forwards}
+  @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(20,17,15,.5) 0%,rgba(20,17,15,.12) 22%,rgba(20,17,15,.5) 52%,rgba(20,17,15,.82) 78%,rgba(20,17,15,.95) 100%),
+      linear-gradient(90deg,rgba(20,17,15,.62) 0%,rgba(20,17,15,.28) 42%,rgba(20,17,15,0) 75%);}
+  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,72px);padding-top:140px}
+  .hero h1{font-size:clamp(42px,8vw,108px);max-width:15ch;margin:22px 0 0;text-shadow:0 2px 24px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.4)}
+  .hero h1 b{color:var(--accent);font-weight:600}
+  .hero .lede{margin-top:24px;max-width:56ch;font-size:clamp(16px,1.6vw,20px);color:rgba(247,245,241,.92);font-weight:400}
+  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  /* hero meta strip */
+  .hero-meta{margin-top:38px;display:flex;flex-wrap:wrap;gap:0;border:1px solid rgba(247,245,241,.2);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(4px);background:rgba(20,17,15,.22)}
+  .hm{flex:1 1 0;min-width:120px;padding:16px 20px;border-right:1px solid rgba(247,245,241,.16)}
+  .hm:last-child{border-right:none}
+  .hm small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,245,241,.65);margin-bottom:5px}
+  .hm b{font-family:'Oswald',sans-serif;font-weight:600;font-size:22px;letter-spacing:.01em;line-height:1}
+  .hm b .u{font-size:13px;color:rgba(247,245,241,.7);font-weight:500}
+  .hm.accent b{color:var(--accent)}
+  .scrollcue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,245,241,.7)}
+  .scrollcue .line{width:1px;height:38px;background:linear-gradient(rgba(247,245,241,.7),rgba(247,245,241,0));animation:cue 2s var(--ease) infinite}
+  @keyframes cue{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
+
+  /* ---------- Stat band ---------- */
+  .band{background:var(--ink);color:var(--paper)}
+  .band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .band-item{padding:30px 26px;border-right:1px solid var(--line-on-dark);text-align:left}
+  .band-item:last-child{border-right:none}
+  .band-item .n{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,44px);letter-spacing:.01em;line-height:1;color:var(--accent)}
+  .band-item .t{margin-top:10px;font-size:14px;color:var(--muted-on-dark);line-height:1.4}
+
+  /* ---------- Positioning ---------- */
+  .stmt{background:var(--paper)}
+  .stmt .big{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(26px,4.4vw,50px);line-height:1.06;letter-spacing:.01em;max-width:20ch}
+  .stmt .big b{color:var(--accent);font-weight:600}
+  .stmt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:end}
+  .stmt p{color:var(--muted);font-size:18px;max-width:44ch}
+
+  /* ---------- About (split) ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+  .about-media{border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:4/3.4;background:#ddd}
+  .about-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+  .about-media:hover img{transform:scale(1.05)}
+  .about-media .cap{position:absolute;left:16px;bottom:14px;color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+  .about-text p{color:var(--muted);font-size:17px;margin-top:16px}
+  .about-text p:first-of-type{margin-top:22px}
+  .about-text .lead{color:var(--ink);font-size:20px;font-weight:500;line-height:1.5}
+  .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .about-pills span{font-size:13px;font-weight:500;border:1px solid var(--line);border-radius:100px;padding:7px 14px;color:var(--ink)}
+
+  /* ---------- Advantages ---------- */
+  .adv{background:var(--ink);color:var(--paper)}
+  .adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-on-dark)}
+  .adv-item{padding:38px 30px 40px;border-bottom:1px solid var(--line-on-dark);border-right:1px solid var(--line-on-dark);position:relative;transition:background .4s var(--ease)}
+  .adv-item:nth-child(4n){border-right:none}
+  .adv-item::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--accent);transition:width .45s var(--ease)}
+  .adv-item:hover{background:var(--ink-2)}
+  .adv-item:hover::before{width:100%}
+  .adv-num{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--accent);letter-spacing:.1em}
+  .adv-ic{margin:20px 0 18px;color:var(--paper)}
+  .adv-item h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:21px;letter-spacing:.02em;line-height:1.1}
+  .adv-item p{margin-top:13px;color:var(--muted-on-dark);font-size:15.5px;line-height:1.6}
+
+  /* ---------- Route ---------- */
+  .route{background:var(--paper-2)}
+  .route-track{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding:4px 0 14px;scrollbar-width:thin}
+  .stop{flex:0 0 auto;display:flex;align-items:center;gap:0}
+  .stop .node{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:13px 22px;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.03em;font-size:16px;white-space:nowrap;transition:.3s var(--ease)}
+  .stop .node.key{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .stop .node.key.accent{background:var(--accent);border-color:var(--accent);color:#fff}
+  .stop:hover .node{transform:translateY(-3px);box-shadow:0 14px 30px -20px rgba(20,17,15,.5)}
+  .stop .conn{width:34px;height:2px;background:var(--line);position:relative;flex:none}
+  .stop .conn::after{content:"→";position:absolute;right:-4px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px}
+  .route-note{margin-top:22px;font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+  .route-note svg{flex:none;margin-top:2px;color:var(--accent)}
+
+  /* ---------- Itinerary (accordion) ---------- */
+  .itin{display:flex;flex-direction:column;gap:12px}
+  .day{border:1px solid var(--line);border-radius:var(--r);background:var(--white);overflow:hidden;transition:border-color .35s var(--ease),box-shadow .35s var(--ease)}
+  .day.open{border-color:transparent;box-shadow:0 22px 50px -34px rgba(20,17,15,.45)}
+  .day-head{display:flex;align-items:center;gap:20px;width:100%;text-align:left;padding:22px 24px}
+  .day-no{font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--accent);flex:none;width:54px}
+  .day-no small{display:block;color:var(--muted);font-weight:500;font-size:11px;letter-spacing:.04em;margin-top:3px}
+  .day-ttl{flex:1;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:19px;letter-spacing:.015em;line-height:1.15}
+  .day-meta{flex:none;font-size:12.5px;color:var(--muted);text-align:right;display:flex;flex-direction:column;gap:2px}
+  .day-tog{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:.35s var(--ease)}
+  .day.open .day-tog{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:rotate(45deg)}
+  .day-body{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+  .day-body-inner{padding:0 24px 26px 98px;color:var(--muted);font-size:15.5px}
+  .day-body-inner ul{list-style:none;margin-top:4px}
+  .day-body-inner li{position:relative;padding-left:20px;margin-top:9px}
+  .day-body-inner li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .day-body-inner li b{color:var(--ink);font-weight:600}
+  @media(max-width:640px){.day-body-inner{padding-left:24px}}
+  /* FAQ (reuses .day accordion, no day-no column) */
+  #faq .day-head{padding:22px 24px}
+  #faq .day-ttl{font-family:'Inter',sans-serif;text-transform:none;font-weight:600;font-size:17px;letter-spacing:0}
+  #faq .day-body-inner{padding:0 24px 24px 24px}
+  #faq .day-body-inner p{color:var(--muted);font-size:15.5px}
+  #faq .day-body-inner p b{color:var(--ink);font-weight:600}
+
+  /* ---------- Included / Excluded ---------- */
+  .incl-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+  .incl-card{border-radius:var(--r);padding:clamp(26px,3vw,40px)}
+  .incl-card.in{background:var(--ink);color:var(--paper)}
+  .incl-card.ex{background:var(--white);border:1px solid var(--line)}
+  .incl-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:22px;letter-spacing:.02em;display:flex;align-items:center;gap:12px}
+  .incl-card.in h3 .b{color:var(--accent)}
+  .incl-list{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:14px}
+  .incl-list li{display:flex;gap:13px;align-items:flex-start;font-size:15.5px;line-height:1.45}
+  .incl-card.in .incl-list li{color:#e9e5df}
+  .incl-card.ex .incl-list li{color:var(--ink)}
+  .incl-list .ic{flex:none;margin-top:2px}
+  .incl-card.in .ic{color:var(--accent)}
+  .incl-card.ex .ic{color:var(--muted)}
+
+  /* ---------- Guide ---------- */
+  .guide{background:var(--paper-2)}
+  .guide-card{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(28px,4vw,56px);background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .guide-media{position:relative;min-height:340px;background:linear-gradient(150deg,var(--ink),var(--ink-2))}
+  .guide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
+  .guide-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.06) 38%,rgba(20,17,15,.86));z-index:1}
+  .guide-mono{position:absolute;left:32px;bottom:30px;z-index:2;color:var(--paper)}
+  .guide-mono .av{width:74px;height:74px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;letter-spacing:.02em;background:rgba(20,17,15,.5)}
+  .guide-mono .nm{margin-top:16px;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:26px;font-weight:600;letter-spacing:.01em;line-height:1.05}
+  .guide-mono .role{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,245,241,.75);margin-top:6px}
+  .guide-info{padding:clamp(28px,3vw,42px) clamp(28px,3vw,42px) clamp(28px,3vw,42px) 0}
+  .guide-info .q{font-size:19px;line-height:1.5;color:var(--ink);font-weight:500}
+  .guide-info .q b{color:var(--accent);font-weight:600}
+  .cred{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+  .cred li{display:flex;gap:11px;font-size:15px;color:var(--muted);align-items:flex-start}
+  .cred li svg{flex:none;margin-top:2px;color:var(--accent)}
+  .cred li b{color:var(--ink);font-weight:600}
+  @media(max-width:760px){.guide-card{grid-template-columns:1fr}.guide-media{min-height:300px}.guide-info{padding:28px}.cred{grid-template-columns:1fr}}
+  /* ---------- Reviews ---------- */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+  .rev:hover{transform:translateY(-5px);box-shadow:0 22px 44px -30px rgba(20,17,15,.45);border-color:transparent}
+  .rev .quote{font-size:15.5px;line-height:1.62;color:var(--ink);flex:1}
+  .rev .quote::before{content:"\201C";font-family:'Oswald',sans-serif;color:var(--accent);font-size:52px;line-height:.5;display:block;margin-bottom:6px}
+  .rev .who{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-weight:600;font-size:15px}
+  @media(max-width:1024px){.rev-grid{grid-template-columns:1fr}}
+
+  /* ---------- Gallery ---------- */
+  .gal{background:var(--paper)}
+  .masonry{columns:3;column-gap:18px}
+  .masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#ddd}
+  .masonry img{width:100%;height:auto;transition:transform .8s var(--ease),filter .5s}
+  .masonry figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 52%,rgba(20,17,15,.6));opacity:0;transition:opacity .4s}
+  .masonry figcaption{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;opacity:0;transform:translateY(8px);transition:.4s var(--ease)}
+  .masonry figure:hover img{transform:scale(1.06)}
+  .masonry figure:hover::after{opacity:1}
+  .masonry figure:hover figcaption{opacity:1;transform:none}
+
+  /* ---------- Values (use grid) ---------- */
+  .use{background:var(--ink);color:var(--paper)}
+  .use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-on-dark);border-radius:var(--r);overflow:hidden}
+  .use-cell{padding:34px 30px;border-right:1px solid var(--line-on-dark);border-bottom:1px solid var(--line-on-dark);transition:background .4s var(--ease)}
+  .use-cell:hover{background:var(--ink-2)}
+  .use-cell:nth-child(3n){border-right:none}
+  .use-cell:nth-last-child(-n+3){border-bottom:none}
+  .use-cell .uc-ic{color:var(--accent);margin-bottom:14px}
+  .use-cell h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.02em}
+  .use-cell p{margin-top:8px;color:var(--muted-on-dark);font-size:14.5px}
+
+  /* ---------- Pricing ---------- */
+  .price-sec{background:var(--paper-2)}
+  .price-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:stretch}
+  .price-main{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(28px,3.4vw,46px);display:flex;flex-direction:column}
+  .tier-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-on-dark)}
+  .tier-row:first-of-type{padding-top:8px}
+  .tier-row .label{font-size:16px;color:#e9e5df}
+  .tier-row .label small{display:block;color:var(--muted-on-dark);font-size:13px;margin-top:3px}
+  .tier-row .amt{font-family:'Oswald',sans-serif;font-weight:600;font-size:30px;letter-spacing:.01em;white-space:nowrap}
+  .tier-row.hl .amt{color:var(--accent)}
+  .price-terms{margin-top:24px;font-size:14px;color:var(--muted-on-dark);display:flex;flex-direction:column;gap:9px}
+  .price-terms b{color:var(--paper);font-weight:600}
+  .price-main .btn{margin-top:28px;align-self:flex-start}
+  .price-side{display:flex;flex-direction:column;gap:18px}
+  .bonus{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+  .bonus h4{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.04em;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .bonus h4 svg{color:var(--accent)}
+  .bonus ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:11px}
+  .bonus li{font-size:14.5px;color:var(--muted);display:flex;gap:10px}
+  .bonus li b{color:var(--accent);font-family:'Oswald',sans-serif;font-weight:600;flex:none}
+  .seats{background:var(--accent);color:#fff;border-radius:var(--r);padding:24px 26px}
+  .seats .big{font-family:'Oswald',sans-serif;font-weight:700;font-size:30px;line-height:1}
+  .seats p{margin-top:8px;font-size:14px;opacity:.92}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink);color:var(--paper)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:start}
+  .contact .lead{font-size:18px;color:var(--muted-on-dark);max-width:42ch;margin-top:20px}
+  .contact-methods{margin-top:34px;display:flex;flex-direction:column;gap:4px}
+  .cm{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--line-on-dark)}
+  .cm:last-child{border-bottom:1px solid var(--line-on-dark)}
+  .cm .cm-ic{width:42px;height:42px;border-radius:11px;border:1px solid var(--line-on-dark);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
+  .cm small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-on-dark)}
+  .cm b{font-family:'Oswald',sans-serif;font-weight:500;font-size:21px;letter-spacing:.01em}
+  .contact-tag{margin-top:28px;font-size:13px;color:var(--muted-on-dark);font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em}
+  form{background:var(--ink-2);border:1px solid var(--line-on-dark);border-radius:var(--r);padding:clamp(24px,3vw,38px)}
+  form .fld{margin-bottom:18px}
+  form label{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-on-dark);margin-bottom:8px}
+  form input,form textarea{
+    width:100%;background:rgba(247,245,241,.04);border:1px solid var(--line-on-dark);border-radius:11px;
+    padding:14px 16px;color:var(--paper);font-family:inherit;font-size:16px;transition:border-color .3s,background .3s;
+  }
+  form input::placeholder,form textarea::placeholder{color:rgba(169,163,154,.6)}
+  form input:focus,form textarea:focus{outline:none;border-color:var(--accent);background:rgba(247,245,241,.07)}
+  form textarea{resize:vertical;min-height:90px}
+  form .btn{width:100%;margin-top:6px}
+  form .hint{margin-top:14px;font-size:12.5px;color:var(--muted-on-dark);text-align:center}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0c0a09;color:var(--muted-on-dark);padding:56px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px;padding-bottom:36px;border-bottom:1px solid var(--line-on-dark)}
+  .foot-brand .wordmark{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:24px;letter-spacing:.05em;color:var(--paper)}
+  .foot-brand p{margin-top:12px;font-size:14px;max-width:38ch}
+  .foot-brand .slogan{margin-top:14px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--accent)}
+  .foot-nav{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);margin-bottom:16px;font-weight:600}
+  .foot-col a,.foot-col span{display:block;font-size:14.5px;margin-bottom:10px;transition:color .25s}
+  .foot-col a:hover{color:var(--accent)}
+  .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:24px;font-size:13px}
+
+  /* ---------- Lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,10,9,.94);display:flex;align-items:center;justify-content:center;padding:30px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+  .lb.open{opacity:1;pointer-events:auto}
+  .lb img{max-width:92vw;max-height:88vh;border-radius:10px;transform:scale(.96);transition:transform .35s var(--ease);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb.open img{transform:scale(1)}
+  .lb-close{position:absolute;top:22px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(247,245,241,.25);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;transition:.3s}
+  .lb-close:hover{background:rgba(247,245,241,.12);transform:rotate(90deg)}
+
+  /* ---------- Reveal ---------- */
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  [data-reveal].in{opacity:1;transform:none}
+  [data-reveal][data-delay="1"]{transition-delay:.08s}
+  [data-reveal][data-delay="2"]{transition-delay:.16s}
+  [data-reveal][data-delay="3"]{transition-delay:.24s}
+
+  /* ---------- Mobile menu ---------- */
+  .mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);transform:translateY(-100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;justify-content:center;padding:40px 28px}
+  .mobile-menu.open{transform:none}
+  .mobile-menu a{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:28px;font-weight:600;color:var(--paper);padding:12px 0;border-bottom:1px solid var(--line-on-dark);letter-spacing:.02em}
+  .mobile-menu .mm-foot{margin-top:30px;color:var(--muted-on-dark);font-size:15px}
+  .mobile-menu .mm-foot a{font-family:'Inter';font-size:17px;text-transform:none;border:none;padding:4px 0;color:var(--accent)}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:1024px){
+    .adv-grid{grid-template-columns:repeat(2,1fr)}
+    .adv-item:nth-child(4n){border-right:1px solid var(--line-on-dark)}
+    .adv-item:nth-child(2n){border-right:none}
+    .band-grid{grid-template-columns:repeat(2,1fr)}
+    .band-item:nth-child(2n){border-right:none}
+    .band-item{border-bottom:1px solid var(--line-on-dark)}
+    .masonry{columns:2}
+    .use-grid{grid-template-columns:repeat(2,1fr)}
+    .use-cell:nth-child(3n){border-right:1px solid var(--line-on-dark)}
+    .use-cell:nth-child(2n){border-right:none}
+    .use-cell:nth-last-child(-n+3){border-bottom:1px solid var(--line-on-dark)}
+    .use-cell:nth-last-child(-n+2){border-bottom:none}
+    .incl-grid{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:760px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    .nav-links,.nav-cta .btn{display:none}
+    .burger{display:flex}
+    .stmt-grid,.contact-grid,.about-grid{grid-template-columns:1fr;gap:30px}
+    .band-grid{grid-template-columns:1fr}
+    .band-item{border-right:none}
+    .adv-grid,.use-grid{grid-template-columns:1fr}
+    .adv-item,.use-cell{border-right:none!important}
+    .masonry{columns:1}
+    .hero h1{font-size:clamp(38px,11vw,56px)}
+    .hero-inner{padding-top:116px}
+    .hero-meta{flex-direction:column}
+    .hm{border-right:none;border-bottom:1px solid rgba(247,245,241,.16)}
+    .hm:last-child{border-bottom:none}
+    .scrollcue{display:none}
+    .day-head{flex-wrap:wrap;gap:12px}
+    .day-meta{order:3;width:100%;flex-direction:row;gap:14px;text-align:left}
+    .foot-nav{gap:34px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    [data-reveal]{opacity:1!important;transform:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Trekki Travel">
+      <svg class="mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect x="1.2" y="1.2" width="31.6" height="31.6" rx="9" stroke="currentColor" stroke-width="2"/>
+        <path d="M9 22.5 17 9l8 13.5-8-4.6-8 4.6Z" fill="var(--accent)"/>
+      </svg>
+      <span class="wordmark">Trekki<small>TRAVEL</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#about">О туре</a>
+      <a href="#route">Маршрут</a>
+      <a href="#program">Программа</a>
+      <a href="#guide">Гид</a>
+      <a href="#price">Цена</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Записаться</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">О туре</a>
+  <a href="#route">Маршрут</a>
+  <a href="#program">Программа</a>
+  <a href="#guide">Гид</a>
+  <a href="#price">Цена</a>
+  <a href="#contact">Контакты</a>
+  <div class="mm-foot">
+    <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram @vkspb</a>
+    <a href="tel:+79219526410">+7 921 952 64 10</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="assets/bhutan/hero-tigers-nest.jpg" alt="Монастырь Гнездо Тигра на скале в Бутане" role="presentation">
+  </div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow on-dark" data-reveal>Этнотур · фестиваль масок Паро-Цечу</span>
+    <h1 class="display" data-reveal data-delay="1">Бутан —<br>королевство <b>счастья</b></h1>
+    <p class="lede" data-reveal data-delay="2">Комфортное путешествие в сказочное гималайское королевство во время фестиваля с масками. Буддизм, традиции и быт — погружение в культуру в формате «всё включено», малой группой единомышленников.</p>
+    <div class="hero-actions" data-reveal data-delay="3">
+      <a href="#contact" class="btn btn-accent">Записаться на тур <span class="arr">→</span></a>
+      <a href="#program" class="btn btn-ghost on-dark">Смотреть программу</a>
+    </div>
+    <div class="hero-meta" data-reveal data-delay="3">
+      <div class="hm"><small>Даты</small><b>15–22.03.<span class="u">2027</span></b></div>
+      <div class="hm"><small>Длительность</small><b>8 <span class="u">дней</span></b></div>
+      <div class="hm"><small>Сложность</small><b>1<span class="u">/5</span></b></div>
+      <div class="hm"><small>Свободно</small><b>6 <span class="u">из 8 мест</span></b></div>
+      <div class="hm accent"><small>Стоимость</small><b>от $3 400</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT BAND ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-grid">
+      <div class="band-item" data-reveal><div class="n">8</div><div class="t">дней насыщенного, но сбалансированного маршрута</div></div>
+      <div class="band-item" data-reveal data-delay="1"><div class="n">6–8</div><div class="t">человек в комфортной группе единомышленников</div></div>
+      <div class="band-item" data-reveal data-delay="2"><div class="n">7</div><div class="t">старинных крепостей-дзонгов и десятки храмов</div></div>
+      <div class="band-item" data-reveal data-delay="3"><div class="n">100%</div><div class="t">включено: питание, визы, трансферы, билеты</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSITIONING ============ -->
+<section class="section stmt" id="about">
+  <div class="wrap stmt-grid">
+    <h2 class="big" data-reveal>Не туристический чек-лист — <b>погружение</b> в королевство, где счастье измеряют как ВВП</h2>
+    <p data-reveal data-delay="1">Бутан десятилетиями был закрыт от мира и до сих пор живёт по своим правилам: запрещено убивать животных и рубить лес, химические удобрения вне закона, а большая часть страны — заповедники. Здесь нет светофоров и спешки — есть драконы на стенах, расписанные монастери и люди, для которых счастье нации важнее ВВП.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT (split) ============ -->
+<section class="section">
+  <div class="wrap about-grid">
+    <div class="about-media" data-reveal>
+      <img src="assets/bhutan/about-punakha.jpg" alt="Крепость Пунакха-дзонг у слияния рек" loading="lazy">
+      <span class="cap">Пунакха-дзонг · бывшая столица</span>
+    </div>
+    <div class="about-text" data-reveal data-delay="1">
+      <span class="eyebrow">О путешествии</span>
+      <p class="lead">Бутанцы называют свою страну «Друк Юл» — Земля Громового дракона. И первое впечатление действительно как из фэнтези-сказки.</p>
+      <p>Буддизм сюда принёс в VIII веке Гуру Падмасамбхава, в 1616 году страну объединил пришедший из Тибета Шабдрунг, а с 1907 года правит королевская династия Вангчук. В 2008 году король добровольно отдал часть власти народу и ввёл уникальную метрику — «Валовое национальное счастье».</p>
+      <p>Мы собрали маршрут так, чтобы вы прошли по главным дзонгам, монастырям и долинам и попали на национальное празднество — фестиваль масок Паро-Цечу, где танцами Чам разыгрывают победу добра над злом.</p>
+      <div class="about-pills">
+        <span>Буддизм и места силы</span>
+        <span>Гималаи до 7 326 м</span>
+        <span>Заповедная природа</span>
+        <span>Танцы с масками</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="section adv">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-dark">Почему с нами</span>
+      <h2 class="section-title display">Четыре причины<br>ехать именно так</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-item" data-reveal>
+        <div class="adv-num">01</div>
+        <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1 9H6l-1-9Z"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/></svg></div>
+        <h3>Всё включено</h3>
+        <p>Трёхразовое питание без ограничений, отели, трансферы, билеты в храмы и нацпарки. Вы платите один раз и ни о чём не думаете в пути.</p>
+      </div>
+      <div class="adv-item" data-reveal data-delay="1">
+        <div class="adv-num">02</div>
+        <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h9a7 7 0 0 1 7 7v0"/><circle cx="18" cy="19" r="2"/></svg></div>
+        <h3>Русскоговорящий гид</h3>
+        <p>Виктор Хлебов — с большим горным опытом, погружённый в буддизм и Гималаи. Плюс местный бутанский гид на весь маршрут.</p>
+      </div>
+      <div class="adv-item" data-reveal data-delay="2">
+        <div class="adv-num">03</div>
+        <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+        <h3>Визы под ключ</h3>
+        <p>Оформляем групповую визу в Бутан и визу в Индию без доплаты, помогаем подобрать перелёт в Дели и берём на себя перелёт в Бутан.</p>
+      </div>
+      <div class="adv-item" data-reveal data-delay="3">
+        <div class="adv-num">04</div>
+        <div class="adv-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 2 5 0 8-2-3-2-5 0-8Z"/><path d="M5 13c3-1 5 0 7 3-3 1-5 0-7-3Z"/><path d="M19 13c-3-1-5 0-7 3 3 1 5 0 7-3Z"/><path d="M12 14v7"/></svg></div>
+        <h3>Точно на фестиваль</h3>
+        <p>Путешествие собрано так, чтобы попасть на Паро-Цечу — один из самых масштабных фестивалей с масками и танцами Чам.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTE ============ -->
+<section class="section route" id="route">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Маршрут</span>
+      <h2 class="section-title display">Через всю страну<br>и обратно</h2>
+      <p class="section-intro">Кольцо по западному и центральному Бутану: от столицы через высокогорные перевалы к древним долинам и обратно в Паро к фестивалю.</p>
+    </div>
+    <div class="route-track" data-reveal>
+      <div class="stop"><span class="node">Дели</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key">Паро</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key">Тхимпху</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key">Гантенг</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key">Бумтанг</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key">Пунакха</span><span class="conn"></span></div>
+      <div class="stop"><span class="node key accent">Паро · фестиваль</span><span class="conn"></span></div>
+      <div class="stop"><span class="node">Дели</span></div>
+    </div>
+    <p class="route-note" data-reveal>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v4h1"/></svg>
+      Даты и порядок точек могут незначительно меняться под расписание фестиваля и погоду в горах. Финальную программу подтверждаем перед стартом.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROGRAM (itinerary) ============ -->
+<section class="section" id="program">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Программа</span>
+      <h2 class="section-title display">8 дней<br>по дням</h2>
+      <p class="section-intro">Нажмите на день, чтобы раскрыть подробности. Каждый день сбалансирован: дзонги и монастыри, природа и время на отдых.</p>
+    </div>
+    <div class="itin" id="itin">
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 1<small>15.03</small></span>
+          <span class="day-ttl">Прилёт в Паро и переезд в Тхимпху</span>
+          <span class="day-meta"><span>~55 км</span><span>≈ 1 час</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li>Прилёт в международный аэропорт Паро, трансфер в столицу <b>Тхимпху</b>, остановка у слияния рек в Чузоме.</li>
+          <li><b>Мемориальный чортен</b> — ступа, построенная во имя мира и процветания во всём мире.</li>
+          <li><b>Будда Дорденма</b> — статуя 52 м со 125 000 маленьких Будд внутри.</li>
+          <li>Прогулка по столичному рынку и вековому фермерскому рынку.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 2<small>16.03</small></span>
+          <span class="day-ttl">Перевал Дочула и долина Гантенг</span>
+          <span class="day-meta"><span>~150 км</span><span>≈ 4 часа</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Перевал Дочула</b> (3 080 м) — 108 ступ Друк Вангьял и вид на высочайшую вершину Бутана Гангкхар Пуенсум (7 570 м).</li>
+          <li><b>Монастырь Гантенг</b> школы Ньингма, пешая тропа через долину.</li>
+          <li><b>Центр чёрных журавлей</b> — наблюдение за исчезающим видом, вечерняя прогулка по деревне.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 3<small>17.03</small></span>
+          <span class="day-ttl">Перевал Пеле-Ла и крепости Тронгса</span>
+          <span class="day-meta"><span>~224 км</span><span>через 2 перевала</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Перевал Пеле-Ла</b> (3 300 м) — смена растительности, чортен Чендебжи по образцу непальского Сваямбунатха.</li>
+          <li><b>Тронгса-дзонг</b> (1648) — бывшая резиденция власти, откуда правила династия Вангчук.</li>
+          <li><b>Та-дзонг</b> — пятиэтажная башня (1652), сегодня музей традиций.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 4<small>18.03</small></span>
+          <span class="day-ttl">Храмы долины Бумтанг</span>
+          <span class="day-meta"><span>2 600–4 000 м</span><span>духовное сердце</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Джамбей-лакханг</b> (VII век) — один из старейших храмов страны, и <b>Курджей-лакханг</b> с отпечатком тела Гуру Ринпоче.</li>
+          <li><b>Монастырь Тамзинг</b> (1501) с уникальными фресками, <b>Джакар-дзонг</b> — административный центр.</li>
+          <li><b>Озеро Мембартшо</b> («Пылающее озеро») — священный водоём, где Тертон Пема Лингпа нашёл религиозные сокровища.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 5<small>19.03</small></span>
+          <span class="day-ttl">Долина Пхобджикха и Пунакха</span>
+          <span class="day-meta"><span>~220 км</span><span>≈ 5–6 часов</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Чими-лакханг</b> — Храм Плодородия, куда приезжают за благословением на зачатие.</li>
+          <li><b>Пунакха-дзонг</b> (1637) — самая красивая крепость Бутана, бывшая столица до 1955 года и место королевских свадеб.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 6<small>20.03</small></span>
+          <span class="day-ttl">Паро и фестиваль масок Паро-Цечу</span>
+          <span class="day-meta"><span>~130 км</span><span>главный день</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Симтокха-дзонг</b> — первый построенный дзонг (1631) и <b>Та-дзонг</b> — Национальный музей (тханка, текстиль, оружие и доспехи).</li>
+          <li><b>Ринпунг-дзонг</b> (Крепость Драгоценностей) с деревянными галереями и буддийскими фресками.</li>
+          <li><b>Фестиваль Паро-Цечу</b> — танцы с масками Чам, посвящённые Гуру Ринпоче: победа добра над злом.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 7<small>21.03</small></span>
+          <span class="day-ttl">Гнездо Тигра — монастырь Такцанг</span>
+          <span class="day-meta"><span>трек ~5 часов</span><span>2 950 м</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li><b>Такцанг (Гнездо Тигра)</b> — треккинг к святыне на скале в 900 м над долиной, куда Гуру Ринпоче прилетел на тигрице.</li>
+          <li><b>Друкгьел-дзонг</b> — крепость, где бутанцы отражали тибетских захватчиков, и вид на священную вершину <b>Чомолхари</b> (7 326 м).</li>
+          <li><b>Кичу-лакханг</b> (VII век) — один из 108 храмов тибетского короля Сонгцена Гампо.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-no">День 8<small>22.03</small></span>
+          <span class="day-ttl">Перелёт обратно в Дели</span>
+          <span class="day-meta"><span>завершение тура</span></span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner"><ul>
+          <li>После завтрака — перелёт обратно в Дели и дальше домой. С собой — клубный мерч, фотографии тура и новый взгляд на счастье.</li>
+        </ul></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ INCLUDED / EXCLUDED ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Что входит</span>
+      <h2 class="section-title display">Честная цена<br>без сюрпризов</h2>
+    </div>
+    <div class="incl-grid">
+      <div class="incl-card in" data-reveal>
+        <h3><span class="b">✓</span> В стоимость включено</h3>
+        <ul class="incl-list">
+          <li><span class="ic">✓</span> Виктор Хлебов — русскоговорящий гид, погружённый в буддизм, и местный бутанский гид на весь маршрут</li>
+          <li><span class="ic">✓</span> Виза в Бутан и все сборы, помощь с визой в Индию — без доплат</li>
+          <li><span class="ic">✓</span> Все трансферы из аэропорта и транспорт по стране</li>
+          <li><span class="ic">✓</span> Отели 3–4★, двухместное размещение</li>
+          <li><span class="ic">✓</span> Трёхразовое питание в Бутане без ограничений по количеству</li>
+          <li><span class="ic">✓</span> Билеты в храмы, монастыри и пермиты в национальные парки</li>
+          <li><span class="ic">✓</span> Профессиональная фотосъёмка всего путешествия</li>
+          <li><span class="ic">✓</span> Подготовка к поездке: групповой чат, консультации, чек-листы</li>
+          <li><span class="ic">✓</span> Клубный мерч — дождевик и футболка Trekki</li>
+        </ul>
+      </div>
+      <div class="incl-card ex" data-reveal data-delay="1">
+        <h3>Оплачивается отдельно</h3>
+        <ul class="incl-list">
+          <li><span class="ic">+</span> Международные перелёты до Дели</li>
+          <li><span class="ic">+</span> Перелёт Дели — Паро — Дели ($600, оформляем за вас)</li>
+          <li><span class="ic">+</span> Личные расходы и сувениры</li>
+          <li><span class="ic">+</span> Чаевые по желанию</li>
+          <li><span class="ic">+</span> Форс-мажорные корректировки</li>
+        </ul>
+        <p style="margin-top:22px;color:var(--muted);font-size:14.5px;line-height:1.5">Группа меньше 4 человек — стоимость обсуждается индивидуально.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUIDE ============ -->
+<section class="section guide" id="guide">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Кто ведёт</span>
+      <h2 class="section-title display">Ваш проводник</h2>
+    </div>
+    <div class="guide-card" data-reveal>
+      <div class="guide-media">
+        <img src="assets/bhutan/guide-victor.jpg" alt="Виктор Хлебов — гид путешествия в Бутан" loading="lazy">
+        <div class="guide-mono">
+          <div class="nm">Виктор Хлебов</div>
+          <div class="role">Гид · альпинист · коуч</div>
+        </div>
+      </div>
+      <div class="guide-info">
+        <p class="q">«Я провёл больше <b>100 вершин и перевалов</b> на разных континентах и был в 50+ странах. В горах важна не только подготовка — важно, с каким состоянием ты приходишь к высоте.»</p>
+        <ul class="cred">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-9 4 5 3-4 5 8z"/><circle cx="16" cy="5" r="2"/></svg><span>Разряды по горному туризму и альпинизму, высота до <b>7 000 м</b></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg><span>Программы «7 вершин» и «7 вулканов», <b>50+ стран</b></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c4-3 10-3 14 0M5 16c4-3 10-3 14 0"/></svg><span>Медитация, випассана, тёмные ретриты</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg><span>ICU-коуч, инструктор ISIA, <b>20+ лет</b> в проектах</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section gal">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Что вы увидите</span>
+      <h2 class="section-title display">Лицо Бутана</h2>
+      <p class="section-intro">Дзонги на слиянии рек, 108 ступ на перевале, флаги с молитвами на ветру и танцоры в масках. Нажмите на фото, чтобы рассмотреть.</p>
+    </div>
+    <div class="masonry" id="masonry">
+      <figure data-reveal><img src="assets/bhutan/g-punakha.jpg" alt="Пунакха-дзонг" loading="lazy"><figcaption>Пунакха-дзонг</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/bhutan/g-mask.jpg" alt="Танец с масками Чам" loading="lazy"><figcaption>Танец масок Чам</figcaption></figure>
+      <figure data-reveal data-delay="2"><img src="assets/bhutan/g-dochula.jpg" alt="108 ступ на перевале Дочула" loading="lazy"><figcaption>108 ступ · Дочула</figcaption></figure>
+      <figure data-reveal><img src="assets/bhutan/g-flags.jpg" alt="Молитвенные флаги" loading="lazy"><figcaption>Молитвенные флаги</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/bhutan/g-buddha.jpg" alt="Статуя Будда Дорденма" loading="lazy"><figcaption>Будда Дорденма</figcaption></figure>
+      <figure data-reveal data-delay="2"><img src="assets/bhutan/g-rinpung.jpg" alt="Ринпунг-дзонг в Паро" loading="lazy"><figcaption>Ринпунг-дзонг · Паро</figcaption></figure>
+      <figure data-reveal><img src="assets/bhutan/hero-tigers-nest.jpg" alt="Гнездо Тигра" loading="lazy"><figcaption>Гнездо Тигра</figcaption></figure>
+      <figure data-reveal data-delay="1"><img src="assets/bhutan/g-trongsa.jpg" alt="Тронгса-дзонг" loading="lazy"><figcaption>Тронгса-дзонг</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES ============ -->
+<section class="section use">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow on-dark">Наши ценности</span>
+      <h2 class="section-title display">Почему с нами хочется<br>вернуться ещё раз</h2>
+    </div>
+    <div class="use-grid">
+      <div class="use-cell" data-reveal>
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.8 0 5 2.2 5 5"/></svg></div>
+        <h3>Комфортная группа</h3>
+        <p>С нами едут приятные люди со схожими ценностями. Малая группа 6–8 человек, без случайных попутчиков.</p>
+      </div>
+      <div class="use-cell" data-reveal data-delay="1">
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8c4-3 10-3 14 0"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Путешествие со смыслом</h3>
+        <p>Практики осознанности, неслучайные разговоры и «места силы» помогают найти ответы на трудные вопросы.</p>
+      </div>
+      <div class="use-cell" data-reveal data-delay="2">
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Яркие впечатления</h3>
+        <p>Не только популярные, но и нетуристические места. Маршрут максимально насыщенный и при этом сбалансированный.</p>
+      </div>
+      <div class="use-cell" data-reveal>
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h3>Максимум включено</h3>
+        <p>В стоимость входит всё, что можно посчитать заранее, — чтобы вы наслаждались природой и тишиной, а не считали расходы.</p>
+      </div>
+      <div class="use-cell" data-reveal data-delay="1">
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Полное сопровождение</h3>
+        <p>Поможем с маршрутом, перелётами, сборами, физической подготовкой и вопросами здоровья — до и во время поездки.</p>
+      </div>
+      <div class="use-cell" data-reveal data-delay="2">
+        <div class="uc-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 4 8 8 10 4-2 8-5 8-10V6l-8-4Z"/></svg></div>
+        <h3>Клуб участников</h3>
+        <p>После поездки вы в Trekki Community: спецпредложения, приоритет бронирования и закрытые клубные выезды.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Отзывы</span>
+      <h2 class="section-title display">Что говорят<br>участники</h2>
+    </div>
+    <div class="rev-grid">
+      <article class="rev" data-reveal>
+        <p class="quote">Спасибо большое за супер-путешествие, за чёткую во всех отношениях организацию, душевные отели, за постоянную поддержку и терпение с ответами на одни и те же вопросы, спасибо за твою команду — такой заботы мы давно не встречали. Вы настоящие профи!</p>
+        <div class="who">Михаил</div>
+      </article>
+      <article class="rev" data-reveal data-delay="1">
+        <p class="quote">Самое ценное, что я вынесла из поездки, — разрешение ничего не делать и никуда не бежать. Не было навязчивого чувства, что «срочно нужно себя улучшать». Можно было просто быть: молчать, смотреть на воду, дышать соснами и чувствовать, как перезагружаюсь.</p>
+        <div class="who">Полина</div>
+      </article>
+      <article class="rev" data-reveal data-delay="2">
+        <p class="quote">Витя собирает такие команды, где каждый наполняет пространство своей глубиной и мудростью. Всем друзьям говорю: стоит раз поехать с Витей — и больше никуда не захочется. Вернувшись домой, понимаю, что стала другой.</p>
+        <div class="who">Милена</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section price-sec" id="price">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Стоимость</span>
+      <h2 class="section-title display">Цена тура</h2>
+      <p class="section-intro">Цена зависит от размера группы. Чем больше единомышленников рядом — тем выгоднее каждому.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-main" data-reveal>
+        <div class="tier-row">
+          <div class="label">Группа 4–8 человек<small>за одного участника</small></div>
+          <div class="amt">$3 600</div>
+        </div>
+        <div class="tier-row hl">
+          <div class="label">Группа 8+ человек<small>за одного участника</small></div>
+          <div class="amt">$3 400</div>
+        </div>
+        <div class="price-terms">
+          <span><b>+ $600</b> — перелёт Дели — Паро — Дели, по желанию: это отдельный билет, не часть тура, оформляем за вас.</span>
+          <span>Депозит для брони места — <b>$1 000</b>, полная оплата до <b>03.02.2027</b>.</span>
+          <span>Возврат: при отмене за <b>40 дней</b> до старта — полностью.</span>
+          <span>Группа меньше 4 человек — стоимость по индивидуальному расчёту.</span>
+        </div>
+        <a href="#contact" class="btn btn-accent">Забронировать место <span class="arr">→</span></a>
+      </div>
+      <div class="price-side">
+        <div class="seats" data-reveal data-delay="1">
+          <div class="big">6 из 8 мест</div>
+          <p>свободно в группе на 15–22 марта 2027. Места бронируются по очереди внесения депозита.</p>
+        </div>
+        <div class="bonus" data-reveal data-delay="2">
+          <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z"/></svg> Бонусы</h4>
+          <ul>
+            <li><b>−$200</b> если вы уже были с нами в путешествии</li>
+            <li><b>−$100</b> вам и другу за приглашение — бонусы суммируются</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Вопросы</span>
+      <h2 class="section-title display">Коротко<br>о важном</h2>
+      <p class="section-intro">Самое частое перед бронированием. Не нашли свой вопрос — напишите, разберём по вашей ситуации.</p>
+    </div>
+    <div class="itin">
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">Какая нужна физическая подготовка?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>Сложность маршрута — <b>1 из 5</b>. Это пешие прогулки по дзонгам и долинам и один трек к Гнезду Тигра (около 5 часов, набор высоты ~900 м). Технического альпинизма нет — нужно желание идти и обычная бытовая выносливость. Поможем подготовиться заранее.</p>
+        </div></div>
+      </div>
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">Что с визами и перелётами?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>Визу в Бутан и все сборы оформляем мы, с визой в Индию тоже помогаем — без доплат. Международный перелёт до Дели — на вас, поможем подобрать удобный. Перелёт Дели — Паро — Дели (+$600) оформляем за вас.</p>
+        </div></div>
+      </div>
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">Сколько человек в группе и как считается цена?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>Малая группа <b>6–8 человек</b>. Цена за участника: 4–8 человек — $3 600, от 8 человек — $3 400. Если набирается меньше 4 — стоимость считаем индивидуально.</p>
+        </div></div>
+      </div>
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">Как и когда оплачивать?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>Место бронирует депозит <b>$1 000</b>. Полная оплата — до <b>03.02.2027</b>. Места в группе закрепляются по очереди внесения депозита.</p>
+        </div></div>
+      </div>
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">А если планы изменятся?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>При отмене <b>за 40 дней</b> до начала тура — полный возврат депозита и оплаты. Ближе к дате условия переноса обсуждаем индивидуально — напишите нам в Telegram или WhatsApp, разберём вашу ситуацию.</p>
+        </div></div>
+      </div>
+      <div class="day" data-reveal>
+        <button class="day-head" aria-expanded="false">
+          <span class="day-ttl">Что взять с собой и как собраться?</span>
+          <span class="day-tog" aria-hidden="true">+</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <p>До старта вы попадаете в групповой чат: пришлём подробный чек-лист по одежде и снаряжению, поможем собраться, подскажем по физической подготовке и вопросам здоровья. Клубный мерч (дождевик и футболку) дарим.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div data-reveal>
+      <span class="eyebrow on-dark">Записаться</span>
+      <h2 class="section-title display">Поедем<br>в Бутан вместе</h2>
+      <p class="lead">Напишите или позвоните — поможем с визами и перелётом, ответим на вопросы по маршруту и забронируем за вами место в группе.</p>
+      <div class="contact-methods">
+        <a href="https://t.me/vkspb" target="_blank" rel="noopener" class="cm">
+          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m22 3-10 9M22 3l-7 18-4-8-8-4 19-6Z"/></svg></span>
+          <span><small>Telegram — напишите гиду</small><b>@vkspb</b></span>
+        </a>
+        <a href="https://wa.me/79219526410?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B2%20%D1%8D%D1%82%D0%BD%D0%BE%D1%82%D1%83%D1%80%20%D0%B2%20%D0%91%D1%83%D1%82%D0%B0%D0%BD" target="_blank" rel="noopener" class="cm">
+          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.7-5.3A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.6 9.2c.2 1.5.9 2.9 2 4s2.5 1.8 4 2c.5.1 1-.2 1.2-.7l.3-.8-2.1-1-.8.8a6 6 0 0 1-2.6-2.6l.8-.8-1-2.1-.8.3c-.5.2-.8.7-.7 1.2Z"/></svg></span>
+          <span><small>WhatsApp — быстрее всего</small><b>+7 921 952 64 10</b></span>
+        </a>
+        <a href="tel:+79219526410" class="cm">
+          <span class="cm-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><small>Телефон — позвонить или написать</small><b>+7 921 952 64 10</b></span>
+        </a>
+      </div>
+      <div class="contact-tag">Малая группа 6–8 человек · 15–22 марта 2027</div>
+    </div>
+    <form id="orderForm" data-reveal data-delay="1">
+      <div class="fld">
+        <label for="f-name">Как к вам обращаться</label>
+        <input id="f-name" name="name" type="text" placeholder="Имя" required>
+      </div>
+      <div class="fld">
+        <label for="f-contact">Телефон или email</label>
+        <input id="f-contact" name="contact" type="text" placeholder="+7 ... или mail@..." required>
+      </div>
+      <div class="fld">
+        <label for="f-msg">Вопрос или пожелание</label>
+        <textarea id="f-msg" name="msg" placeholder="Например: едем вдвоём, нужна помощь с перелётом из Москвы"></textarea>
+      </div>
+      <button type="submit" class="btn btn-accent">Отправить заявку в WhatsApp <span class="arr">→</span></button>
+      <p class="hint">Кнопка откроет WhatsApp с готовой заявкой — останется нажать «отправить». Удобнее в <a href="https://t.me/vkspb" target="_blank" rel="noopener" style="color:var(--accent)">Telegram</a> или по телефону <a href="tel:+79219526410" style="color:var(--accent)">+7 921 952 64 10</a>.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark">Trekki Travel</div>
+        <p>Авторские путешествия со смыслом: Бутан, Тибет, Непал и Гималаи. Малые группы, всё включено, опытный проводник.</p>
+        <div class="slogan">Здесь всё имеет смысл®</div>
+      </div>
+      <div class="foot-nav">
+        <div class="foot-col">
+          <h4>Тур</h4>
+          <a href="#about">О путешествии</a>
+          <a href="#route">Маршрут</a>
+          <a href="#program">Программа</a>
+          <a href="#price">Цена</a>
+        </div>
+        <div class="foot-col">
+          <h4>Контакты</h4>
+          <a href="tel:+79219526410">+7 921 952 64 10</a>
+          <a href="https://t.me/vkspb" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://wa.me/79219526410" target="_blank" rel="noopener">WhatsApp</a>
+          <span>Малая группа 6–8 человек</span>
+          <span>15–22 марта 2027</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Trekki Travel. «Trekki» — зарегистрированный товарный знак.</span>
+      <span>Этнотур в Бутан · фестиваль масок Паро-Цечу</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
+  <img alt="" decoding="async">
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var header=document.getElementById('header');
+  var onScroll=function(){header.classList.toggle('scrolled',window.scrollY>40);};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Mobile menu
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+  var toggle=function(open){
+    menu.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  };
+  burger.addEventListener('click',function(){toggle(!menu.classList.contains('open'));});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggle(false);});});
+
+  // Reveal on scroll
+  var reveals=document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){io.observe(el);});
+  }else{reveals.forEach(function(el){el.classList.add('in');});}
+
+  // Accordion (itinerary + FAQ)
+  function setDayOpen(day,open){
+    var head=day.querySelector('.day-head'),body=day.querySelector('.day-body');
+    day.classList.toggle('open',open);
+    head.setAttribute('aria-expanded',open?'true':'false');
+    body.style.maxHeight=open?(body.scrollHeight+'px'):'0px';
+  }
+  document.querySelectorAll('.day').forEach(function(day){
+    day.querySelector('.day-head').addEventListener('click',function(){
+      setDayOpen(day,!day.classList.contains('open'));
+    });
+  });
+  // Open the first itinerary day by default (program is the main proof)
+  var firstDay=document.querySelector('#itin .day');
+  if(firstDay) setDayOpen(firstDay,true);
+  // Recompute open-panel heights after fonts/images settle
+  window.addEventListener('load',function(){
+    [].forEach.call(document.querySelectorAll('.day.open'),function(d){
+      var b=d.querySelector('.day-body');b.style.maxHeight=b.scrollHeight+'px';
+    });
+  });
+
+  // Lightbox
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbClose=document.getElementById('lbClose');
+  document.querySelectorAll('#masonry figure').forEach(function(fig){
+    fig.addEventListener('click',function(){
+      var img=fig.querySelector('img');
+      lbImg.src=img.src;lbImg.alt=img.alt;
+      lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lbClose.focus();
+    });
+  });
+  var closeLb=function(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+  // Order form -> WhatsApp
+  var form=document.getElementById('orderForm');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=(document.getElementById('f-name').value||'').trim();
+    var contact=(document.getElementById('f-contact').value||'').trim();
+    var msg=(document.getElementById('f-msg').value||'').trim();
+    var text='Здравствуйте! Заявка на этнотур в Бутан (15–22 марта 2027).\nИмя: '+name+'\nКонтакт: '+contact+'\nВопрос: '+msg;
+    window.open('https://wa.me/79219526410?text='+encodeURIComponent(text),'_blank');
+  });
+})();
+</script>
+</body>
+</html>
