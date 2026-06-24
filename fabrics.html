@@ -45,13 +45,13 @@
       <div>
         <span class="eyebrow">Ткани без гадания</span>
         <h1>Выберите ткань под задачу</h1>
-        <p class="lead">Страница помогает быстро понять, что брать для трекинга, бега, активной формы, хлопкового мерча или тёплых бафов. Сначала — короткий маршрут выбора, ниже — карточки тканей с раскрывающимися описаниями.</p>
+        <p class="lead">Страница помогает быстро понять, что брать для трекинга, бега, активной формы, хлопкового мерча или тёплых бафов. Сначала — короткий маршрут выбора, ниже — карточки тканей, а подробности открываются в отдельной панели.</p>
         <div class="hero-actions">
           <a class="btn" href="#selector">Подобрать ткань по сценарию</a>
           <a class="btn btn-outline" href="#short">Смотреть все ткани</a>
         </div>
         <div class="hero-proof" aria-label="Что есть на странице">
-          <span>описания в карточках</span>
+          <span>описания в панели</span>
           <span>фильтр по задаче</span>
           <span>состав и плотность</span>
         </div>
@@ -177,7 +177,7 @@
           <span class="kicker">Каталог тканей</span>
           <h2>Все варианты в коротких карточках</h2>
         </div>
-        <p>Фильтр убирает лишнее, а описание раскрывается прямо в карточке: состав, плотность, печать и для чего ткань подходит.</p>
+        <p>Фильтр убирает лишнее, карточки остаются ровной сеткой, а состав, плотность, печать и назначение открываются в отдельной панели.</p>
       </div>
       <div class="chips" id="fabFilter" aria-label="Фильтр тканей">
         <button class="chip active" data-f="all" type="button" aria-pressed="true">Все</button>
@@ -621,6 +621,7 @@
       var cats=card.getAttribute('data-cat')||'';
       card.style.display=(f==='all'||cats.indexOf(f)>-1)?'':'none';
     });
+    if(activeCard&&activeCard.style.display==='none') closeFabricSheet(false);
   }
   chips.forEach(function(chip){
     chip.addEventListener('click',function(){
@@ -634,61 +635,140 @@
       document.getElementById('short').scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
-  function initInlineFabricDetails(){
-    document.documentElement.classList.add('has-inline-fabrics');
-    document.querySelectorAll('#fabGrid .fabric[href^="#fabric-"]').forEach(function(card){
-      var fabricId=card.getAttribute('href').slice(1);
-      var target=document.getElementById(fabricId);
-      var body=card.querySelector('.fabric-body');
-      var action=card.querySelector('.fabric-go');
-      var detail=target&&target.querySelector('.detail-copy');
-      if(!body||!detail) return;
-      card.id=fabricId;
-      target.removeAttribute('id');
-      target.setAttribute('data-fabric-detail',fabricId);
-      var panel=document.createElement('div');
-      panel.className='fabric-inline';
-      panel.hidden=true;
-      panel.innerHTML=detail.innerHTML;
-      body.appendChild(panel);
-      card.setAttribute('role','button');
-      card.setAttribute('aria-expanded','false');
+  var activeCard=null;
+  var sheet=null;
+  var overlay=null;
+  var lastFocus=null;
+  function getFabricParts(fabricId){
+    var target=document.getElementById(fabricId);
+    if(!target) return null;
+    var detail=target.querySelector('.detail-copy');
+    var photo=target.querySelector('.detail-photo');
+    var title=detail&&detail.querySelector('h3');
+    return detail&&title?{target:target,detail:detail,photo:photo,title:title.textContent.trim()}:null;
+  }
+  function setSelectedFabric(title){
+    if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title);
+  }
+  function createFabricSheet(){
+    overlay=document.createElement('div');
+    overlay.className='fabric-sheet-overlay';
+    overlay.hidden=true;
+    sheet=document.createElement('aside');
+    sheet.className='fabric-sheet';
+    sheet.hidden=true;
+    sheet.setAttribute('role','dialog');
+    sheet.setAttribute('aria-modal','true');
+    sheet.setAttribute('aria-labelledby','fabricSheetTitle');
+    sheet.innerHTML=[
+      '<div class="fabric-sheet-head">',
+        '<span class="kicker">Описание ткани</span>',
+        '<button class="fabric-sheet-close" type="button" aria-label="Закрыть описание">×</button>',
+      '</div>',
+      '<div class="fabric-sheet-scroll">',
+        '<div class="fabric-sheet-photo"></div>',
+        '<div class="fabric-sheet-copy">',
+          '<h2 id="fabricSheetTitle"></h2>',
+          '<div class="fabric-sheet-content"></div>',
+        '</div>',
+      '</div>',
+      '<div class="fabric-sheet-actions">',
+        '<a class="btn" href="#contact" data-fabric-contact>Подобрать эту ткань</a>',
+      '</div>'
+    ].join('');
+    document.body.appendChild(overlay);
+    document.body.appendChild(sheet);
+    overlay.addEventListener('click',function(){closeFabricSheet(true);});
+    sheet.querySelector('.fabric-sheet-close').addEventListener('click',function(){closeFabricSheet(true);});
+    sheet.querySelector('[data-fabric-contact]').addEventListener('click',function(){
+      closeFabricSheet(false);
+    });
+    document.addEventListener('keydown',function(event){
+      if(event.key==='Escape'&&sheet&&!sheet.hidden) closeFabricSheet(true);
+    });
+  }
+  function openFabricSheet(fabricId, options){
+    var parts=getFabricParts(fabricId);
+    var card=document.querySelector('#fabGrid .fabric[href="#'+fabricId+'"]');
+    if(!parts||!card) return;
+    if(!sheet) createFabricSheet();
+    lastFocus=document.activeElement;
+    if(activeCard&&activeCard!==card){
+      activeCard.classList.remove('is-selected');
+      activeCard.setAttribute('aria-expanded','false');
+      var oldAction=activeCard.querySelector('.fabric-go');
+      if(oldAction) oldAction.textContent='Смотреть описание';
+    }
+    activeCard=card;
+    activeCard.classList.add('is-selected');
+    activeCard.setAttribute('aria-expanded','true');
+    var action=activeCard.querySelector('.fabric-go');
+    if(action) action.textContent='Описание открыто';
+    setSelectedFabric(parts.title);
+    sheet.querySelector('#fabricSheetTitle').textContent=parts.title;
+    var photoSlot=sheet.querySelector('.fabric-sheet-photo');
+    photoSlot.innerHTML='';
+    if(parts.photo) photoSlot.appendChild(parts.photo.cloneNode(true));
+    var content=sheet.querySelector('.fabric-sheet-content');
+    content.innerHTML='';
+    content.appendChild(parts.detail.cloneNode(true));
+    overlay.hidden=false;
+    sheet.hidden=false;
+    requestAnimationFrame(function(){
+      overlay.classList.add('is-open');
+      sheet.classList.add('is-open');
+      document.body.classList.add('fabric-sheet-open');
+    });
+    if(options&&options.scrollCard) card.scrollIntoView({behavior:'smooth',block:'center'});
+    history.replaceState(null,'','#'+fabricId);
+    setTimeout(function(){sheet.querySelector('.fabric-sheet-close').focus();},80);
+  }
+  function closeFabricSheet(restoreFocus){
+    if(!sheet||sheet.hidden) return;
+    sheet.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('fabric-sheet-open');
+    if(activeCard){
+      activeCard.classList.remove('is-selected');
+      activeCard.setAttribute('aria-expanded','false');
+      var action=activeCard.querySelector('.fabric-go');
       if(action) action.textContent='Смотреть описание';
+    }
+    setTimeout(function(){
+      if(sheet){
+        sheet.hidden=true;
+        overlay.hidden=true;
+      }
+    },260);
+    if(restoreFocus&&lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  function initFabricSheet(){
+    document.documentElement.classList.add('has-fabric-sheet');
+    document.querySelectorAll('#fabGrid .fabric[href^="#fabric-"]').forEach(function(card){
+      card.setAttribute('aria-expanded','false');
+      card.setAttribute('aria-haspopup','dialog');
       card.addEventListener('click',function(event){
         event.preventDefault();
-        var open=card.classList.toggle('is-open');
-        panel.hidden=!open;
-        card.setAttribute('aria-expanded',open?'true':'false');
-        if(action) action.textContent=open?'Скрыть описание':'Смотреть описание';
-        if(window.TrekkiForm){
-          var title=detail.querySelector('h3');
-          if(title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
-        }
+        openFabricSheet(card.getAttribute('href').slice(1));
       });
     });
   }
-  function setFabricContextFromHash(){
+  function openFabricFromHash(options){
     if(!location.hash||location.hash.indexOf('#fabric-')!==0) return;
-    var fabricId=location.hash.slice(1);
-    var detail=document.querySelector('[data-fabric-detail="'+fabricId+'"] .detail-copy');
-    var title=detail&&detail.querySelector('h3');
-    if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
-    var card=document.querySelector('#fabGrid .fabric[href="'+location.hash+'"]');
-    if(card&&!card.classList.contains('is-open')){
-      card.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));
-      card.scrollIntoView({block:'center'});
-    }
+    openFabricSheet(location.hash.slice(1),options||{});
   }
-  initInlineFabricDetails();
+  initFabricSheet();
   document.querySelectorAll('a[href^="#fabric-"]').forEach(function(link){
-    link.addEventListener('click',function(){
+    if(link.closest('#fabGrid')) return;
+    link.addEventListener('click',function(event){
       var fabricId=link.getAttribute('href').slice(1);
-      var title=document.querySelector('[data-fabric-detail="'+fabricId+'"] h3')||document.querySelector(link.getAttribute('href')+' h3');
-      if(window.TrekkiForm&&title) window.TrekkiForm.setCommentContext('Выбранная ткань',title.textContent.trim());
+      if(!getFabricParts(fabricId)) return;
+      event.preventDefault();
+      openFabricSheet(fabricId,{scrollCard:true});
     });
   });
-  window.addEventListener('hashchange',setFabricContextFromHash);
-  setFabricContextFromHash();
+  window.addEventListener('hashchange',function(){openFabricFromHash({scrollCard:true});});
+  openFabricFromHash({scrollCard:true});
 })();
 </script>
 <script src="contact.js"></script>
