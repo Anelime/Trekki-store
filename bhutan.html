@@ -84,12 +84,12 @@
   }
   header.scrolled{background:rgba(247,245,241,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .brand{display:flex;align-items:center;gap:11px;color:var(--paper);transition:color .4s var(--ease)}
-  header.scrolled .brand{color:var(--ink)}
-  .brand .mark{width:34px;height:34px;flex:none}
-  .brand .mark rect{transition:stroke .4s var(--ease)}
-  .brand .wordmark{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:21px;letter-spacing:.04em;line-height:1}
-  .brand .wordmark small{display:block;font-size:9.5px;letter-spacing:.42em;font-weight:500;opacity:.7;margin-top:2px}
+  .brand{display:flex;align-items:center}
+  .brand-logo{height:42px;width:auto;display:block}
+  .brand-logo-dark{display:none}
+  header.scrolled .brand-logo-light{display:none}
+  header.scrolled .brand-logo-dark{display:block}
+  @media(max-width:760px){.brand-logo{height:38px}}
   .nav-links{display:flex;align-items:center;gap:28px}
   .nav-links a{
     font-size:14.5px;font-weight:500;color:var(--paper);opacity:.92;position:relative;padding:4px 0;
@@ -326,6 +326,7 @@
   footer{background:#0c0a09;color:var(--muted-on-dark);padding:56px 0 30px}
   .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px;padding-bottom:36px;border-bottom:1px solid var(--line-on-dark)}
   .foot-brand .wordmark{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:24px;letter-spacing:.05em;color:var(--paper)}
+  .foot-brand .foot-logo{height:48px;width:auto;display:block}
   .foot-brand p{margin-top:12px;font-size:14px;max-width:38ch}
   .foot-brand .slogan{margin-top:14px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--accent)}
   .foot-nav{display:flex;gap:60px;flex-wrap:wrap}
@@ -406,12 +407,9 @@
 <!-- ============ HEADER ============ -->
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Trekki Travel">
-      <svg class="mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-        <rect x="1.2" y="1.2" width="31.6" height="31.6" rx="9" stroke="currentColor" stroke-width="2"/>
-        <path d="M9 22.5 17 9l8 13.5-8-4.6-8 4.6Z" fill="var(--accent)"/>
-      </svg>
-      <span class="wordmark">Trekki<small>TRAVEL</small></span>
+    <a href="#top" class="brand" aria-label="Trekki.travel">
+      <img class="brand-logo brand-logo-light" src="assets/trekki-logo-white.png" alt="Trekki.travel" width="82" height="42">
+      <img class="brand-logo brand-logo-dark" src="assets/trekki-logo.png" alt="Trekki.travel" width="82" height="42">
     </a>
     <nav class="nav-links" aria-label="Основная навигация">
       <a href="#about">О туре</a>
@@ -991,7 +989,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="wordmark">Trekki Travel</div>
+        <img class="foot-logo" src="assets/trekki-logo-white.png" alt="Trekki.travel" width="94" height="48">
         <p>Авторские путешествия со смыслом: Бутан, Тибет, Непал и Гималаи. Малые группы, всё включено, опытный проводник.</p>
         <div class="slogan">Здесь всё имеет смысл®</div>
       </div>
