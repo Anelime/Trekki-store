@@ -1,9 +1,3 @@
-@font-face{font-family:"Exo 2";src:local("Exo 2"),local("Exo2-Regular"),url("fonts/exotwo/exo2.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Exo 2";src:local("Exo 2 Medium"),local("Exo2-Medium"),url("fonts/exotwo/exo2medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Exo 2";src:local("Exo 2 Semi Bold"),local("Exo2-SemiBold"),url("fonts/exotwo/exo2semibold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Exo 2";src:local("Exo 2 Bold"),local("Exo2-Bold"),url("fonts/exotwo/exo2bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Exo 2";src:local("Exo 2 Extra Bold"),local("Exo2-ExtraBold"),url("fonts/exotwo/exo2extrabold.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
-
 :root{
   --ink:#14110f;
   --ink-2:#241f1b;
@@ -290,7 +284,7 @@ footer{background:#0c0a09;color:var(--muted-on-dark);padding:54px 0 30px;font-si
 .foot-brand p{margin-top:14px;color:var(--muted-on-dark)}
 .foot-nav{display:grid;grid-template-columns:repeat(2,minmax(150px,1fr));gap:34px;min-width:min(480px,100%)}
 .foot-col{display:grid;gap:9px;align-content:start}
-.foot-col h4{margin-bottom:8px;color:var(--paper);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.14em}
+.foot-heading{margin-bottom:8px;color:var(--paper);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.14em}
 .foot-col a:hover{color:var(--accent)}
 .foot-col span{color:rgba(200,192,182,.72)}
 .foot-bot{display:flex;justify-content:space-between;gap:20px;margin-top:24px;color:rgba(200,192,182,.62);font-size:12.5px}
