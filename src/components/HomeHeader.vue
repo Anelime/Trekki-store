@@ -44,8 +44,8 @@ watch(open, (value) => {
     <div class="wrap nav">
       <a href="#top" class="brand">
         <span class="mark" aria-hidden="true">
-          <img class="logo-light" :src="asset('assets/trekki-emblem-light.webp')" alt="" width="718" height="718" decoding="async">
-          <img class="logo-dark" :src="asset('assets/trekki-emblem-dark.webp')" alt="" width="718" height="718" decoding="async">
+          <img class="logo-light" :src="asset('assets/icons/trekki-emblem-light-96.webp')" alt="" width="96" height="96" decoding="async">
+          <img class="logo-dark" :src="asset('assets/icons/trekki-emblem-dark-96.webp')" alt="" width="96" height="96" decoding="async">
         </span>
         <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
       </a>

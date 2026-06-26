@@ -7,7 +7,7 @@ import { asset } from "../utils/asset";
     <div class="wrap nav">
       <a class="brand" href="index.html">
         <span class="mark" aria-hidden="true">
-          <img :src="asset('assets/trekki-emblem-dark.webp')" alt="" width="718" height="718" decoding="async">
+          <img :src="asset('assets/icons/trekki-emblem-dark-96.webp')" alt="" width="96" height="96" decoding="async">
         </span>
         <span class="wordmark"><strong>TREKKI</strong><span>store</span></span>
       </a>
