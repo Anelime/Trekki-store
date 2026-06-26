@@ -1,0 +1,5 @@
+@font-face{font-family:"Exo 2";src:local("Exo 2"),local("Exo2-Regular"),url("/fonts/exotwo/exo2.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Exo 2";src:local("Exo 2 Medium"),local("Exo2-Medium"),url("/fonts/exotwo/exo2medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Exo 2";src:local("Exo 2 Semi Bold"),local("Exo2-SemiBold"),url("/fonts/exotwo/exo2semibold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Exo 2";src:local("Exo 2 Bold"),local("Exo2-Bold"),url("/fonts/exotwo/exo2bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Exo 2";src:local("Exo 2 Extra Bold"),local("Exo2-ExtraBold"),url("/fonts/exotwo/exo2extrabold.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
