@@ -132,15 +132,25 @@ h1{max-width:850px;margin-top:18px;font-size:clamp(38px,7vw,74px);font-weight:80
 .showcase-actions a span{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1;transition:color .25s var(--ease)}
 .showcase-actions small{grid-column:1;margin-top:1px;color:var(--muted);font-size:11.5px;font-weight:700;line-height:1.15}
 .trip-context{margin-top:34px;padding-top:30px;border-top:1px solid var(--line)}
-.trip-context-head{display:grid;grid-template-columns:minmax(240px,.44fr) minmax(0,1fr);gap:clamp(18px,4vw,42px);align-items:end;margin-bottom:18px}
-.trip-context-head h3{max-width:520px;font-size:clamp(26px,4vw,42px);font-weight:800;text-transform:uppercase;line-height:1.04}
-.trip-context-head p{max-width:620px;color:var(--muted);font-size:17px;line-height:1.55}
-.trip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.trip-card{position:relative;min-height:300px;border:1px solid var(--line);border-radius:12px;background:var(--ink);overflow:hidden}
-.trip-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 46%,rgba(20,17,15,.72) 100%)}
-.trip-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
-.trip-card:hover img{transform:scale(1.04)}
-.trip-card figcaption{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;color:var(--white);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+.trip-context-head{display:block;margin-bottom:30px}
+.trip-context-head h3{max-width:720px;margin-top:18px;font-size:clamp(30px,5vw,58px);font-weight:800;text-transform:uppercase;line-height:.98}
+.trip-context-head p{max-width:760px;margin-top:22px;color:var(--muted);font-size:17px;line-height:1.55}
+.trip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.trip-card{min-width:0;animation:tripFloat 8s var(--ease) infinite alternate;will-change:transform}
+.trip-card:nth-child(2){animation-delay:-1.4s}
+.trip-card:nth-child(3){animation-delay:-2.2s}
+.trip-card:nth-child(4){animation-delay:-3.1s}
+.trip-card:nth-child(5){animation-delay:-4s}
+.trip-card:nth-child(6){animation-delay:-5.2s}
+.trip-media{aspect-ratio:3/2;border:1px solid rgba(20,17,15,.12);border-radius:12px;background:rgba(255,255,255,.32);overflow:hidden;box-shadow:0 18px 34px -30px rgba(20,17,15,.45);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease),filter .45s var(--ease)}
+.trip-media img{width:100%;height:100%;object-fit:contain;transition:filter .45s var(--ease)}
+.trip-card:hover{animation-play-state:paused}
+.trip-card:hover .trip-media{transform:translateY(-4px);border-color:rgba(234,90,6,.28);box-shadow:0 24px 46px -34px rgba(20,17,15,.55);filter:saturate(1.04)}
+@keyframes tripFloat{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){
+  .trip-card{animation:none}
+  .trip-card:hover .trip-media{transform:none}
+}
 
 .measure-grid{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr);gap:clamp(22px,4vw,46px);align-items:start}
 .measure-visual{border:1px solid var(--line);border-radius:14px;background:var(--white);overflow:hidden}
@@ -307,7 +317,7 @@ footer{background:#0c0a09;color:var(--muted-on-dark);padding:54px 0 30px;font-si
   .scenario-grid{grid-template-columns:repeat(2,1fr)}
   .split-head{grid-template-columns:1fr}
   .split-head p{margin-top:0;max-width:760px}
-  .trip-grid{grid-template-columns:repeat(2,1fr)}
+  .trip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact-grid{grid-template-columns:1fr}
   .foot-top{flex-direction:column}
 }
@@ -326,7 +336,6 @@ footer{background:#0c0a09;color:var(--muted-on-dark);padding:54px 0 30px;font-si
   .showcase-actions__label{width:100%;min-height:0;padding:0 0 2px}
   .showcase-actions a{min-height:44px;flex:1 1 152px;padding:8px 11px 8px 13px}
   .hero-product-shot{min-height:320px}
-  .trip-context-head{grid-template-columns:1fr;align-items:start}
   .measure-grid{grid-template-columns:1fr}
   .size-helper{grid-template-columns:1fr}
   .fabric-detail{grid-template-columns:1fr}
@@ -359,8 +368,7 @@ footer{background:#0c0a09;color:var(--muted-on-dark);padding:54px 0 30px;font-si
   .hero-product-shot img{padding:22px}
   .scenario-grid{grid-template-columns:1fr}
   .scenario-card{min-height:auto}
-  .trip-grid{grid-template-columns:1fr}
-  .trip-card{min-height:260px}
+  .trip-grid{grid-template-columns:1fr;gap:18px}
   .table-wrap{overflow:visible;border:none;background:transparent}
   table{display:block;min-width:0}
   thead{display:none}
