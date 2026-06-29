@@ -170,10 +170,125 @@ const setupPrintingPage = (root: ParentNode) => {
   setFromHash();
 };
 
+const setupProductGalleries = (root: ParentNode) => {
+  root.querySelectorAll<HTMLElement>("[data-product-gallery]").forEach((gallery, galleryIndex) => {
+    const slides = Array.from(gallery.querySelectorAll<HTMLElement>(".product-photo"));
+    if (slides.length < 2 || gallery.dataset.galleryReady === "true") return;
+    gallery.dataset.galleryReady = "true";
+    gallery.setAttribute("tabindex", "0");
+    gallery.setAttribute("role", "region");
+
+    const controls = document.createElement("div");
+    controls.className = "product-gallery-controls";
+    controls.setAttribute("aria-label", "Управление фотогалереей");
+
+    const arrows = document.createElement("div");
+    arrows.className = "product-gallery-arrows";
+
+    const prev = document.createElement("button");
+    prev.className = "product-gallery-arrow";
+    prev.type = "button";
+    prev.setAttribute("aria-label", "Предыдущее фото");
+    prev.textContent = "‹";
+
+    const next = document.createElement("button");
+    next.className = "product-gallery-arrow";
+    next.type = "button";
+    next.setAttribute("aria-label", "Следующее фото");
+    next.textContent = "›";
+
+    arrows.append(prev, next);
+
+    const dots = document.createElement("div");
+    dots.className = "product-gallery-dots";
+    dots.setAttribute("aria-label", "Фото в галерее");
+
+    const dotButtons = slides.map((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "product-gallery-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Показать фото ${index + 1}`);
+      dot.addEventListener("click", () => scrollToSlide(index));
+      dots.append(dot);
+      return dot;
+    });
+
+    controls.append(arrows, dots);
+    gallery.insertAdjacentElement("afterend", controls);
+
+    const isScrollable = () => gallery.scrollWidth > gallery.clientWidth + 4;
+    const getMaxScroll = () => Math.max(gallery.scrollWidth - gallery.clientWidth, 0);
+
+    const getActiveIndex = () => {
+      if (gallery.scrollLeft <= 2) return 0;
+      if (gallery.scrollLeft >= getMaxScroll() - 2) return slides.length - 1;
+
+      const center = gallery.scrollLeft + gallery.clientWidth / 2;
+      let activeIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      slides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        const distance = Math.abs(slideCenter - center);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          activeIndex = index;
+        }
+      });
+      return activeIndex;
+    };
+
+    function scrollToSlide(index: number) {
+      slides[index]?.scrollIntoView({
+        behavior: scrollBehavior(),
+        block: "nearest",
+        inline: "start"
+      });
+    }
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const activeIndex = getActiveIndex();
+      const scrollable = isScrollable();
+      const atStart = gallery.scrollLeft <= 2;
+      const atEnd = gallery.scrollLeft >= getMaxScroll() - 2;
+      controls.hidden = !scrollable;
+      prev.disabled = !scrollable || atStart;
+      next.disabled = !scrollable || atEnd;
+      dotButtons.forEach((dot, index) => {
+        const active = index === activeIndex;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-current", active ? "true" : "false");
+      });
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    };
+
+    prev.addEventListener("click", () => scrollToSlide(Math.max(getActiveIndex() - 1, 0)));
+    next.addEventListener("click", () => scrollToSlide(Math.min(getActiveIndex() + 1, slides.length - 1)));
+    gallery.addEventListener("scroll", scheduleUpdate, { passive: true });
+    gallery.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" ? 1 : -1;
+      const nextIndex = Math.min(Math.max(getActiveIndex() + direction, 0), slides.length - 1);
+      scrollToSlide(nextIndex);
+    });
+    window.addEventListener("resize", scheduleUpdate);
+
+    slides.forEach((slide, index) => {
+      slide.id ||= `product-gallery-${galleryIndex + 1}-slide-${index + 1}`;
+    });
+    requestAnimationFrame(update);
+  });
+};
+
 const setupFabricsPage = (root: ParentNode) => {
   const chips = Array.from(root.querySelectorAll<HTMLButtonElement>("#fabFilter .chip"));
   const fabrics = Array.from(root.querySelectorAll<HTMLAnchorElement>("#fabGrid .fabric"));
-  const grid = root.querySelector<HTMLElement>("#fabGrid");
   const filterLinks = Array.from(root.querySelectorAll<HTMLElement>("[data-filter-link]"));
   let activeCard: HTMLAnchorElement | null = null;
   let detailRow: HTMLDivElement | null = null;
@@ -196,16 +311,11 @@ const setupFabricsPage = (root: ParentNode) => {
     });
   };
 
-  const getVisibleCards = () => fabrics.filter((card) => card.style.display !== "none");
-  const getColumnCount = () => {
-    if (!grid) return 1;
-    const columns = window.getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean);
-    return Math.max(columns.length, 1);
-  };
-
   const closeFabricRow = (restoreFocus: boolean) => {
     if (!detailRow || detailRow.hidden) return;
     detailRow.classList.remove("is-open");
+    detailRow.setAttribute("aria-hidden", "true");
+    document.documentElement.classList.remove("has-fabric-modal-open");
     if (activeCard) {
       activeCard.classList.remove("is-selected");
       activeCard.setAttribute("aria-expanded", "false");
@@ -221,11 +331,14 @@ const setupFabricsPage = (root: ParentNode) => {
 
   const createFabricRow = () => {
     detailRow = document.createElement("div");
-    detailRow.className = "fabric-detail-row";
+    detailRow.className = "fabric-detail-modal";
     detailRow.hidden = true;
-    detailRow.setAttribute("role", "region");
+    detailRow.setAttribute("role", "dialog");
+    detailRow.setAttribute("aria-modal", "true");
+    detailRow.setAttribute("aria-hidden", "true");
     detailRow.setAttribute("aria-labelledby", "fabricRowTitle");
     detailRow.innerHTML = [
+      '<div class="fabric-detail-dialog">',
       '<div class="fabric-row-photo"></div>',
       '<div class="fabric-row-copy">',
       '<div class="fabric-row-head">',
@@ -240,8 +353,12 @@ const setupFabricsPage = (root: ParentNode) => {
       '<a class="btn" href="#contact" data-fabric-contact>Подобрать эту ткань</a>',
       '<button class="btn ghost fabric-row-collapse" type="button">Свернуть</button>',
       "</div>",
+      "</div>",
       "</div>"
     ].join("");
+    detailRow.addEventListener("click", (event) => {
+      if (event.target === detailRow) closeFabricRow(true);
+    });
     detailRow.querySelector(".fabric-row-close")?.addEventListener("click", () => closeFabricRow(true));
     detailRow.querySelector(".fabric-row-collapse")?.addEventListener("click", () => closeFabricRow(true));
     detailRow.querySelector("[data-fabric-contact]")?.addEventListener("click", () => {
@@ -249,20 +366,12 @@ const setupFabricsPage = (root: ParentNode) => {
       if (!fabricId) return;
       const parts = getFabricParts(fabricId);
       if (parts) setSelectedFabric(parts.title);
+      closeFabricRow(false);
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && detailRow && !detailRow.hidden) closeFabricRow(true);
     });
-  };
-
-  const placeFabricRow = (card: HTMLAnchorElement) => {
-    if (!detailRow) return;
-    const visibleCards = getVisibleCards();
-    const index = visibleCards.indexOf(card);
-    const columns = getColumnCount();
-    const rowEnd = index + (columns - 1 - (index % columns));
-    const anchor = visibleCards[Math.min(rowEnd, visibleCards.length - 1)] || card;
-    anchor.insertAdjacentElement("afterend", detailRow);
+    document.body.append(detailRow);
   };
 
   const openFabricRow = (fabricId: string, options: { scrollRow?: boolean; scrollCard?: boolean; forceOpen?: boolean } = {}) => {
@@ -291,7 +400,6 @@ const setupFabricsPage = (root: ParentNode) => {
     const action = activeCard.querySelector<HTMLElement>(".fabric-go");
     if (action) action.textContent = "Описание открыто";
     setSelectedFabric(parts.title);
-    placeFabricRow(card);
 
     const title = detailRow.querySelector<HTMLElement>("#fabricRowTitle");
     if (title) title.textContent = parts.title;
@@ -305,9 +413,13 @@ const setupFabricsPage = (root: ParentNode) => {
       content.replaceChildren(parts.detail.cloneNode(true));
     }
     detailRow.hidden = false;
-    requestAnimationFrame(() => detailRow?.classList.add("is-open"));
-    if (options.scrollRow) detailRow.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
-    else if (options.scrollCard) card.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+    detailRow.setAttribute("aria-hidden", "false");
+    document.documentElement.classList.add("has-fabric-modal-open");
+    requestAnimationFrame(() => {
+      detailRow?.classList.add("is-open");
+      detailRow?.querySelector<HTMLButtonElement>(".fabric-row-close")?.focus({ preventScroll: true });
+    });
+    if (options.scrollCard) card.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
     history.replaceState(null, "", `#${fabricId}`);
   };
 
@@ -322,7 +434,6 @@ const setupFabricsPage = (root: ParentNode) => {
       card.style.display = filter === "all" || categories.includes(filter) ? "" : "none";
     });
     if (activeCard && activeCard.style.display === "none") closeFabricRow(false);
-    else if (activeCard && detailRow && !detailRow.hidden) placeFabricRow(activeCard);
   };
 
   chips.forEach((chip) => chip.addEventListener("click", () => applyFilter(chip.dataset.f || "all")));
@@ -365,6 +476,7 @@ const setupFabricsPage = (root: ParentNode) => {
 
 export const enhancePage = (pageId: PageId, root: ParentNode) => {
   setupReveal(root);
+  setupProductGalleries(root);
 
   if (pageId === "home") {
     setupHomeFabricFilter(root);
